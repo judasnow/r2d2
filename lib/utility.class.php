@@ -3,7 +3,7 @@ require_once( 'city_list.class.php' );
 
 class Utility {
 
-        static function full2half( $str ) {
+        static public function full2half( $str ) {
                 $arr = array(
                         //数字  
                         '０' => '0', '１' => '1', '２' => '2', '３' => '3', '４' => '4', '５' => '5', '６' => '6', '７' => '7', '８' => '8', '９' => '9',   
@@ -24,7 +24,8 @@ class Utility {
                 return strtr( $str , $arr );
         }
 
-        public function valid_city( $city_name ) {
+        static public function valid_city( $city_name ) {
+                $city_name = preg_replace( "/[市|州]$/u" , "" , $city_name );
                 return in_array( $city_name , City_list::$list );
         }
 }

@@ -16,13 +16,13 @@ class Test_of_curl extends UnitTestCase{
                 var_dump( $res );
         }
 
-        public function _test_down_img_from_url() {
-                $res = Curl::download_file( 'http://img3.douban.com/icon/ul1314003-22.jpg' );
+        public function test_down_img_from_url() {
+                $res = Curl::download_file( 'http://img3.douban.com/icon/ul1314003-22.jpg' , rand() . '.jpg' );
                 var_dump( $res );
         }
 
-        public function test_upload_img_file() {
-                $res = Curl::post( 'http://172.17.0.20:1979/action/WeixinMpApi.aspx?action=uploadImg' , array( 'action'=>'uploadImg' , 'user_id'=>'534' , 'upload'=>'test.jpg' ));
+        public function _test_upload_img_file() {
+                $res = Curl::post( 'http://localhost:1979/action/WeixinMpApi.aspx?action=uploadImg' , array( 'action'=>'uploadImg' , 'user_id'=>'534' , 'upload'=>'test.jpg' ));
                 var_dump( $res );
         }
 }

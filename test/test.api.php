@@ -10,7 +10,7 @@ class Test_of_api extends UnitTestCase{
 
         //测试不存在的方法
         public function test_call_a_api_that_no_exists(){
-                $res_json = $this->_api->fooBar( array( 'userName' => 'judas' ) );
+                echo $res_json = $this->_api->fooBar( array( 'userName' => 'judas' ) );
                 $this->assertTrue( json_decode( $res_json )->type == 'fail' );
         }
 
@@ -27,10 +27,10 @@ class Test_of_api extends UnitTestCase{
         public function test_search(){
                 //需要发送的是 地区以及年龄
                 $age = 22;
-                $city = '北京';
+                $location = '北京';
                 $sex = '女';
-                $res_json  = $this->_api->search( array( 'age' => $age , 'city' => $city , 'sex' => $sex ) );
-                var_dump( count( json_decode( $res_json , true ) ) );
+                $res_json  = $this->_api->search( array( 'age' => $age , 'location' => $location , 'sex' => $sex ) );
+                var_dump(  json_decode( json_decode( $res_json , true )["info"] , true ) );
         }
 
         public function _test_do_reg(){

@@ -11,7 +11,7 @@ class Store{
         private $_redis;
 
         const HASH_NAME = 'weixin_robot';
-        const REDIS_SERVER = 'tcp://172.17.0.46:6379';
+        const REDIS_SERVER = 'tcp://127.0.0.1:6379';
 
         public function __construct( $weixin_id ) {
                 $this->_weixin_identity = $weixin_id ;

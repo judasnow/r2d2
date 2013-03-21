@@ -1,1 +1,1 @@
-redis-commander --redis-host 172.17.0.46
+redis-commander --redis-host 127.0.0.1

@@ -22,11 +22,6 @@ class Context {
         }
 
         public function set( $key , $value ) {
-                //当 $key 为 circle 需要保存当前 circle 到 last_circle
-                if( $key == 'circle' ) {
-                        $circle_now = $this->_store->hget( $this->_weixin_id , 'circle' );
-                        $this->_store->hset( $this->_weixin_id , 'last_circle' , $circle_now );
-                }
                 return $this->_store->hset( $this->_weixin_id , $key , $value );
         }
 

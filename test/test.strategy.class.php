@@ -17,12 +17,12 @@ class Test_of_strategy extends UnitTestCase{
 
         //图片请求
         const IMAGE_XML = '<xml><ToUserName><![CDATA[gh_cbb742f45d8f]]></ToUserName>
-<FromUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
-<CreateTime>1363799720</CreateTime>
-<MsgType><![CDATA[image]]></MsgType>
-<PicUrl><![CDATA[http://mmsns.qpic.cn/mmsns/8GtV9x92iasGVARp3U9FWQz1JzasqMNiausANniciaiaFR0EmsOeQTeKZRQ/0]]></PicUrl>
-<MsgId>5857475195693958630</MsgId>
-</xml>';
+                <FromUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
+                <CreateTime>1363799720</CreateTime>
+                <MsgType><![CDATA[image]]></MsgType>
+                <PicUrl><![CDATA[http://mmsns.qpic.cn/mmsns/8GtV9x92iasGVARp3U9FWQz1JzasqMNiausANniciaiaFR0EmsOeQTeKZRQ/0]]></PicUrl>
+                <MsgId>5857475195693958630</MsgId>
+                </xml>';
 
         //位置信息
         const LOCATION_XML = '<xml><ToUserName><![CDATA[gh3_cbb742f45d8f]]></ToUserName>
@@ -125,7 +125,7 @@ class Test_of_strategy extends UnitTestCase{
         }
 
         //测试用户在 zc 循环下输入 username 
-        function test_user_input_username() {
+        function _test_user_input_username() {
                 $this->_context->set( 'circle' , 'reg' );
                 //数据库中没有的名字
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'uuuuuuutest' ) );
@@ -150,7 +150,7 @@ class Test_of_strategy extends UnitTestCase{
                 echo $res_obj->Content;
         }
 
-        function test_upload_img(){
+        function _test_upload_img(){
                 $this->_context->set( 'circle' , 'reg' );
                 $this->_context->set( 'username' , 'reg' );
                 $this->_context->set( 'nickname' , 'reg' );
@@ -163,11 +163,11 @@ class Test_of_strategy extends UnitTestCase{
         }
 
         //测试 q 操作
-        function _test_q(){
-                $this->_context->set( 'circle' , 'reg' );
+        function test_q(){
+                $this->_context->set( 'circle' , 'uploading_image' );
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
                 $res_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $circle = $this->_context->get( 'circle' );
+                echo $circle = $this->_context->get( 'circle' );
 
                 $this->assertTrue( $circle == 'common' );
         }
