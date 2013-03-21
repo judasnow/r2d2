@@ -1,18 +1,28 @@
 <?php
 require_once( dirname(__FILE__) . '/simpletest/autorun.php' );
-require( dirname(__FILE__) . '/../curl.class.php' );
+require( dirname(__FILE__) . '/../lib/curl.class.php' );
 
 class Test_of_curl extends UnitTestCase{
 
         public function setUp(){}
 
-        public function test_check_username(){
+        public function _test_check_username() {
                 $res = Curl::post( 'http://localhost:1979/action/WeixinMpApi.aspx' , array( 'action'=>'checkUserName' , 'username' => 'judas' ) );
                 var_dump( $res );
         }
 
-        public function test_check_nickname(){
+        public function _test_check_nickname() {
                 $res = Curl::post( 'http://localhost:1979/action/WeixinMpApi.aspx' , array( 'action'=>'checkNickName' , 'nickname' => 'feisky007' ) );
+                var_dump( $res );
+        }
+
+        public function _test_down_img_from_url() {
+                $res = Curl::download_file( 'http://img3.douban.com/icon/ul1314003-22.jpg' );
+                var_dump( $res );
+        }
+
+        public function test_upload_img_file() {
+                $res = Curl::post( 'http://172.17.0.20:1979/action/WeixinMpApi.aspx?action=uploadImg' , array( 'action'=>'uploadImg' , 'user_id'=>'534' , 'upload'=>'test.jpg' ));
                 var_dump( $res );
         }
 }

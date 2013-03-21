@@ -16,13 +16,13 @@ class Test_of_strategy extends UnitTestCase{
                 </xml>';
 
         //图片请求
-        const IMAGE_XML = '<xml><ToUserName><![CDATA[gh3_cbb742f45d8f]]></ToUserName>
-                <FromUserName><![CDATA[oJenljo3-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
-                <CreateTime>1362623506</CreateTime>
-                <MsgType><![CDATA[image]]></MsgType>
-                <PicUrl><![CDATA[http://mmsns.qpic.cn/mmsns/8GtV9x92iasHVYTX0mic80zaEPoC75gfX5LXqQgJTy4d2CnqKE5Of1pw/0]]></PicUrl>
-                <MsgId>5852423395030860230</MsgId>
-                </xml>';
+        const IMAGE_XML = '<xml><ToUserName><![CDATA[gh_cbb742f45d8f]]></ToUserName>
+<FromUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
+<CreateTime>1363799720</CreateTime>
+<MsgType><![CDATA[image]]></MsgType>
+<PicUrl><![CDATA[http://mmsns.qpic.cn/mmsns/8GtV9x92iasGVARp3U9FWQz1JzasqMNiausANniciaiaFR0EmsOeQTeKZRQ/0]]></PicUrl>
+<MsgId>5857475195693958630</MsgId>
+</xml>';
 
         //位置信息
         const LOCATION_XML = '<xml><ToUserName><![CDATA[gh3_cbb742f45d8f]]></ToUserName>
@@ -42,15 +42,28 @@ class Test_of_strategy extends UnitTestCase{
         }
 
         public function tearDown(){
-
+                $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk' );
         }
 
         //测试普通文本回复信息 ping->pong
         public function _test_make_res_simple(){
                 //初始状态用户应该处于 common circle
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'ping' ) );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'help' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == 'pong' );
+        }
+
+        //测试 h 命令
+        public function _test_h(){
+                $this->_context->set( 'target_sex' , '男' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'h' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                //断言为女
+                $target_sex = $this->_context->get( 'target_sex' );
+                $this->assertTrue( $target_sex , '女' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'h' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $target_sex = $this->_context->get( 'target_sex' );
+                $this->assertTrue( $target_sex , '男' );
         }
 
         //测试用户尝试输入地址信息的情况
@@ -62,7 +75,7 @@ class Test_of_strategy extends UnitTestCase{
                 $this->assertTrue( $post_obj->Content == '位置设置 ok' );
         }
 
-        public function test_input_location_by_location(){
+        public function _test_input_location_by_location(){
                 $this->_context->set( 'circle' , 'common' );
                 //输入location的情况
                 $strategy = new Strategy( sprintf( self::LOCATION_XML , "中国四川省自贡市自流井区新民街" ) );
@@ -90,7 +103,7 @@ class Test_of_strategy extends UnitTestCase{
         //label 为空的情况
         public function _test_input_location_by_location_with_empty_lable(){
                 //输入location的情况
-                $strategy = new Strategy( sprintf( self::LOCATION_XML , " " ) );
+                $strategy = new Strategy( sprintf( self::LOCATION_XML , "" ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 echo $post_obj->Content;
         }
@@ -103,19 +116,50 @@ class Test_of_strategy extends UnitTestCase{
                 //用户进入 注册流程
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
                 $res_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                //期待一条提示用户成功进入注册模式的返回信息
-                $this->assertTrue( $res_obj->Content == '欢迎注册 , 请先输入用户名(数字或字母的组合以及下划线) , 输入 q 退出注册流程.' );
+                echo $res_obj->Content;
 
                 //断言当前 circle = reg
                 $context = new Context( 'oJenljo-kzzUDI8SK0fcNfFoFlQk' );
                 $circle = $context->get( 'circle' );
                 $this->assertTrue( $circle == 'reg' );
+        }
 
-                //在 circle:reg 的情况下 输入
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'where' ) );
+        //测试用户在 zc 循环下输入 username 
+        function test_user_input_username() {
+                $this->_context->set( 'circle' , 'reg' );
+                //数据库中没有的名字
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'uuuuuuutest' ) );
                 $res_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $res_obj->Content == 'reg' );
+                echo $res_obj->Content;
+        }
+
+        function _test_user_input_username_when_the_username_is_not_avaliable() {
+                $this->_context->set( 'circle' , 'reg' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'judas' ) );
+                $res_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $res_obj->Content;
+        }
+
+        //测试输入身高
+        function _test_input_height(){
+                $this->_context->set( 'circle' , 'reg' );
+                $this->_context->set( 'username' , 'reg' );
+                $this->_context->set( 'nickname' , 'reg' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '1`50' ) );
+                $res_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $res_obj->Content;
+        }
+
+        function test_upload_img(){
+                $this->_context->set( 'circle' , 'reg' );
+                $this->_context->set( 'username' , 'reg' );
+                $this->_context->set( 'nickname' , 'reg' );
+                $this->_context->set( 'age' , '18' );
+                $this->_context->set( 'weight' , '18' );
+                $this->_context->set( 'height' , '18' );
+                $strategy = new Strategy( self::IMAGE_XML  );
+                $res_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                //echo $res_obj->Content;
         }
 
         //测试 q 操作

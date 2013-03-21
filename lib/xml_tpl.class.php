@@ -1,6 +1,7 @@
 <?php
-//各种回复信息 xml 模板
-
+/**
+ * 各种回复信息 xml 模板
+ */
 class Xml_tpl{
 
         //文本消息
@@ -8,7 +9,7 @@ class Xml_tpl{
                 <ToUserName><![CDATA[%s]]></ToUserName>
                 <FromUserName><![CDATA[%s]]></FromUserName>
                 <CreateTime>%s</CreateTime>
-                <MsgType><![CDATA[%s]]></MsgType>
+                <MsgType><![CDATA[text]]></MsgType>
                 <Content><![CDATA[%s]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>";
@@ -18,7 +19,7 @@ class Xml_tpl{
                 <ToUserName><![CDATA[%s]]></ToUserName>
                 <FromUserName><![CDATA[%s]]></FromUserName>
                 <CreateTime>%s</CreateTime>
-                <MsgType><![CDATA[%s]]></MsgType>
+                <MsgType><![CDATA[music]]></MsgType>
                 <Music>
                 <Title><![CDATA[%s]]></Title>
                 <Description><![CDATA[%s]]></Description>
@@ -31,8 +32,8 @@ class Xml_tpl{
         public static $news_item_tpl = "<item>
                 <Title><![CDATA[%s]]></Title>
                 <Description><![CDATA[%s]]></Description>
-                <PicUrl><![CDATA[http://www.huaban123.com/UploadFiles/UHP/MIN/%s]]></PicUrl>
-                <Url><![CDATA[http://www.huaban123.com]]></Url>
+                <PicUrl><![CDATA[%s]]></PicUrl>
+                <Url><![CDATA[%s]]></Url>
                 </item>";
 
         //图文信息

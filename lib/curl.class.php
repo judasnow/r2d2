@@ -2,9 +2,13 @@
 /**
  * 封装 curl 操作
  */
-class Curl{
+class Curl {
 
         static public function post($url, array $post = NULL, array $options = array()) {
+        //{{{
+                if( !empty( $post['upload'] ) ) {
+                        $post['upload'] = '@' . $file_full_path = dirname( __file__ ) . '/../temp/' . $post['upload'];
+                }
                 $defaults = array( 
                         CURLOPT_POST => 1, 
                         CURLOPT_HEADER => 0, 
@@ -13,8 +17,8 @@ class Curl{
                         CURLOPT_RETURNTRANSFER => 1, 
                         CURLOPT_FORBID_REUSE => 1, 
                         CURLOPT_TIMEOUT => 4, 
-                        CURLOPT_POSTFIELDS => http_build_query($post) 
-                ); 
+                        CURLOPT_POSTFIELDS => $post
+                );
 
                 $ch = curl_init(); 
                 curl_setopt_array($ch, ($options + $defaults)); 
@@ -23,9 +27,10 @@ class Curl{
                 } 
                 curl_close($ch); 
                 return $result; 
-        }
+        }//}}}
 
         static public function get($url, array $get = NULL, array $options = array() ){
+        //{{{
                 $defaults = array( 
                         CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($get), 
                         CURLOPT_HEADER => 0, 
@@ -41,7 +46,31 @@ class Curl{
                 } 
                 curl_close($ch); 
                 return $result; 
-        }
+        }//}}}
+
+        static public function download_file( $source_url , $target_file_name ) {
+        //{{{
+                if( empty( $source_url ) ) {
+                        return false;
+                } else {
+
+                        if( empty( $target_file_name ) ) {
+                                $target_file_name = date( 'Ymdhis' ) . '.jpg';
+                        }
+
+                        $curl = curl_init( $source_url );
+
+                        curl_setopt( $curl , CURLOPT_RETURNTRANSFER , 1 );
+                        $image_data = curl_exec( $curl );
+                        curl_close( $curl );
+
+                        $tp = @fopen( dirname( __FILE__ ) . '/../temp/' . $target_file_name , 'a' );
+                        fwrite( $tp , $image_data );
+                        fclose( $tp );
+
+                        return true;
+                }
+        }//}}}
 }
 
 
