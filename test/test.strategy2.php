@@ -42,6 +42,7 @@ class Test_of_strategy extends UnitTestCase{
 
         public function tearDown(){
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk' );
+                $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk:circle_stack' );
         }
 
         //测试普通文本回复信息
@@ -119,8 +120,109 @@ class Test_of_strategy extends UnitTestCase{
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
 
-                $this->assertTrue( $post_obj->Content == '请输入一个用户名,可以由字母数字以及下划线组成' );
+                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'reg' );
+        }
+
+        //测试 common -> zc 输入 q -> common
+        public function test_from_reg_to_common_by_type_q() {
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'common' );
+        }
+
+        //测试退出后又返回 zc 是否能记住当前状态
+        public function test_when_quit_zc_inside_Again() {
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+
+                //输入用户名
+                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '用户名输入成功,请输入昵称:' );
+                $circle = $this->_context->get( 'circle' );
+
+                //退出
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'common' );
+
+                //重新进入 zc
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+        }
+
+        //测试触发登录操作
+        public function test_doing_reg() {
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+
+                //输入用户名
+                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '用户名输入成功,请输入昵称:' );
+                $circle = $this->_context->get( 'circle' );
+
+                //输入身高
+                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '昵称输入成功,请输入身高(公分cm):' );
+                $circle = $this->_context->get( 'circle' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '180' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '身高输入成功,请输入体重(斤)' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '80' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '体重输入成功,请输入年龄' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '19' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '年龄输入成功,请上传照片(第一张将作为您的头像)' );
+
+                //返回
+                $this->_context->set( 'circle' , 'reg' );
+
+                echo $next_step = $this->_context->get( 'reg_next_step' );
+                
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '交友宣言' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content;
+        }
+
+        //上传图片队列
+        public function _test_upload_image() {
+                $this->_context->set( 'circle' , 'uploading_image' );
+                $strategy = new Strategy( self::IMAGE_XML );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+        }
+
+        //测试查询
+        public function test_search(){
+                $this->_context->set( 'circle' , 'search' );
         }
 }
