@@ -5,14 +5,15 @@ require_once( $base_path . '/../lib/Store.class.php' );
 
 class Test_of_store extends UnitTestCase {
 
-        function setUp(){
-        
+        function setUp() {
+                $this->_store = new Store( '123' );
         }
-        function tearDown(){
+        function tearDown() {
+                $this->_store->del( '123' );
         }
 
         function test_sample_set_get() {
-                $store = new Store( '123' );
+                $this->_store->set( 'foo' , 'bar' );
         }
 }
 
