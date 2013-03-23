@@ -1,6 +1,6 @@
 <?php
 /**
- * 入口文件
+ * gateway
  */
 $BASE_PATH = dirname(__FILE__);
 

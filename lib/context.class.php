@@ -17,6 +17,7 @@ class Context {
                 $this->_store = new Store( $weixin_id );
         }
 
+        //@todo 需要对各种信息在获取的时候进行一次检测
         public function get( $key ) {
                 if( $key == 'last_circle' ) {
                         $value = $this->_get_last_circle();
@@ -47,6 +48,10 @@ class Context {
                         }
                 }
                 return $this->_store->hset( $this->_weixin_id , $key , $value );
+        }
+
+        public function incr( $key ) {
+                 return $this->_store->HINCRBY( $this->_weixin_id , $key , 1 );
         }
 
         public function del( $key ) {

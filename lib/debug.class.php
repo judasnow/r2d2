@@ -3,6 +3,6 @@
 class Debug{
         public static function log( $file_name , $string ){
                 $fp = fopen( $file_name , "a" );
-                return fwrite( $fp , $string );
+                return fwrite( $fp , $string . "\n" );
         }
 }

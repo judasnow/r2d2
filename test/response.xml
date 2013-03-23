@@ -593,4 +593,11 @@
          <MsgType><![CDATA[text]]></MsgType>
          <Content><![CDATA[请输入合法的位置信息]]></Content>
          <FuncFlag>0</FuncFlag>
-         </xml>
+         </xml><xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1363944265</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[服务器不可用.]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>

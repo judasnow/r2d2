@@ -44,9 +44,21 @@ class Test_of_strategy extends UnitTestCase{
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk' );
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk:circle_stack' );
         }
+        
+        //测试关注之后的首条回应 
+        //也同时需要测试一些相关的初始化操作是否正确的被执行
+        public function _test_when_follow(){
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'Hello2BizUser' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $this->assertTrue( !empty( $post_obj->Content ) );
+
+                $target_sex = $this->_context->get( 'target_sex' );
+                $this->assertTrue( $target_sex == '女' );
+        }
 
         //测试普通文本回复信息
-        public function test_make_res_simple(){
+        public function _test_make_res_simple(){
                 //初始状态用户应该处于 common circle
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'help' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
@@ -55,174 +67,222 @@ class Test_of_strategy extends UnitTestCase{
                 $this->assertTrue( !empty( $post_obj->Content ) );
         }
 
-        //测试关注之后的首条回应
-        public function test_when_follow(){
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'Hello2BizUser' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+        //测试提交 location 或者 地级市的名称 会进入 look_around circle
+        //同时也会尝试进行 location 的设置
 
-                $this->assertTrue( !empty( $post_obj->Content ) );
-        }
-
-        //测试在还没有设置 location 信息的时候 提交任何信息 都会被定位到 location circle 
-        //除了几个优先级特别高的 关键词
-        function test_when_location_is_not_set_the_circle_will_be_location_whatever_input_is(){
+        //输入有效地址信息的情况
+        function _test_either_user_input_location_msg_or_city_name_circle_will_be_lookaround (){
                 //断言 context location = null
                 $location = $this->_context->get( 'location' );
                 $this->assertTrue( empty( $location ) );
 
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'qwe' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                //1
+                //输入有效地址信息的情况
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '自贡' ) );
 
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'location' );
-        }
+                $this->assertTrue( $circle == 'look_around' );
+                
+                //断言会返回一条用户信息
+                $this->assertTrue( $post_obj->MsgType == 'news' );
+                //断言仍然处于 look_around circle 
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
 
-        //测试主动提交地址信息 location ,且 Label 不为空的情况
-        public function test_set_location_by_location_msg(){
-                $strategy = new Strategy( sprintf( self::LOCATION_XML , '四川省自贡市新民街' ) );
+                //2
+                //输入 n 
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                //echo $post_obj->Content;
-                $this->assertTrue( $post_obj->Content == '位置设置成功' );
+
+                //断言会返回一条用户信息
+                $this->assertTrue( $post_obj->MsgType == 'news' );
+
+                //断言 search_count 被加2
+                $search_count = $this->_context->get( 'search_count' );
+                $this->assertTrue( $search_count == 2 );
+
+                //断言进行第4次搜索的时候 会提示注册
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                echo $search_count = $this->_context->get( 'search_count' );
+                $this->assertTrue( $search_count == 3 );
+                $this->assertTrue( $post_obj->MsgType == 'text' );
         }
 
-        //测试主动提交地址信息 location ,但 Label 为空的情况
-        public function test_set_location_by_location_msg_but_lable_is_null(){
+        //输入无效地址的情况
+        //label 为空
+        public function _test_user_input_empty_label() {
+                $location = $this->_context->get( 'location' );
+                $this->assertTrue( empty( $location ) );
+
+                //输入有效地址信息的情况
                 $strategy = new Strategy( sprintf( self::LOCATION_XML , '' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
 
-                $this->assertTrue( $post_obj->Content == '额 你发的地址没有中文标签啊,手动输入地级市名称吧.' );
+                //echo $$post_obj->Content;
+                $circle = $this->_context->get( 'circle' );
+                //$this->assertTrue( $circle != 'look_around' );
         }
 
-        //测试输入有效地级市名称的情况
-        public function test_set_location_by_input_valid_city_name(){
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '自贡' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                $this->assertTrue( $post_obj->Content == '位置设置成功' );
-                //回到 common circle
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'common' );
-        }
-
-        //测试输入无效地级市名称的情况
-        public function test_set_location_by_input_invalid_city_name(){
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '那美克星' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                $this->assertTrue( $post_obj->Content == '输入的地址无效' );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'location' );
-        }
-
-        //测试 在 common 下输入 zc 进入 circle reg
-        public function test_input_zc_when_circle_is_common(){
-                $this->_context->set( 'circle' , 'common' );
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'reg' );
-        }
-
-        //测试 common -> zc 输入 q -> common
-        public function test_from_reg_to_common_by_type_q() {
-                $this->_context->set( 'circle' , 'common' );
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'reg' );
-
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'common' );
-        }
-
-        //测试退出后又返回 zc 是否能记住当前状态
-        public function test_when_quit_zc_inside_Again() {
-                $this->_context->set( 'circle' , 'common' );
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'reg' );
-
-                //输入用户名
-                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == '用户名输入成功,请输入昵称:' );
-                $circle = $this->_context->get( 'circle' );
-
-                //退出
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'common' );
-
-                //重新进入 zc
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'reg' );
-        }
-
-        //测试触发登录操作
-        public function test_doing_reg() {
-                $this->_context->set( 'circle' , 'common' );
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-
-                $this->assertTrue( $post_obj->Content == '欢迎注册,请输入一个用户名,可以由字母数字以及下划线组成' );
-                $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'reg' );
-
-                //输入用户名
-                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == '用户名输入成功,请输入昵称:' );
-                $circle = $this->_context->get( 'circle' );
-
-                //输入身高
-                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == '昵称输入成功,请输入身高(公分cm):' );
-                $circle = $this->_context->get( 'circle' );
-
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '180' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == '身高输入成功,请输入体重(斤)' );
-
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '80' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == '体重输入成功,请输入年龄' );
-
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '19' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                $this->assertTrue( $post_obj->Content == '年龄输入成功,请上传照片(第一张将作为您的头像)' );
-
-                //返回
-                $this->_context->set( 'circle' , 'reg' );
-
-                echo $next_step = $this->_context->get( 'reg_next_step' );
+        //测试 joke 在需要的时候 返回 joke
+        public function test_joke() {
                 
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '交友宣言' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                echo $post_obj->Content;
         }
 
-        //上传图片队列
-        public function _test_upload_image() {
-                $this->_context->set( 'circle' , 'uploading_image' );
-                $strategy = new Strategy( self::IMAGE_XML );
+        //先错后对
+        public function test_do_reg() {
+
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                //echo $post_obj->Content . '<br />';
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+
+                //需要输入 1 2 3 4
+
+                //先输入一个不符合的 
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'hehe' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                //echo $post_obj->Content . '<br />';
+                //断言没有 next_step 没有改变
+                $next_step = $this->_context->get( 'reg_next_step' );
+                $this->assertTrue( $next_step == 'sex_and_target_sex_index' );
+
+                //再输入一个正确的 1 
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 1 ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                //echo $post_obj->Content . '<br />';
+                //断言 next_step 变成了 location
+                $next_step = $this->_context->get( 'reg_next_step' );
+                $this->assertTrue( $next_step == 'location' );
+                //同时断言 sex , target_sex , index 都已经设置了
+                $sex = $this->_context->get( 'sex' );
+                $target_sex = $this->_context->get( 'target_sex' );
+                $sex_and_target_sex_index = $this->_context->get( 'sex_and_target_sex_index' );
+                $this->assertTrue( $sex == '男' );
+                $this->assertTrue( $target_sex == '女' );
+                $this->assertTrue( $sex_and_target_sex_index == 1 );
+
+                //location
+        
+                //没有location的情况
+
+                //输入错误城市
+                $this->_context->set( 'location' , '' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '旧金山' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $post_obj->Content . '<br />';
+                //断言返回错误信息
+                $location = $this->_context->get( 'location' );
+                $this->assertTrue( empty( $location ) );
+ 
+                //输入正确城市
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '天津' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $post_obj->Content . '<br />';
+                $location = $this->_context->get( 'location' );
+                $this->assertTrue( $location == '天津' );
+
+
+                //已经输入了 locaton 的情况 比如用户已经 look_around 了
+                //这里期待的行为应该是 直接跳过这一步
+                $this->_context->set( 'location' , '自贡' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '21312313' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+                echo $location = $this->_context->get( 'location' );
+                $this->assertTrue( $location == '自贡' );
+                //输入 username 
+                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+
+/*
+                //q
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'common' );
+
+                //从新 zc
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+
+                //nickname
+                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+
+                //q
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'common' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'reg' );
+
+                //身高
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 180 ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+
+                //体重
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 79 ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+
+                //年龄
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 25 ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+
+                //qq
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 526573979 ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 526573979 ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+     */
         }
 
-        //测试查询
-        public function test_search(){
-                $this->_context->set( 'circle' , 'search' );
+        //search 
+        public function _test_search() {
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 's' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'search' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '1' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'search_by_height' );
+        
+                //按身高查询
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '160' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . '<br />';
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'search_by_height' );
         }
 }
