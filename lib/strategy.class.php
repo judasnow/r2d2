@@ -2,26 +2,24 @@
 /**
  * 根据用户的输入 运行相关策略 返回相应的信息
  */
-require_once( 'context.class.php' );
-require_once( 'api.class.php' );
-require_once( 'debug.class.php' );
-require_once( 'store.class.php' );
-require_once( 'msg_producer.class.php' );
-require_once( 'utility.class.php' );
+require_once 'context.class.php';
+require_once 'api.class.php';
+require_once 'debug.class.php';
+require_once 'store.class.php';
+require_once 'msg_producer.class.php';
+require_once 'utility.class.php';
 
 require_once 'common_circle_handler.class.php';
 require_once 'reg_circle_handler.class.php';
 require_once 'look_around_circle_handler.class.php';
-require_once 'search_circle_handler.class.php';
+require_once 'search_method_selcet_circle_handler.class.php';
 require_once 'search_by_height_circle_handler.class.php';
 require_once 'search_by_weight_circle_handler.class.php';
 require_once 'search_by_age_circle_handler.class.php';
 require_once 'location_circle_handler.class.php';
+require_once 'upload_image_circle_handler.class.php';
 
 class Strategy {
-
-        const SEARCH_COUNT_LIMIT_WITHOUT_REG = 3;
-        const SEARCH_COUNT_LIMIT_AFTER_REG = 3;
 
         /**
          * 由当前用户输入 xml 解析而来的对象
@@ -89,7 +87,7 @@ class Strategy {
                                 array( 'content' => $content )
                         );
                 }
-        }//}}}
+        }//}}}i
 
         /**
          * 根据当前 上下文信息 以及用户的输入信息 产生相应的结果
@@ -97,6 +95,8 @@ class Strategy {
         public function make_res() {
 
                 $help_info = '你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别';
+
+                $is_reg = $this->_context->get( 'is_reg' );
 
                 //获取当前 circle
                 $circle = $this->_context->get( 'circle' );
@@ -156,18 +156,24 @@ class Strategy {
                         }
                 }
 
-                //输入 s 进入 search 流程
+                //输入 s 进入 search_method_selcet 流程 
+                //必须注册之后
                 if( $request_content == 's' ) {
-                        if( $circle != 'search' ) {
-                                $this->_context->set( 'circle' , 'search' );
+                        if( $is_reg != true ) {
+                                $this->_produce_text_response( '注册之后才能使用高级搜索功能啊 可以按：身高，体重，年龄查询，赶快输入 "zc" 注册吧。' );
+                                return $this->_response;
+                        }
+
+                        if( $circle != 'search_method_selcet' ) {
+                                $this->_context->set( 'circle' , 'search_method_selcet' );
                                 return $this->make_res();
                         }
                 }
 
                 //输入 sczp 可以进行照片上传
                 if( $request_content == 'sczp' ) {
-                        if( $circle != 'uploading_image' ) {
-                                $this->_context->set( 'circle' , 'uploading_image' );
+                        if( $circle != 'upload_image' ) {
+                                $this->_context->set( 'circle' , 'upload_image' );
                                 return $this->make_res();
                         }
                 }
@@ -192,6 +198,17 @@ class Strategy {
                         return $this->_response;
                 }
 
+                //输入 location 类型的消息 或者输入的是有效的二级地址的名称
+                //则进入到查询附近的人 look around circle
+                //在 reg 下要屏蔽这种行为
+                $location_circle_handler = new Location_circle_handler( $this->_post_obj );
+                if( $location_circle_handler->is_possible_location() && $circle != 'reg' ) {
+                        if( $circle != 'look_around' ) {
+                                $this->_context->set( 'circle' , 'look_around' );
+                                return $this->make_res();
+                        }
+                }
+
                 if( $request_content == 'debug' ) {
                         $this->_produce_text_response( '当前循环: ' . $circle );
                         return $this->_response;
@@ -204,7 +221,8 @@ class Strategy {
                 if( $circle == 'common' ) {
                 //{{{
                         $common_circle_handler = new Common_circle_handler( $this->_post_obj );
-                        $common_circle_handler->do_circle();
+                        $this->_response = $common_circle_handler->do_circle();
+                        return $this->_response;
                 }//}}}
 
                 //注册
@@ -216,16 +234,18 @@ class Strategy {
                 }//}}}
 
                 //上传照片
-                if( $circle == 'uploading_image' ) {
+                if( $circle == 'upload_image' ) {
                 //{{{
-                        
+                        $upload_image_circle_hander = new Upload_image_circle_hander( $this->_post_obj );
+                        $this->_response = $upload_image_circle_hander->do_circle();
+                        return $this->_response;
                 }//}}}
 
                 //按条件搜索
-                if( $circle == 'search' ) {
+                if( $circle == 'search_method_selcet' ) {
                 //{{{
-                        $search_circle_handler = new Search_circle_handler( $this->_post_obj );
-                        $this->_response = $search_circle_handler->do_circle();
+                        $search_method_selcet_circle_handler = new Search_method_selcet_circle_handler( $this->_post_obj );
+                        $this->_response = $search_method_selcet_circle_handler->do_circle();
                         return $this->_response;
                 }//}}}
 
@@ -244,8 +264,5 @@ class Strategy {
                         $this->_response = $look_around_circle_handler->do_circle();
                         return $this->_response;
                 }//}}}
-
-                //非法输入 或者无任何匹配信息 返回一条笑话
-                return $this->_response;
         }
 }

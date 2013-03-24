@@ -29,6 +29,12 @@ class Context {
                                 }
                         }
                 }
+
+                //设置默认的查询对象性别
+                if( $key == 'target_sex' && empty( $value ) ) {
+                        $value = '女';
+                }
+
                 return $value;
         }
 

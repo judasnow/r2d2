@@ -2,7 +2,7 @@
 require_once 'handler_base.class.php';
 require_once 'search_by_height_circle_handler.class.php';
 
-class Search_circle_handler extends Handler_base {
+class Search_method_selcet_circle_handler extends Handler_base {
 
         public function __construct( $post_obj ) {
 

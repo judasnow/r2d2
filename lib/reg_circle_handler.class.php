@@ -19,7 +19,8 @@ class Reg_circle_handler extends Handler_base {
                 'weight' => '体重输入成功，请输入年龄',
                 'age' => '年龄输入成功，输入 qq 号',
                 'qq' => 'qq 输入成功，请填写交友宣言',
-                'zwms' => '宣言输入成功，上传几张照片吧 （第一张将作为您的头像）'
+                'zwms' => '宣言输入成功，上传几张照片吧 （第一张将作为您的头像）',
+                'upload_image' => '注册完毕~ 密码是 "huaban123"，欢迎到我们的网站逛逛: http://huaban123.com。 输入 "s" 可以按条件查找你附近的人。'
         );
 
         /**
@@ -28,7 +29,7 @@ class Reg_circle_handler extends Handler_base {
         private $_when_user_back = array(
                 'just_begin' => '欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。',
                 'sex_and_target_sex_index' => '欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。',
-                'location' => '上次注册时，性别以及取向已经输入成功了，请输入一个用户名，可以由字母数字以及下划线组成',
+                'location' => '上次注册时，性别以及取向已经输入成功了，请输入你所在的城市',
                 'username' => '上次注册时，城市信息已经输入成功了，请输入一个用户名，可以由字母数字以及下划线组成',
                 'nickname' => '上次注册时，用户名已经输入成功了，请输入昵称',
                 'height' => '上次注册时，昵称已经输入成功了，请输入身高（公分cm）',
@@ -87,7 +88,6 @@ class Reg_circle_handler extends Handler_base {
                         if( is_numeric( $user_input_sex_and_target_sex_index ) && $user_input_sex_and_target_sex_index <= 4 && $user_input_sex_and_target_sex_index >= 1 ) {
 
                                 $this->_context->set( 'sex_and_target_sex_index' , $user_input_sex_and_target_sex_index );
-                                $this->_context->set( 'reg_next_step' , 'location' );
 
                                 switch( $user_input_sex_and_target_sex_index ) {
                                         case 1:
@@ -108,15 +108,18 @@ class Reg_circle_handler extends Handler_base {
                                                 break;
                                 }
                                 if( empty( $location ) ) {
+                                        //需要填写地址
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' , 
                                                 array( 'content' => $this->_input_success_message['sex_and_target_sex_index_without_location'] )
                                         );
+                                        $this->_context->set( 'reg_next_step' , 'location' );
                                 } else {
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' , 
                                                 array( 'content' => $this->_input_success_message['sex_and_target_sex_index_with_location'] )
                                         );
+                                        $this->_context->set( 'reg_next_step' , 'username' );
                                 }
                                 return $this->_response;
                         } else {
@@ -153,9 +156,6 @@ class Reg_circle_handler extends Handler_base {
                                 );
                                 return $this->_response;
                         }
-                } else {
-                        //已经设置了 location 信息,直接跳过这一步
-                        $this->_context->set( 'reg_next_step' , 'username' );
                 }
                 //}}}
 
@@ -251,7 +251,6 @@ class Reg_circle_handler extends Handler_base {
                 if( empty( $height ) ) {
                 //{{{
                         $user_input_height = $this->_request_content;
-
                         if( $user_input_height <= 100 || $user_input_height >= 250 ) {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
@@ -273,8 +272,8 @@ class Reg_circle_handler extends Handler_base {
                 $weight = $this->_context->get( 'weight' );
                 if( empty( $weight ) ) {
                 //{{{
-                        $user_input_weight = $this->_request_content;
-                        if( $user_input_weight < 60 || $user_input_weight > 200 ) {
+                        $user_input_weight = (int)$this->_request_content;
+                        if( !is_numeric( $user_input_weight ) && ( $user_input_weight < 60 || $user_input_weight > 200 ) ) {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
                                         array( 'content' => "体重需要是 60-200 之间的数字" )
@@ -348,32 +347,39 @@ class Reg_circle_handler extends Handler_base {
 
                                 //触发注册事件
                                 if( $this->do_reg() ) {
-                                        $this->_context->exit_current_circle();
-                                        $this->_context->set( 'is_reg' , 'true' );
+                                        $this->_context->set( 'is_reg' , true );
+
                                         //到这里已经注册成功 但是
                                         //还需要进入 upload_image circle 至少要上传一张照片才行
-                                        $upload_image_circle_handler = new Upload_image_circle_handler( $this->_post_obj );
+                                        echo $circle = $this->_context->get( 'circle' );
+                                        $this->_context->set( 'circle' , 'upload_image' );
 
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' , 
-                                                array( 'content' => '注册完毕~ 密码是 "huaban123"，欢迎到我们的网站逛逛: http://huaban123.com。 输入 "s" 可以按条件查找你附近的人。' )
+                                                array( 'content' => $this->_input_success_message['zwms'] )
                                         );
                                         return $this->_response;
                                 } else {
                                         $this->_response = $this->_msg_producer->do_produce( 
-                                                'text' , 
-                                                array( 'content' => '注册失败了 orz.' )
+                                                'text' ,
+                                                array( 'content' => '注册失败了 orz。 稍后再试一试吧。' )
                                         );
                                         return $this->_response;
                                 }
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
-                                        'text' , 
+                                        'text' ,
                                         array( 'content' => '交友宣言不能为空啊' )
                                 );
                                 return $this->_response;
                         }
                 }//}}}
+
+                //上传照片
+                $is_upload_image =$This->_context->get( 'is_upload_image' );
+                if( !empty( $is_upload_image ) ) {
+                        $this->_context->exit_current_circle();
+                }
 
         }//}}}
 

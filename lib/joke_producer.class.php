@@ -11,18 +11,23 @@ class Joke_producer {
 
         private $_msg_producer;
 
-        public function __construct() {
+        public function __construct( $msg_producer ) {
 
                 $this->_store = new Store();
+                $this->_msg_producer = $msg_producer;
         }
 
         /**
          * 随机产生一个笑话
          * 目前只能返回 text 类型的笑话
          */
-        public function do_produce() {
+        public function rand_produce() {
                 $joke = $this->_pick_a_text_joke();
-                return array( 'type' => 'text' , 'joke' => $joke );
+                $joke_xml = $this->_msg_producer->do_produce( 
+                                'text' ,
+                                array( 'content' => $joke[0] )
+                        );
+                return $joke_xml;
         }
 
         /**

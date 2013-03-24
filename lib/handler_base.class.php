@@ -2,6 +2,7 @@
 require_once 'api.class.php';
 require_once 'context.class.php';
 require_once 'msg_producer.class.php';
+require_once 'joke_producer.class.php';
 
 abstract class Handler_base {
 
@@ -39,6 +40,7 @@ abstract class Handler_base {
                                 'to'=>$this->_post_obj->FromUserName
                         )
                 );
+                $this->_joke_producer = new Joke_producer( $this->_msg_producer );
         }
 
         abstract public function do_circle();

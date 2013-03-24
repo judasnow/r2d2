@@ -13,19 +13,28 @@ class Upload_image_circle_hander extends Handler_base {
 
         public function do_circle() {
                 if( $this->_request_msg_type == 'image' ) {
-                        $this->_context->set( 'circle' , 'uploading_image' );
-
                         //获取 $url
                         $img_url = $this->_post_obj->PicUrl;
                         $image_name = "{$this->_post_obj->FromUserName}{$_SERVER['REQUEST_TIME']}.jpg";
 
                         //下载到本地 temp
                         if( Curl::download_file( $img_url , $image_name ) ) {
+
                                 //post 到 huaban123.com
                                 //$res_json = Curl::post( 
                                 //        'http://172.17.0.20:1979/action/WeixinMpApi.aspx?action=uploadImg' ,
                                 //        array( 'action'=>'uploadImg' , 'user_id'=>'534' , 'upload'=>$image_name )
                                 //);
+
+                                //设置一个标志位 标志用户已经上传的照片的张数
+                                $image_count = $this->_context->get( 'image_count' );
+                                if( empty( $image_count ) || !is_numeric( $image_count ) ) {
+                                        $this->_context->set( 'image_count' , 0 );
+                                        $image_count = 0;
+                                }
+                                //上传成功 对于照片的数量执行加 1 操作
+                                $this->_context->incr( 'image_count' );
+
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' , 
                                         array( 'content' => '上传成功，可以继续上传图片也可以 输入 "q" 退出' )
@@ -34,7 +43,7 @@ class Upload_image_circle_hander extends Handler_base {
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => '上传失败' )
+                                        array( 'content' => '上传失败，可以请稍后再试一试。' )
                                 );
                                 return $this->_response;
                         }
