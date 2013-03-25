@@ -1,10 +1,11 @@
 <?php
-require_once 'sub_search_circle_handler_base.class.php';
-require_once 'location_circle_handler.class.php';
-
 /**
  * 寻找附近的人 也就是按地理位置进行查询
  */
+
+require_once 'sub_search_circle_handler_base.class.php';
+require_once 'location_circle_handler.class.php';
+
 class Look_around_circle_handler extends Sub_search_circle_handler_base{
 
         private $_city_name;
@@ -12,14 +13,14 @@ class Look_around_circle_handler extends Sub_search_circle_handler_base{
         private $_response;
 
         public function __construct( $post_obj ) {
-
+        //{{{
                 parent::__construct( $post_obj );
-
                 $this->_search_result = $this->_context->get( 'search_result' );
-        }
+        }//}}}
 
         /**
          * 查找附近的人
+         *
          * @param $just_next 如果该参数为 true 则仅仅只是显示上次查询结果的下一条记录 而不重新进行查询
          */
         private function _look_around( $just_next = false ) {
@@ -49,6 +50,7 @@ class Look_around_circle_handler extends Sub_search_circle_handler_base{
                 if( $res[0] == true ) {
                         $this->_city_name = $res[1];
                         $this->_look_around();
+
                         return $this->_response;
                 } else {
                         //获取城市信息失败

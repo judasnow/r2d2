@@ -6613,3 +6613,731 @@
                 <Content><![CDATA[这是一个笑话]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364183962</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364183966</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[性别以及取向输入成功，请输入一个用户名，可以由字母数字以及下划线组成]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364183973</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名: judasnow 已经被占用，换一个吧.]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364183980</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名输入成功，请输入昵称]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364183999</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高需要是 100-250 之间的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184003</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[昵称输入成功，请输入身高（公分cm）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184011</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高输入成功，请输入体重（斤）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184015</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[体重输入成功，请输入年龄]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184021</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[年龄输入成功，输入 qq 号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184024</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[qq 输入成功，请填写交友宣言]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184029</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[宣言输入成功，上传几张照片吧 （第一张将作为您的头像）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184050</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184097</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184330</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184413</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364184714</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185281</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[帮助信息: 你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185291</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[帮助信息: 你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185479</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185892</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[陌上花开]]></Title>
+                <Description><![CDATA[在生活中我是一个安静的女生，不过有时也会有点小脾气，觉得两个人一起信任是重要的。[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/201303/051245379830.jpg]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljmRejNbaD7jJrJaVB4Dceis&&user_id=430]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185948</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185954</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[小潴太蠢]]></Title>
+                <Description><![CDATA[我是来自自贡市白领丽人、清纯可人、妩媚、丰乳肥臀、迷人双眼、惹火身材、迷人的女会员！[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljmRejNbaD7jJrJaVB4Dceis&&user_id=336]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185969</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[陌上花开]]></Title>
+                <Description><![CDATA[在生活中我是一个安静的女生，不过有时也会有点小脾气，觉得两个人一起信任是重要的。[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/201303/051245379830.jpg]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljmRejNbaD7jJrJaVB4Dceis&&user_id=430]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364185986</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364186109</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: upload_image]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364186233</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[已经更换查询性别为: 男]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364186706</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364186727</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364187429</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364187479</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[已经更换查询性别为: 女]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364187641</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364187648</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364188413</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[性别以及取向输入成功，请输入一个用户名，可以由字母数字以及下划线组成]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364188783</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名: jsky 已经被占用，换一个吧.]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364190108</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名输入成功，请输入昵称]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364190509</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高需要是 100-250 之间的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364190602</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[昵称输入成功，请输入身高（公分cm）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364190639</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高需要是 100-250 之间的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364190819</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高输入成功，请输入体重（斤）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364190986</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[体重输入成功，请输入年龄]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364191081</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[年龄需要是 18-60 之间的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364191123</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[已经更换查询性别为: 男]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364191175</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[年龄输入成功，输入 qq 号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192159</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[qq 号的格式不对哦 亲]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192216</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[qq 号的格式不对哦 亲]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192225</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[qq 号的格式不对哦 亲]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192244</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[qq 号的格式不对哦 亲]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192297</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[qq 输入成功，请填写交友宣言]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192300</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: upload_image]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192636</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[宣言输入成功，上传几张照片吧 （第一张将作为您的头像）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192857</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[醉蝶花]]></Title>
+                <Description><![CDATA[我是来自自贡市小巧玲珑、短发、妖艳、丰韵犹在、身材丰满、端庄、迷人、青春的女会员！[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=335]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192872</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: look_around]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192884</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[美兮兮]]></Title>
+                <Description><![CDATA[骄傲公主  善解人意  随和  漂亮[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/201303/051237454830.jpg]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=429]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364192889</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364193040</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364193262</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功，可以继续上传图片也可以 输入 "q" 退出]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364193296</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364193698</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364193705</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上次注册时，qq 已经输入成功了，请填写交友宣言]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljnaTmb46gpEt1xRAHZPhPlg]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364194128</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[欢迎关注 huaban123 微信公众帐号 。你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364194392</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[已经更换查询性别为: 女]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljnaTmb46gpEt1xRAHZPhPlg]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195290</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljnaTmb46gpEt1xRAHZPhPlg]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195309</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[性别以及取向输入成功,请输入你所在的城市]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljnaTmb46gpEt1xRAHZPhPlg]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195325</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljjKMvkphoBGQiKFYbP9PUts]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195412</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[欢迎关注 huaban123 微信公众帐号 。你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljjKMvkphoBGQiKFYbP9PUts]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195470</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额，发送的地址信息里面没有中文标签，请手动输入地级市的名称。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljjKMvkphoBGQiKFYbP9PUts]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195512</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[茶靡花落丶]]></Title>
+                <Description><![CDATA[我是来自自贡市漂亮、肤白貌美、苗条、妖艳的女会员！[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljjKMvkphoBGQiKFYbP9PUts&&user_id=334]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljjKMvkphoBGQiKFYbP9PUts]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195536</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195666</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: reg]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195669</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195672</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: upload_image]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195673</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上次注册时，qq 已经输入成功了，请填写交友宣言]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195677</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195683</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195686</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195689</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364195765</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上次注册时，qq 已经输入成功了，请填写交友宣言]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364196163</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364196951</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[您已经注册了啊，亲。去我们的网站看看吧: http://huaban123.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364198329</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[茶靡花落丶]]></Title>
+                <Description><![CDATA[我是来自自贡市漂亮、肤白貌美、苗条、妖艳的女会员！[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=334]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364202303</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: look_around]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenlji8qbUplCD28eo9VRVYUhH4]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364203743</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额，发送的地址信息里面没有中文标签，请手动输入地级市的名称。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364203928</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额，发送的地址信息里面没有中文标签，请手动输入地级市的名称。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364204541</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>

@@ -2,6 +2,9 @@
 /**
  * 根据用户的输入 运行相关策略 返回相应的信息
  */
+
+//requires
+//{{{
 require_once 'context.class.php';
 require_once 'api.class.php';
 require_once 'debug.class.php';
@@ -18,6 +21,7 @@ require_once 'search_by_weight_circle_handler.class.php';
 require_once 'search_by_age_circle_handler.class.php';
 require_once 'location_circle_handler.class.php';
 require_once 'upload_image_circle_handler.class.php';
+//}}}
 
 class Strategy {
 
@@ -54,12 +58,8 @@ class Strategy {
 
                 $this->_request_msg_type = $this->_post_obj->MsgType;
 
-                //全角转换 以及 大小写转换
-                $this->_request_content = strtolower(
-                        Utility::full2half( 
-                                $this->_post_obj->Content
-                        )
-                );
+                //全角转换 去除空格 以及 大小写转换
+                $this->_request_content = Utility::format_user_input( $this->_post_obj->Content );
 
                 $this->_context = new Context( $this->_post_obj->FromUserName );
 
@@ -93,19 +93,14 @@ class Strategy {
          * 根据当前 上下文信息 以及用户的输入信息 产生相应的结果
          */
         public function make_res() {
-
+                
+                //默认的帮助信息 在用户首次关注的时候 以及用户 输入 help|? 的时候显示
                 $help_info = '你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别';
-
-                $is_reg = $this->_context->get( 'is_reg' );
 
                 //获取当前 circle
                 $circle = $this->_context->get( 'circle' );
-                if( empty( $circle ) ) {
-                        $circle = 'common';
-                        $this->_context->set( 'circle' , 'common' );
-                }
 
-                //通用操作 和 circle 无关
+                //通用操作 和 circle 无关 也就是说在所有的 circle 中都会其作用
                 //{{{
                 $request_content = $this->_request_content;
 
@@ -119,6 +114,8 @@ class Strategy {
                 //也可以作为整个应用的 初始化函数
                 if( $request_content == 'hello2bizuser' ) {
                         //进行一系列的初始化操作
+
+                        //初始化
 
                         //初始化用户查找对象的性别信息
                         $this->_context->set( 'target_sex' , '女' );
@@ -146,6 +143,13 @@ class Strategy {
 
                 //输入 zc 进入注册流程
                 if( $request_content == 'zc' ) {
+                        //还需要保证用户没有注册 $is_reg = false 
+                        $is_reg = $this->_context->get( 'is_reg' );
+                        if( $is_reg == true ) {
+                                //用户已经注册
+                                $this->_produce_text_response( '您已经注册了啊，亲。去我们的网站看看吧: http://huaban123.com' );
+                                return $this->_response;
+                        }
                         if( $circle != 'reg' ) {
                                 $this->_context->set( 'circle' , 'reg' );
                                 $reg_circle_handelr = new Reg_circle_handler( $this->_post_obj );
@@ -216,7 +220,6 @@ class Strategy {
                 //}}}
 
                 //对于各种 circle 的判断
-
                 //最外层
                 if( $circle == 'common' ) {
                 //{{{

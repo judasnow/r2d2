@@ -1,9 +1,16 @@
 <?php
+/**
+ * 封装了一些常用的功能
+ */
+
 require_once( 'city_list.class.php' );
 
 class Utility {
-
+        /**
+         * 全角到半角的转换
+         */
         static public function full2half( $str ) {
+        //{{{
                 $arr = array(
                         //数字  
                         '０' => '0', '１' => '1', '２' => '2', '３' => '3', '４' => '4', '５' => '5', '６' => '6', '７' => '7', '８' => '8', '９' => '9',   
@@ -22,10 +29,27 @@ class Utility {
                         '…' => '-', '‖' => '|','“' => "\"", '”' => "\"", '‘' => '`','’' => '`', '｜' => '|', '〃' => "\"",'　' => ' ' 
                 );
                 return strtr( $str , $arr );
-        }
+        }//}}}
 
+        /**
+         * 判断用户输入的城市信息是否有效
+         */
         static public function valid_city( $city_name ) {
+        //{{{
                 $city_name = preg_replace( "/[市|州]$/u" , "" , $city_name );
                 return in_array( $city_name , City_list::$list );
+        }//}}}
+
+        /**
+         * 对用户的输入进行处理
+         */
+        static public function format_user_input( $input ) {
+                return trim(
+                        strtolower(
+                                Utility::full2half(
+                                        $input
+                                )
+                        ) 
+                );
         }
 }

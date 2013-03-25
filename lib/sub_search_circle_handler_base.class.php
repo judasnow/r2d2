@@ -55,6 +55,7 @@ class Sub_search_circle_handler_base extends Handler_base {
 
         /**
          * 构造查询结果
+         *
          * @param $cond 查询的条件
          */
         public function make_search_result( $cond , $just_next = false ) {
@@ -83,7 +84,7 @@ class Sub_search_circle_handler_base extends Handler_base {
 
                         if( $res['type'] == 'success' ) {
                                 //查询成功
-                                //缓存查询结果 注意这个缓存时针对于每一个用户的
+                                //缓存查询结果 注意这个缓存是针对于每一个用户的 而不是全局的
                                 $this->_context->set( 'search_result' , $res['info'] );
                                 $user_infos = json_decode( $res['info'] , true );
                         } else {
@@ -103,7 +104,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                         $items = array(
                                 array(
                                         'title' => $user_info['NickName'] ,
-                                        'description' => $user_info['ZWMS'] . '[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]' ,
+                                        'description' => $user_info['ZWMS'] . '[小提示：输入 "jx" 可以看下一个，也可以重新输入地址信息]' ,
                                         //@todo 判断头像是否存在
                                         'pic_url' => Config::$huaban123_server . 'UploadFiles/UHP/' . $user_info['HeadPic'] ,
                                         //用户详细信息页面

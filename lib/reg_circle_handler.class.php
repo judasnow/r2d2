@@ -9,6 +9,7 @@ class Reg_circle_handler extends Handler_base {
          * 对应条目成功输入时 返回的消息
          */
         private $_input_success_message = array(
+        //{{{
                 'just_begin' => '欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。',
                 'sex_and_target_sex_index_without_location' => '性别以及取向输入成功,请输入你所在的城市',
                 'sex_and_target_sex_index_with_location' => '性别以及取向输入成功，请输入一个用户名，可以由字母数字以及下划线组成',
@@ -21,12 +22,13 @@ class Reg_circle_handler extends Handler_base {
                 'qq' => 'qq 输入成功，请填写交友宣言',
                 'zwms' => '宣言输入成功，上传几张照片吧 （第一张将作为您的头像）',
                 'upload_image' => '注册完毕~ 密码是 "huaban123"，欢迎到我们的网站逛逛: http://huaban123.com。 输入 "s" 可以按条件查找你附近的人。'
-        );
+        );//}}}
 
         /**
          * 重新返回 reg circle 根据用户以前所在位置返回的信息
          */
         private $_when_user_back = array(
+        //{{{
                 'just_begin' => '欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。',
                 'sex_and_target_sex_index' => '欢迎注册，请在下列 4 个选项中选择一个与您相符的，输入列表编号。1 我是男，查看女。2 我是男，查看男。3 我是女，查看男。4 我是女，查看女。',
                 'location' => '上次注册时，性别以及取向已经输入成功了，请输入你所在的城市',
@@ -38,9 +40,10 @@ class Reg_circle_handler extends Handler_base {
                 'qq' => '上次注册时，年龄已经输入成功了，输入 qq 号',
                 'zwms' => '上次注册时，qq 已经输入成功了，请填写交友宣言',
                 'upload_image' => '上次注册时，宣言已经输入成功了，作为注册的最后一步，上传几张照片吧 （第一张将作为您的头像）'
-        );
+        );//}}}
 
         public function __construct( $post_obj ) {
+        //{{{
                 $this->_post_obj = $post_obj;
 
                 $this->_context = new Context( $post_obj->FromUserName );
@@ -55,7 +58,7 @@ class Reg_circle_handler extends Handler_base {
                                 'to'=>$this->_post_obj->FromUserName
                         )
                 );
-        }
+        }//}}}
 
         /**
          * 根据用户注册的步骤 
@@ -63,6 +66,7 @@ class Reg_circle_handler extends Handler_base {
          * 返回相应的消息
          */
         public function produce_msg_by_reg_step() {
+        //{{{
                 $next_step = $this->_context->get( 'reg_next_step' );
 
                 if( !empty( $next_step ) ) {
@@ -74,7 +78,7 @@ class Reg_circle_handler extends Handler_base {
                 }
 
                 return $msg;
-        }
+        }//}}}
 
         public function do_circle() {
         //{{{
@@ -392,7 +396,8 @@ class Reg_circle_handler extends Handler_base {
                                 'weight' => $this->_context->get( 'weight' ),
                                 'age' => $this->_context->get( 'age' ),
                                 'gender' => $this->_context->get( 'sex' ),
-                                'qq' => $this->_context->get( 'qq' )
+                                'qq' => $this->_context->get( 'qq' ),
+                                'zwms' => $this->_context->get( 'zwms' )
                         )
                 );
 

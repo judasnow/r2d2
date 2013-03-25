@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>r2d2.todo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: d5e7ce436666e7d4a2eeb12e7f8261dacceb3565 */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+.markdown-body img {
+  max-width: 100%
+}
+</style>
+
+</head>
+<body>
+<h2>todo list</h2>
+<p><del>1、关注后，如果输入非指令字符，即出现笑话循环。指令字符就是如注册ZC、发送位置信息（包含手动输入城市名-地级市名）、输入条件查询C、换性别H、帮助HELP等这些指令。</del></p>
+<p>2、我输入C后，即按条件查询，返回地区、年龄、身高、体重的查询。并且这个C是在注册后才可查。如果在非注册状态下，即返回用户提示ZC注册后即可按条件查询附近的人。
+他注册了，就能读取他当前的位置信息，即按照他的查询条件返回当前所在地级市的附近的人。因为他注册时必须选定性别的，那么就推荐以性给他。如果，用户换到其他地方，那么发送位置，即推荐他所在位置的城市的人。</p>
+<p><span style="color:#f99">我输入自贡市，后面有空格，这些需要排除，比如我前面输入四川 自贡 ，或者四川自贡市，只要凡是有自贡或者自贡市关键字的，我们就认为是输入正确，无论他写的是四川自贡市富顺还是自贡自流井，我们要认的就是自贡或自贡市这两个关键字。意即地级市（我们认为的地级市有两种表达方式：XX，XX市， XX州）</span></p>
+<p>4、您已经更改你的查询性别为：男（MAN）/女（LADY），继续查询请输入JX，这个JX就是现在的N。然后无论男女合计达到3人即提示达到上线。</p>
+<p>5、未注册用户查询达到上线（无论男女合一起时3个）时，用户可能输入文字以任意字符，那么，就是一直提示TA：你还未注册，查询达到3次的上线。请输入“ZC”开始注册吧，可以获得更多的查询机会哦。</p>
+<p>6、点ZC注册时候问文字提示为：
+亲，请在下面4选项中选择一个与您相符的列表编号输入哦~记得慎重选择哦，选择后不可更改哦。
+1）、我是男，想查看女。
+2）、我是女，想查看男。
+3)、我是男，想查看男。
+4）、我是女，想查看女。
+注：如果用户选择了1，那么推荐的是女，除非换性别，即查看的是女。比如3和4就是默认的查看男或女哦。</p>
+<p>7、文字叙述：
+性别及取向选择成功！请输入用户名（由字母、数字以及下划线组成，不能低于三个字符）：
+另一问：这里我们连接数据库后，如果用户名已存在，那么需要提示他：xx(XX是用户名)太受欢迎已被注册啦，换一个吧：
+昵称也是一样的道理。我看这里已经做出来了，但是昵称还不知道。</p>
+<p>8、问题提示：用户名输入成功！请输入昵称（昵称仅接受中文、数字、字母组成，5个字符以上）：
+说明：这里我们目前对昵称的限制是什么？如果做了限制，对不符合要求的，就需要提示重新输入；对已注册的昵称就需要提示：
+XX太受欢迎已被注册啦，换一个吧~请重新输入昵称（中文、数字、字母组成，5个字符以上）：
+9、昵称输入成功！请选择你的身高（厘米），120-230之间，请直接输入此范围的数字：
+10、身高输入成功！请输入您的体重（斤），范围70-220，请直至输入此范围的数字：
+11、体重输入成功！请输入你的年龄（岁），范围18-60，请直接输入此范围数字：
+如用户
+12、年龄输入成功！请输入你的QQ号码：
+注意：我们要控制QQ号码输入低于5位，大于11位
+QQ号格式不对哦，亲~请重新输入你的QQ号码：
+请输入你的交友宣传（144字符以内），如：我是来自XX地方，我想找个同城异性畅谈人生的理想，一起共度美好人生。</p>
+<p>14、交友宣传输入成功！上传几张照片吧，认识附近的人，有照片会员才能获得更多关注哦（第一张照片将作为你的头像，亲务必认真选择哦）。
+上传头像步骤：按输入框旁“+”点照片进行选择。</p>
+<p>15、上传照片成功！继续上传请继续按输入框旁“+”进行选择，退出上传请输入“q”
+说明：目前这里，是限制上传几张？限制什么格式吗？限制上传照片大小为多少？
+这里我们可以做个统计吗？比如上传第1张照片成功
+后面再上传第2张照片成功，以此类推。无论他隔好久上传，计算TA一起上传了几张照片。另外，这里上传的照片，写入我们PC版数据库时候，我有时候是开启了照片审核的，即审核过关才被显示看到，审核不过关，是不能被看到，是否满足此要求限制？</p>
+<p>16、我按Q退出后，退出到哪里了？这个我们要用文字给用户说明，以及引导TA下一步的操作:</p>
+<h2>成功退出上传照片模式！花瓣交友网注册终于大功告成啦！显示退出的同时这里我需要给用户一个总结，如：亲，请牢记以为你的注册信息哦~</h2>
+<p>您的用户名：XX<br />
+您的密码：huaban123（默认密码，可到站点进行修改）另：这里就生产个问题，用户到平台修改密码后，那用户手机版上会有什么变化没有？
+您的昵称：XX<br />
+您的QQ：XX<br />
+您的身高：XX
+您的体重: XX
+您的邮箱地址:XX@qq.com(取得TA输入的QQ号作为邮箱地址)</p>
+<h2>您的交友宣言：XXX</h2>
+<p>你可以查询附近的人了~！发送你的地理位置或输入你所在地级市用户名即可查看你同城的人，请输入你的查询条件：
+输入“c”不限条件查询附近的人
+输入身高数字,如:167,查看附近身高范围在164-170的人
+输入体重数字,如132,查看附近体重范围在129-135的人。
+另一问：我们PC版数据库里是没有查看一段身高和体重范围内的人，这个怎么和PC数据库相协调，有冲突吗？
+我点退出Q后，发送地址貌似不能查询。</p>
+<p>总结：实现了大部分功能，还差最后几步才算成功，发现的一些问题如下：
+1、笑话功能现在我在各个阶段无法查看到，就是我在注册和测试过程中，没有看到笑话在哪里穿插。
+2、按Q退出后发送位置信息和手工输入地级市名无提示，也就是查询不了附近的人。
+3、注册流程需要重新改变一下顺序：
+1）、注册选择性别以及性取向
+2）、提示输入用户名
+3）、提示输入输入昵称
+4）、提示输入QQ号码
+5）、提示输入身高
+6）、提示输入体重
+7）、提示输入年龄
+8）、提示输入交友宣传
+9)、提示上传照片
+这9个步骤才算注册完毕。</p>
+<p>安卓版发送位置问题，能不能查看对爱是怎么解决这个问题的。肯定是能读取位置信息的，看是我们的思路或者是想法错了还是怎么的，应该是能比较简单的实现的。</p>
+<p>5、问题：如果我先关注苏州交友，我注册完毕后，我又取消了关注。然后我再关注，以前的注册信息保留着吗？因为这个是用户常出现的问题。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

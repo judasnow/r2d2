@@ -22,7 +22,7 @@ class Upload_image_circle_hander extends Handler_base {
                         if( Curl::download_file( $img_url , $image_name ) ) {
 
                                 //被下载图片的完整路径
-                                $image_full_path = dirname( __FILE__ ) . "/../temp/$image_name";
+                                $image_full_path = "../temp/$image_name";
 
                                 $user_id = $this->_context->get( 'user_id' );
                                 //尝试 post 到 huaban123.com
@@ -32,7 +32,8 @@ class Upload_image_circle_hander extends Handler_base {
                                 );
                                 $res = json_decode( $res_json , true );
                                 if( $res['type'] == false ) {
-                                        //上传失败了
+                                        //@todo 上传失败或者超时了 将上传任务加到队列中去 之后发送一条消息
+                                        //激活后台的守护进程
                                 }
 
                                 //设置一个标志位 标志用户已经上传的照片的张数

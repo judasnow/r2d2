@@ -38,13 +38,16 @@ class Test_of_strategy extends UnitTestCase{
         public function setUp(){
                 $this->_strategy = new Strategy( self::TEXT_XML );
                 $this->_context = new Context( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'hello2bizuser' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
         }
 
         public function tearDown(){
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk' );
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk:circle_stack' );
         }
-        
+
         //测试关注之后的首条回应 
         //也同时需要测试一些相关的初始化操作是否正确的被执行
         public function _test_when_follow(){
@@ -71,7 +74,7 @@ class Test_of_strategy extends UnitTestCase{
         //同时也会尝试进行 location 的设置
 
         //输入有效地址信息的情况
-        function _test_either_user_input_location_msg_or_city_name_circle_will_be_lookaround (){
+        function test_either_user_input_location_msg_or_city_name_circle_will_be_lookaround (){
                 //断言 context location = null
                 $location = $this->_context->get( 'location' );
                 $this->assertTrue( empty( $location ) );
@@ -83,7 +86,7 @@ class Test_of_strategy extends UnitTestCase{
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'look_around' );
-                
+
                 //断言会返回一条用户信息
                 $this->assertTrue( $post_obj->MsgType == 'news' );
                 //断言仍然处于 look_around circle 
@@ -91,7 +94,7 @@ class Test_of_strategy extends UnitTestCase{
                 $this->assertTrue( $circle == 'look_around' );
 
                 //2
-                //输入 n 
+                //输入 n
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
 
@@ -119,7 +122,7 @@ class Test_of_strategy extends UnitTestCase{
 
         //输入无效地址的情况
         //label 为空
-        public function _test_user_input_empty_label() {
+        public function test_user_input_empty_label() {
                 $location = $this->_context->get( 'location' );
                 $this->assertTrue( empty( $location ) );
 
@@ -134,7 +137,7 @@ class Test_of_strategy extends UnitTestCase{
 
         //测试 joke 在需要的时候 返回 joke
         public function test_joke() {
-                
+
         }
 
         //先错后对
@@ -174,7 +177,7 @@ class Test_of_strategy extends UnitTestCase{
                 $this->assertTrue( $sex_and_target_sex_index == 1 );
 
                 //location
-        
+
                 //没有location的情况
 
                 //输入错误城市
@@ -185,7 +188,7 @@ class Test_of_strategy extends UnitTestCase{
                 //断言返回错误信息
                 $location = $this->_context->get( 'location' );
                 $this->assertTrue( empty( $location ) );
- 
+
                 //输入正确城市
                 $strategy = new Strategy( sprintf( self::TEXT_XML , '天津' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
@@ -193,11 +196,10 @@ class Test_of_strategy extends UnitTestCase{
                 $location = $this->_context->get( 'location' );
                 $this->assertTrue( $location == '天津' );
 
-
                 //已经输入了 locaton 的情况 比如用户已经 look_around 了
                 //这里期待的行为应该是 直接跳过这一步
                 $this->_context->set( 'location' , '自贡' );
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '21312313' ) );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , rand() ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 echo $post_obj->Content . '<br />';
                 echo $location = $this->_context->get( 'location' );
@@ -307,7 +309,7 @@ class Test_of_strategy extends UnitTestCase{
         }
 
         //测试注册途中的退出操作
-        public function _test_reging_q_and_back() {
+        public function test_reging_q_and_back() {
                 $this->_context->set( 'circle' , 'common' );
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
@@ -333,7 +335,6 @@ class Test_of_strategy extends UnitTestCase{
                 $this->assertTrue( $target_sex == '女' );
                 $this->assertTrue( $sex_and_target_sex_index == 1 );
 
-                
                 //q
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
@@ -343,8 +344,8 @@ class Test_of_strategy extends UnitTestCase{
                 //back 
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                //echo $post_obj->Content . '<br />';
-                // 之前已经正确的填写了 1234 应该直接提示用户填写用户名才对
+                echo "<b>" . $post_obj->Content . '</b><br />';
+                //之前已经正确的填写了 1234 应该直接提示用户填写用户名才对
                 $this->assertTrue( stristr( $post_obj->Content , '用户名' ) );
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'reg' );
@@ -376,7 +377,7 @@ class Test_of_strategy extends UnitTestCase{
         }
 
         //search 
-        public function _test_search() {
+        public function test_search() {
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 's' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 echo $post_obj->Content . '<br />';
@@ -388,12 +389,22 @@ class Test_of_strategy extends UnitTestCase{
                 echo $post_obj->Content . '<br />';
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'search_by_height' );
-        
+
                 //按身高查询
                 $strategy = new Strategy( sprintf( self::TEXT_XML , '160' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 echo $post_obj->Content . '<br />';
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'search_by_height' );
+        }
+
+        //测试在注册已经成功的前提之下 输入 zc 将不会再进入注册模式
+        //而是会提示用户已经注册成功 无需再注册
+        public function test_user_input_zc_when_user_has_reg() {
+                $this->_context->set( 'is_reg' , true );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                var_dump(  $post_obj );
         }
 }

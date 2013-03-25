@@ -32,11 +32,7 @@ abstract class Handler_base {
                 $this->_api = new Api();
 
                 $this->_request_msg_type = $this->_post_obj->MsgType;
-                $this->_request_content = strtolower(
-                        Utility::full2half( 
-                                $this->_post_obj->Content
-                        )
-                );
+                $this->_request_content = Utility::format_user_input( $this->_post_obj->Content );
 
                 $this->_msg_producer = new Msg_producer( 
                         array( 

@@ -16,7 +16,7 @@ class Curl {
                         CURLOPT_FRESH_CONNECT => 1, 
                         CURLOPT_RETURNTRANSFER => 1, 
                         CURLOPT_FORBID_REUSE => 1, 
-                        CURLOPT_TIMEOUT => 4, 
+                        CURLOPT_TIMEOUT => 1, 
                         CURLOPT_POSTFIELDS => $post
                 );
 
@@ -34,8 +34,8 @@ class Curl {
                 $defaults = array( 
                         CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($get), 
                         CURLOPT_HEADER => 0, 
-                        CURLOPT_RETURNTRANSFER => TRUE, 
-                        CURLOPT_TIMEOUT => 4 
+                        CURLOPT_RETURNTRANSFER => TRUE,
+                        CURLOPT_TIMEOUT => 1
                 ); 
 
                 $ch = curl_init(); 
