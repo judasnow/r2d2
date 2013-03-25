@@ -6357,3 +6357,259 @@
                 <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364175122</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[帮助信息: 你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176266</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[帮助信息: 你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176272</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[已经更换查询性别为: 男]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176275</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[注册之后才能使用高级搜索功能啊 可以按：身高，体重，年龄查询，赶快输入 "zc" 注册吧。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176285</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[小刚]]></Title>
+                <Description><![CDATA[24岁  普通员工[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=1128]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176412</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176418</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176420</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[小刚]]></Title>
+                <Description><![CDATA[24岁  普通员工[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=1128]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176428</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[小刚]]></Title>
+                <Description><![CDATA[24岁  普通员工[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=1128]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176457</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176662</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176664</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额 没有注册的你 查询的次数达到了上限 。输入 "zc" 注册一下吧 可以获得更多的查询机会哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176677</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176680</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176695</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: common]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364176725</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[这是一个笑话]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364178382</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额，发送的地址信息里面没有中文标签，请手动输入地级市的名称。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364178395</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[酒窝、浅笑]]></Title>
+                <Description><![CDATA[[小提示：输入 "n" 可以看下一个，也可以重新输入地址信息]]]></Description>
+                <PicUrl><![CDATA[http://localhost:1979/UploadFiles/UHP/]]></PicUrl>
+                <Url><![CDATA[http://localhost:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljtXg2q-kA7U-Nx7bJNjlPkE&&user_id=1162]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364178427</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入正确的二级城市名称，或直接发送地址信息]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364178444</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[退出成功]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljtXg2q-kA7U-Nx7bJNjlPkE]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364178453</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[这是一个笑话]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182201</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[帮助信息: 你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182208</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[这是一个笑话]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182242</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[欢迎关注 huaban123 微信公众帐号 。你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182317</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[额，发送的地址信息里面没有中文标签，请手动输入地级市的名称。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182655</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[这是一个笑话]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182661</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: common]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+<xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364182667</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[这是一个笑话]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>

@@ -351,7 +351,6 @@ class Reg_circle_handler extends Handler_base {
 
                                         //到这里已经注册成功 但是
                                         //还需要进入 upload_image circle 至少要上传一张照片才行
-                                        echo $circle = $this->_context->get( 'circle' );
                                         $this->_context->set( 'circle' , 'upload_image' );
 
                                         $this->_response = $this->_msg_producer->do_produce( 
@@ -376,8 +375,8 @@ class Reg_circle_handler extends Handler_base {
                 }//}}}
 
                 //上传照片
-                $is_upload_image =$This->_context->get( 'is_upload_image' );
-                if( !empty( $is_upload_image ) ) {
+                $image_count =$This->_context->get( 'image_count' );
+                if( $image_count > 0 ) {
                         $this->_context->exit_current_circle();
                 }
 

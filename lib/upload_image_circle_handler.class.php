@@ -3,6 +3,7 @@
  * 处理用户上传图片
  */
 require_once 'handler_base.class.php';
+require_once 'config.class.php';
 
 class Upload_image_circle_hander extends Handler_base {
 
@@ -20,11 +21,19 @@ class Upload_image_circle_hander extends Handler_base {
                         //下载到本地 temp
                         if( Curl::download_file( $img_url , $image_name ) ) {
 
-                                //post 到 huaban123.com
-                                //$res_json = Curl::post( 
-                                //        'http://172.17.0.20:1979/action/WeixinMpApi.aspx?action=uploadImg' ,
-                                //        array( 'action'=>'uploadImg' , 'user_id'=>'534' , 'upload'=>$image_name )
-                                //);
+                                //被下载图片的完整路径
+                                $image_full_path = dirname( __FILE__ ) . "/../temp/$image_name";
+
+                                $user_id = $this->_context->get( 'user_id' );
+                                //尝试 post 到 huaban123.com
+                                $res_json = Curl::post(
+                                        Config::$huaban123_server . '/action/WeixinMpApi.aspx?action=uploadImg' ,
+                                        array( 'action'=>'uploadImg' , 'user_id'=>$user_id , 'upload'=>$image_full_path )
+                                );
+                                $res = json_decode( $res_json , true );
+                                if( $res['type'] == false ) {
+                                        //上传失败了
+                                }
 
                                 //设置一个标志位 标志用户已经上传的照片的张数
                                 $image_count = $this->_context->get( 'image_count' );
