@@ -93,9 +93,6 @@ class Strategy {
          * 根据当前 上下文信息 以及用户的输入信息 产生相应的结果
          */
         public function make_res() {
-                
-                //默认的帮助信息 在用户首次关注的时候 以及用户 输入 help|? 的时候显示
-                $help_info = '你可以: 1 输入"zc"进行注册 ， 2 发送地址信息(或直接输入地级市名称)查询附近的人。 3 输入"c" 进行条件查询 。 4 输入"h" 更换查询对象的性别';
 
                 //获取当前 circle
                 $circle = $this->_context->get( 'circle' );
@@ -106,7 +103,7 @@ class Strategy {
 
                 //输入 [help|?] 显示帮助信息
                 if( $request_content == '?' || $request_content == 'help' ) {
-                        $this->_produce_text_response( '帮助信息: ' .  $help_info );
+                        $this->_produce_text_response( Config::$response_msg['help'] );
                         return $this->_response;
                 }
 
@@ -126,7 +123,7 @@ class Strategy {
                         //初始化用户是否已经注册
                         $this->_context->set( 'is_reg' , false );
 
-                        $this->_produce_text_response( '欢迎关注 huaban123 微信公众帐号 。' .  $help_info );
+                        $this->_produce_text_response( Config::$response_msg['hello2bizuser'] );
                         return $this->_response;
                 }
 
