@@ -50,7 +50,7 @@ class Upload_image_circle_hander extends Handler_base {
 
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' , 
-                                        array( 'content' => sprintf( Config::$response_msg['upload_image_success'] , $image_count )
+                                        array( 'content' => sprintf( Config::$response_msg['upload_image_success'] , $image_count ) )
                                 );
                                 return $this->_response;
                         } else {
