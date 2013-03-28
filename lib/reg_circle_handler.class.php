@@ -16,8 +16,8 @@ class Reg_circle_handler extends Handler_base {
                 $this->_request_msg_type = $this->_post_obj->MsgType;
                 $this->_request_content = $this->_post_obj->Content;
 
-                $this->_msg_producer = new Msg_producer( 
-                        array( 
+                $this->_msg_producer = new Msg_producer(
+                        array(
                                 'from'=>$this->_post_obj->ToUserName ,
                                 'to'=>$this->_post_obj->FromUserName
                         )
@@ -323,6 +323,8 @@ class Reg_circle_handler extends Handler_base {
                                 //触发注册事件
                                 if( $this->do_reg() ) {
                                         $this->_context->set( 'is_reg' , true );
+                                        //清楚 search_count 
+                                        $this->_context->set( 'search_count' , 0 );
                                         $this->_context->set( 'reg_next_step' , 'upload_image' );
 
                                         //到这里已经注册成功 但是

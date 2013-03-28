@@ -95,9 +95,9 @@ class Strategy {
                         return $this->_response;
                 }
 
-                //关注时自动发送的欢迎信息 
+                //关注时自动发送的欢迎信息
                 //也可以作为整个应用的 初始化函数
-                if( $this->_request_content == 'hello2bizuser' ) {
+                if( $this->_request_content == 'Hello2BizUser' ) {
                         //进行一系列的初始化操作
 
                         //初始化用户查找对象的性别信息
@@ -138,8 +138,10 @@ class Strategy {
                                                 $content = Config::$response_msg['quit_circle']['reg'];
                                         }
 
-                                        //直接再退一层 到 common
-                                        $this->_context->exit_current_circle();
+                                        //一直退到 common
+                                        while( $this->_context->get( 'circle' ) == 'common' ) {
+                                                $this->_context->exit_current_circle();
+                                        }
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' ,
                                                 array( 'content' => $content )
@@ -196,7 +198,6 @@ class Strategy {
                 //更换查询对象性别
                 if( $this->_request_content == 'h' ) {
                         $target_sex = $this->_context->get( 'target_sex' );
-                        $this->_context->set( 'last_search_cond' , '' );
                         //@todo 可由 lua 脚本完成
                         if( $target_sex == '女' ) {
                                 $target_sex = '男';
@@ -209,9 +210,9 @@ class Strategy {
                         //若当前所处的 circle 为 任何一种 search 则在最后需要提示用户 如需继续 输入 n
                         $all_search_circle_name = array( 'look_around' , 'search_by_age' , 'search_by_weight' , 'search_by_height' );
                         if( in_array( $circle , $all_search_circle_name ) ) {
-                                $content = "您已经更改查询性别为：$target_sex 。继续查询请按 “n”";
+                                $content = "您已经更改查询性别为：$target_sex 。继续查询请按 “n”，或重新输入查询条件。";
                         } else {
-                                $content = "您已经更改查询性别为：$target_sex 。您可以发送位置信息查找附近的人，也可以注册之后输入“c”进行详细查询";
+                                $content = "您已经更改查询性别为：$target_sex 。您可以发送位置信息查找附近的人，也可以注册之后输入“c”进行详细查询。";
                         }
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' ,
@@ -222,7 +223,7 @@ class Strategy {
 
                 //输入 location 类型的消息 或者输入的是有效的二级地址的名称
                 //则进入到查询附近的人 look around circle
-                //在 reg 下要屏蔽这种行为
+                //在 reg circle 下要屏蔽这种行为
                 $location_circle_handler = new Location_circle_handler( $this->_post_obj );
                 if( $location_circle_handler->is_possible_location() && $circle != 'reg' ) {
                         if( $circle != 'look_around' ) {

@@ -12,7 +12,6 @@ class Search_by_weight_circle_handler extends Sub_search_circle_handler_base {
         private function _search_by_weight() {
 
                 $cond = array( 'weight'=>$this->_weight );
-
                 $res = $this->make_search_result( $cond );
 
                 if( $res[0] ) {

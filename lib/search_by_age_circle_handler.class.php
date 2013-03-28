@@ -1,48 +1,44 @@
 <?php
+/**
+ * 按年龄进行查询
+ */
 require_once 'sub_search_circle_handler_base.class.php';
 require_once 'config.class.php';
 
 class Search_by_age_circle_handler extends Sub_search_circle_handler_base {
 
         public function __construct( $post_obj ) {
-
+        //{{{
                 parent::__construct( $post_obj );
-        }
-
-        private function _search_by_age() {
-
-                $cond = array( 'location'=>$this->_location , 'target_sex'=>$this->_target_sex , 'age'=>$this->_age );
-
-                $res = $this->make_search_result( $cond );
-
-                if( $res[0] ) {
-                        $this->_response = $res[1];
-                } else {
-                        //@todo 查询失败的处理 直接返回结果
-                        $this->_response = $res[1];
-                }
-        }
+        }//}}}
 
         public function do_circle() {
-                $request_content = $this->_request_content;
+                $last_search_cond = $this->_context->get( 'last_search_cond' );
 
-                //判断是否为 n , 如果是的话 就不需要切换身高信息 只需要显示下一张便可
-                if( $request_content == 'n' ) {
-                        $this->_search_by_age();
-                        return $this->_response;
+                //判断是否为 n , 如果是的话 就不需要切换城市 只需要显示下一用户便可
+                //但是只在 last_search_cond 不为空的情况下 才可用
+                if( $this->_request_msg_type == 'text' ) {
+                        if( $this->_request_content == 'n' && !empty( $last_search_cond ) ) {
+                                $res = $this->make_search_result( array() , true );
+                                $this->_response = $res[1];
+                                return $this->_response;
+                        }
                 }
 
-                if( $request_content > 18 && $request_content < 60 ) {
-                        $this->_location = $this->_context->get( 'location' );
-                        $this->_target_sex = $this->_context->get( 'target_sex' );
-                        $this->_age = $request_content;
-                        $this->_search_by_age();
+                if( $request_content >= 18 && $request_content <= 60 ) {
 
+                        $this->_age = $this->_request_content;
+                        $res =$this->make_search_result( array( 'age'=>$age ) );
+                        if( $res[0] == true ) {
+                                $this->_response = $res[1];
+                                return $this->_response;
+                        }
                         return $this->_response;
                 } else {
+                        //年龄格式错误
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '请输入正确格式的年龄' )
+                                array( 'content' => '年龄输入不合法，请输入18-60范围内的数字' )
                         );
                         return $this->_response;
                 }

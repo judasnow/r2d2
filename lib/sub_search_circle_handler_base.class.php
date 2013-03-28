@@ -20,11 +20,13 @@ class Sub_search_circle_handler_base extends Handler_base {
         public function __construct( $post_obj ) {
 
                 parent::__construct( $post_obj );
+
                 $this->_search_count = $this->_context->get( 'search_count' );
                 $this->_location = $this->_context->get( 'location' );
                 $this->_target_sex = $this->_context->get( 'target_sex' );
                 $this->_is_reg = $this->_context->get( 'is_reg' );
                 $this->_search_result = $this->_context->get( 'search_result' );
+
                 $this->_search_result_cache = new Search_result_cache();
         }
 
@@ -33,61 +35,83 @@ class Sub_search_circle_handler_base extends Handler_base {
          * @return 用尽返回 true 否则 返回 false
          */
         public function is_search_count_outrange() {
+        //{{{
                 $search_count = $this->_context->get( 'search_count' );
                 if( $this->_is_reg == true ) {
                         //已经注册的情况下
                         if( $search_count > Config::$max_search_count_with_reg ) {
                                 //达到注册后允许的上限 仅仅提示用户查询次数达到了上限
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true , '额，查询的次数达到每天' . (Config::$max_search_count_with_reg + 1) . '次的上限了啊 亲。去我们的网站看看吧，不限制查询次数哦: http://huaban123.com 。' );
+                                return array( true , sprintf( Config::$response_msg['search_count_outrange_after_reg'] , Config::$max_search_count_with_reg + 1 ) );
                         }
                 } else {
                         //还没注册的情况下
                         if( $this->_search_count > Config::$max_search_count_without_reg ) {
                                 //达到未注册时允许的上限 提示用户注册
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true , '咦，您还未注册，已达到查询' . (Config::$max_search_count_without_reg + 1) . '次的上限。赶快输入“ZC”开始注册吧，获得更多的查询机会哦。注册后，你也可以出现在附近被推荐哦。' );
+                                return array( true ,  Config::$response_msg['search_count_outrange_before_reg'] , Config::$max_search_count_without_reg + 1 );
                         }
                 }
 
                 //还没有用尽
                 return array( false , '还可以继续查询' );
-        }
+        }//}}}
 
         /**
          * 对查询次数进行一次加一操作
          */
         public function incr_search_count() {
+        //{{{
                 return $this->_context->incr( 'search_count' );
-        }
+        }//}}}
 
         /**
          * 构造查询结果
          *
          * @param $cond 查询的条件
          * @param $use_last_search_cond 是否使用上次的查询条件
+         * @return array { res , info_xml }
          */
-        public function make_search_result( $cond = array() , $use_last_search_cond ) {
+        public function make_search_result( $cond = array() , $use_last_search_cond = false ) {
         //{{{
+                if( $use_last_search_cond == true ) {
+                        //使用上一次的查询条件 但是每一次 都需要将 target_sex 重新整合
+                        //可以看下面的 完善 $cond 
+                        $last_search_cond_json = $this->_context->get( 'last_search_cond' );
+                        if( !empty( $last_search_cond_json ) ) {
+                                $cond = json_decode( $last_search_cond_json , true );
+                        } else {
+                                throw new Exception( 'set use_last_search_cond with true , but last_search_cond is empty.' );
+                        }
+                } else {
+                        //记录查询条件
+                        if( !empty( $cond ) ) {
+                                $this->_context->set( 'last_search_cond' , json_encode( $cond ) );
+                        } else {
+                                throw new Exception( 'set use_last_search_cond with false that mean use new cond , but cond is empty.' );
+                        }
+                }
+
                 //对查询次数执行加一操作
                 $this->incr_search_count();
 
-                $target_sex = $this->_context->get( 'target_sex' );
-                $location = $this->_context->get( 'location' );
-                $is_reg = $this->_context->get( 'is_reg' );
-
                 //完善 $cond
-                $cond['sex'] = $target_sex;
-                $cond['location'] = $location;
+                $cond['sex'] = $this->_target_sex;
+                if( empty( $cond['location'] ) ) {
+                        //对于除了 look_around 之外的查询 才使用当前的 location
+                        //作为默认的城市信息
+                        $cond['location'] = $this->_location;
+                }
 
                 //判断是否已经超过了最大的可查询次数
                 $res = $this->is_search_count_outrange();
-                if( $res[0] ) {
+                if( $res[0] == true ) {
+                        //已经用尽的情况
                         $search_result_xml = $this->_msg_producer->do_produce(
                                 'text' ,
                                 array( 'content' => $res[1] )
                         );
-                        return array( false , $search_result_xml );
+                        return array( true , $search_result_xml );
                 }
 
                 //查询次数还没有用尽的情况下

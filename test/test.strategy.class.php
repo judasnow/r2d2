@@ -46,7 +46,7 @@ class Test_of_strategy extends UnitTestCase{
         }
 
         //身高
-        public function test_search_method_select_height() {
+        public function _test_search_method_select_height() {
         //{{{
                 //未注册 c
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'c' ) );

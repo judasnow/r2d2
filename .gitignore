@@ -1,1 +1,4 @@
 ﻿*.xml
+temp
+*.jpg
+!test.jpg

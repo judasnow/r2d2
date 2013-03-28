@@ -52,7 +52,7 @@ class Search_method_select_circle_handler extends Handler_base {
 
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '请输入年龄信息:' )
+                                array( 'content' => '请输入年龄信息（18-60之间的数字）：' )
                         );
                         return $this->_response;
                 }
