@@ -9,32 +9,32 @@ class Search_by_weight_circle_handler extends Sub_search_circle_handler_base {
                 parent::__construct( $post_obj );
         }
 
-        private function _search_by_height( $just_next = false ) {
-                $res = $this->make_search_result( array( 'location'=>$this->_location , 'target_sex'=>$this->_target_sex , 'weight'=>$this->_weight ) , $just_next );
+        private function _search_by_weight() {
+
+                $cond = array( 'weight'=>$this->_weight );
+
+                $res = $this->make_search_result( $cond );
+
                 if( $res[0] ) {
                         $this->_response = $res[1];
                 } else {
-                        //查询失败
+                        //@todo 查询失败的处理 直接返回结果
+                        $this->_response = $res[1];
                 }
         }
 
         public function do_circle() {
-                //判断是否为 n , 如果是的话 就不需要切换weight信息 只需要显示下一张便可
-                if( $this->_request_msg_type == 'text' ) {
-                        if( $this->_request_content == 'n' && !empty( $this->_search_result ) ) {
-                                $this->_search_by_height( true );
-                                return $this->_response;
-                        }
-                }
-
                 $request_content = $this->_request_content;
 
-                if( $request_content > 50 && $request_content < 200 ) {
-                        //@see search_by_height_circle_handler
-                        $this->_location = $this->_context->get( 'location' );
-                        $this->_target_sex = $this->_context->get( 'target_sex' );
+                //判断是否为 n , 如果是的话 就不需要切换身高信息 只需要显示下一张便可
+                if( $request_content == 'n' ) {
+                        $this->_search_by_weight();
+                        return $this->_response;
+                }
+
+                if( $request_content > 70 && $request_content < 230 ) {
                         $this->_weight = $request_content;
-                        $this->_search_by_height();
+                        $this->_search_by_weight();
 
                         return $this->_response;
                 } else {

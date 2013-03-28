@@ -36,8 +36,16 @@ class Utility {
          */
         static public function valid_city( $city_name ) {
         //{{{
-                $city_name = preg_replace( "/[市|州]$/u" , "" , $city_name );
-                return in_array( $city_name , City_list::$list );
+                $city_name = rtrim( $city_name , '市' );
+                if( in_array( $city_name , City_list::$list ) ) {
+                        return $city_name;
+                } else { 
+                        $city_name = rtrim( '州' );
+                        if( in_array( $city_name , City_list::$list ) ) {
+                                return $city_name;
+                        }
+                }
+                return false;
         }//}}}
 
         /**

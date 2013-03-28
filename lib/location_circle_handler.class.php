@@ -1,5 +1,6 @@
 <?php
 require_once 'handler_base.class.php';
+require_once 'config.class.php';
 
 class Location_circle_handler extends Handler_base {
 
@@ -32,6 +33,31 @@ class Location_circle_handler extends Handler_base {
         }//}}}
 
         /**
+         * 通过 baidu 地图 api 获取地理位置
+         */
+        private function _get_label_by_xy( $x , $y ) {
+        //{{{
+                $url = 'http://api.map.baidu.com/geocoder';
+                $data = array(
+                        'location' => $x . ',' . $y ,
+                        'output' => 'json' ,
+                        'key' => '134e824172278240f60e47bbe3dd6c24'
+                );
+                $res_json = Curl::get( $url , $data );
+
+                $res = json_decode( $res_json , true );
+                if( $res['status'] == 'OK' ) {
+                        $city_name = $res['result']['addressComponent']['city'];
+                }
+
+                if( !empty( $city_name ) ) {
+                        return $city_name;
+                } else {
+                        return false;
+                }
+        }//}}}
+
+        /**
          * 不是循环处理 仅仅只是根据用户输入获取 location
          * 注意 仅仅只在 location 为空时 才设置之
          * @return 设置成功则返回 array( true , $this->_city_name )
@@ -40,26 +66,28 @@ class Location_circle_handler extends Handler_base {
         public function just_get_location() {
                 if( !$this->is_possible_location() ) {
                         //格式不对( text 类型的话 ) 或者根本不是 location 类型的
-                        return array( false , '请输入正确的二级城市名称，或直接发送地址信息' );
+                        return array( false , Config::$response_msg['location_input_valid'] );
                 }
 
                 //如果发送的是 location 类型的信息
                 if( $this->_request_msg_type == 'location' ) {
                         $label = $this->_post_obj->Label;
-                        $x = $this->_post_obj->Location_x;
-                        $y = $this->_post_obj->Location_y;
+                        $x = $this->_post_obj->Location_X;
+                        $y = $this->_post_obj->Location_Y;
 
-                        //注意其不为empty 而为 0
-                        //@todo 返回的对象很奇葩 是一个数组
-                        if( empty( $label[0] ) ) {
-                                //label 中没有信息
-                                return array( false , '额，发送的地址信息里面没有中文标签，请手动输入地级市的名称。' );
+                        $city_name = $this->_get_label_by_xy( $x , $y );
+                        if( empty( $city_name ) ) {
+                                //api 失败了
+                                return array( false , Config::$response_msg['input_invalid_message']['location_fetch_label_fail'] );
                         } else {
-                                //从 label 中取出 地址信息
-                                $this->_city_name = preg_split( '/省|区|市/u' , $label )[1];
-                                $this->_set_user_location();
+                                //为了和手动输入的统一
+                                //删除最右的单位 市|州 等
+                                //因为市肯定市多余的 先删除 市
+                                $city_name = Utility::valid_city( $city_name );
+                                if( $city_name != false ) {
+                                        return array( true , $city_name );
+                                }
 
-                                return array( true , $this->_city_name );
                         }
                 }
 
@@ -67,7 +95,7 @@ class Location_circle_handler extends Handler_base {
                 //因为进入本循环之已经经过了有效性的验证
                 //所以直接使用便可
                 if( $this->_request_msg_type == 'text' ) {
-                        $this->_city_name = $this->_request_content;
+                        $this->_city_name =  Utility::valid_city( $this->_request_content );
                         $this->_set_user_location();
 
                         return array( true , $this->_city_name );
@@ -75,7 +103,7 @@ class Location_circle_handler extends Handler_base {
         }
 
         public function do_circle() {
-        //{{{
-                
+                //{{{
+
         }//}}}
 }

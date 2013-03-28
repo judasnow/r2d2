@@ -15,17 +15,15 @@ class Look_around_circle_handler extends Sub_search_circle_handler_base{
         public function __construct( $post_obj ) {
         //{{{
                 parent::__construct( $post_obj );
-                $this->_search_result = $this->_context->get( 'search_result' );
+                $this->_last_search_cond_json = $this->_context->get( 'last_search_cond' );
         }//}}}
 
         /**
          * 查找附近的人
-         *
-         * @param $just_next 如果该参数为 true 则仅仅只是显示上次查询结果的下一条记录 而不重新进行查询
          */
-        private function _look_around( $just_next = false ) {
+        private function _look_around( $use_last_search_cond = false ) {
         //{{{
-                $res = $this->make_search_result( array( 'location' => (string)$this->_city_name ) , $just_next );
+                $res = $this->make_search_result( array( 'location' => $this->_city_name ) , $use_last_search_cond );
                 if( $res[0] ) {
                         $this->_response = $res[1];
                 } else {
@@ -36,9 +34,9 @@ class Look_around_circle_handler extends Sub_search_circle_handler_base{
 
         public function do_circle() {
         //{{{
-                //判断是否为 n , 如果是的话 就不需要切换城市 只需要显示下一张便可
+                //判断是否为 n , 如果是的话 就不需要切换城市 只需要显示下一用户便可
                 if( $this->_request_msg_type == 'text' ) {
-                        if( $this->_request_content == 'n' && !empty( $this->_search_result ) ) {
+                        if( $this->_request_content == 'n' && !empty( $this->_last_search_cond_json ) ) {
                                 $this->_look_around( true );
                                 return $this->_response;
                         }

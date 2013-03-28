@@ -34,8 +34,8 @@ abstract class Handler_base {
                 $this->_request_msg_type = $this->_post_obj->MsgType;
                 $this->_request_content = Utility::format_user_input( $this->_post_obj->Content );
 
-                $this->_msg_producer = new Msg_producer( 
-                        array( 
+                $this->_msg_producer = new Msg_producer(
+                        array(
                                 'from'=>$this->_post_obj->ToUserName ,
                                 'to'=>$this->_post_obj->FromUserName
                         )
@@ -44,5 +44,4 @@ abstract class Handler_base {
         }
 
         abstract public function do_circle();
-
 }

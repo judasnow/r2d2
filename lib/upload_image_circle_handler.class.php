@@ -13,6 +13,7 @@ class Upload_image_circle_hander extends Handler_base {
         }
 
         public function do_circle() {
+        //{{{
                 if( $this->_request_msg_type == 'image' ) {
                         //获取 $url
                         $img_url = $this->_post_obj->PicUrl;
@@ -36,24 +37,26 @@ class Upload_image_circle_hander extends Handler_base {
                                         //激活后台的守护进程
                                 }
 
+                                //@todo 初始化 是不是可以移到其他地方?
                                 //设置一个标志位 标志用户已经上传的照片的张数
                                 $image_count = $this->_context->get( 'image_count' );
-                                if( empty( $image_count ) || !is_numeric( $image_count ) ) {
+                                if( empty( $image_count ) ) {
                                         $this->_context->set( 'image_count' , 0 );
                                         $image_count = 0;
                                 }
                                 //上传成功 对于照片的数量执行加 1 操作
                                 $this->_context->incr( 'image_count' );
+                                $image_count = $this->_context->get( 'image_count' );
 
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' , 
-                                        array( 'content' => '上传成功，可以继续上传图片也可以 输入 "q" 退出' )
+                                        array( 'content' => Config::$response_msg['upload_image_success'] . "（一共上传了 $image_count 张照片）" )
                                 );
                                 return $this->_response;
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => '上传失败，可以请稍后再试一试。' )
+                                        array( 'content' => Config::$response_msg['upload_image_fail'] )
                                 );
                                 return $this->_response;
                         }
@@ -61,9 +64,9 @@ class Upload_image_circle_hander extends Handler_base {
                         //所有的其他行为均被视为无效行为
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '上传失败,确定您上传的是"图片"哦亲.可以继续上传图片也可以 输入 "q" 退出' )
+                                array( 'content' => Config::$response_msg['upload_image_invalid'] )
                         );
                         return $this->_response;
                 }       
-        }
+        }//}}}
 }

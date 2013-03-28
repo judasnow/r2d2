@@ -92,4 +92,22 @@ class Context {
 
                 return $last_circle;
         }
+
+        /**
+         * 获取全部用户注册信息
+         */
+        public function get_user_info() {
+                $res = $this->_store->hmget( $this->_weixin_id , 'sex' , 'target_sex' , 'username' , 'nickname' , 'qq' , 'height' , 'weight' , 'zwms' );
+                $user_info['sex'] = $res[0];
+                $user_info['target_sex'] = $res[1];
+                $user_info['username'] = $res[2];
+                $user_info['nickname'] = $res[3];
+                $user_info['qq'] = $res[4];
+                $user_info['height'] = $res[5];
+                $user_info['weight'] = $res[6];
+                $user_info['zwms'] = $res[7];
+                $user_info['email'] = $user_info['qq'] . '@qq.com';
+
+                return $user_info;
+        }
 }

@@ -93,5 +93,16 @@ class Test_of_context extends UnitTestCase {
                 $last_circle = $this->_context->get( 'last_circle' );
                 $this->assertTrue( $last_circle == 'common' );
         }
+
+        public function test_get_user_info() {
+                $username = $this->_context->set( 'username' , '13' );
+                $nickname = $this->_context->set( 'nickname' , '1313' );
+                $qq = $this->_context->set( 'qq' , '1414' );
+                $height = $this->_context->set( 'height' , '23123' );
+                $weight = $this->_context->set( 'weight' , '123' );
+                $zwms = $this->_context->set( 'zwms' , '12839' );
+
+                var_dump( $this->_context->get_user_info() );
+        }
 }
 

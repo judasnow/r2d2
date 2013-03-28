@@ -20,12 +20,14 @@ class Joke_producer {
         /**
          * 随机产生一个笑话
          * 目前只能返回 text 类型的笑话
+         *
+         * @param $extra_info 笑话之外的信息 比如用户未注册的时候就提示用户
          */
-        public function rand_produce() {
+        public function rand_produce( $extra_info ) {
                 $joke = $this->_pick_a_text_joke();
-                $joke_xml = $this->_msg_producer->do_produce( 
+                $joke_xml = $this->_msg_producer->do_produce(
                                 'text' ,
-                                array( 'content' => $joke[0] )
+                                array( 'content' => $joke[0] . $extra_info )
                         );
                 return $joke_xml;
         }

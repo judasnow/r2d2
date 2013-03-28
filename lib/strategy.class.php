@@ -15,7 +15,7 @@ require_once 'utility.class.php';
 require_once 'common_circle_handler.class.php';
 require_once 'reg_circle_handler.class.php';
 require_once 'look_around_circle_handler.class.php';
-require_once 'search_method_selcet_circle_handler.class.php';
+require_once 'search_method_select_circle_handler.class.php';
 require_once 'search_by_height_circle_handler.class.php';
 require_once 'search_by_weight_circle_handler.class.php';
 require_once 'search_by_age_circle_handler.class.php';
@@ -57,7 +57,6 @@ class Strategy {
                 $this->_post_obj = simplexml_load_string( $post_xml , "SimpleXMLElement" , LIBXML_NOCDATA );
 
                 $this->_request_msg_type = $this->_post_obj->MsgType;
-
                 //全角转换 去除空格 以及 大小写转换
                 $this->_request_content = Utility::format_user_input( $this->_post_obj->Content );
 
@@ -74,22 +73,6 @@ class Strategy {
         }//}}}
 
         /**
-         * 对于经常使用的文本回复信息的封装
-         * 会将信息写入 $this->_response
-         */
-        private function _produce_text_response( $content ) {
-        //{{{
-                if( empty( $content ) ) {
-                        throw new Exception( 'try to send empty txt msg' );
-                } else {
-                        $this->_response = $this->_msg_producer->do_produce( 
-                                'text' ,
-                                array( 'content' => $content )
-                        );
-                }
-        }//}}}i
-
-        /**
          * 根据当前 上下文信息 以及用户的输入信息 产生相应的结果
          */
         public function make_res() {
@@ -97,22 +80,25 @@ class Strategy {
                 //获取当前 circle
                 $circle = $this->_context->get( 'circle' );
 
+                //获取用户是否已经注册
+                $is_reg = $this->_context->get( 'is_reg' );
+
                 //通用操作 和 circle 无关 也就是说在所有的 circle 中都会其作用
                 //{{{
-                $request_content = $this->_request_content;
 
                 //输入 [help|?] 显示帮助信息
-                if( $request_content == '?' || $request_content == 'help' ) {
-                        $this->_produce_text_response( Config::$response_msg['help'] );
+                if( $this->_request_content == '?' || $this->_request_content == 'help' ) {
+                        $this->_response = $this->_msg_producer->do_produce( 
+                                'text' ,
+                                array( 'content' => Config::$response_msg['help'] )
+                        );
                         return $this->_response;
                 }
 
                 //关注时自动发送的欢迎信息 
                 //也可以作为整个应用的 初始化函数
-                if( $request_content == 'hello2bizuser' ) {
+                if( $this->_request_content == 'hello2bizuser' ) {
                         //进行一系列的初始化操作
-
-                        //初始化
 
                         //初始化用户查找对象的性别信息
                         $this->_context->set( 'target_sex' , '女' );
@@ -123,65 +109,94 @@ class Strategy {
                         //初始化用户是否已经注册
                         $this->_context->set( 'is_reg' , false );
 
-                        $this->_produce_text_response( Config::$response_msg['hello2bizuser'] );
+                        $this->_response = $this->_msg_producer->do_produce( 
+                                'text' ,
+                                array( 'content' => Config::$response_msg['hello2bizuser'] )
+                        );
                         return $this->_response;
                 }
 
                 //输入 q 返回到上一级循环
-                if( $request_content == 'q' ) {
+                if( $this->_request_content == 'q' ) {
+                        //处理几种特殊的返回
+                        //记录是从哪个 circl 退出的
+                        $is_quit_from = $circle;
                         if( $this->_context->exit_current_circle() ) {
-                                $this->_produce_text_response( '退出成功' );
+
+                                $circle = $this->_context->get( 'circle' );
+
+                                if( $is_quit_from == 'upload_image' &&  $circle == 'reg' ) {
+                                        //从 upload_image 返回 reg , 如果用户已经上传至少一张照片了，就提示用户注册成功
+                                        $image_count = $this->_context->get( 'image_count' );
+                                        if( $image_count > 0 ) {
+                                                $user_info = $this->_context->get_user_info();
+                                                $content = sprintf(
+                                                        Config::$response_msg['reg_success'] ,
+                                                        $user_info['username'] , $user_info['nickname'] , $user_info['qq'] , $user_info['height'] , $user_info['weight'] , $user_info['email'] , $user_info['zwms'] );
+                                        } else {
+                                                //从注册模式退出但是还没有上传图片
+                                                $content = Config::$response_msg['quit_circle']['reg'];
+                                        }
+
+                                        //直接再退一层 到 common
+                                        $this->_context->exit_current_circle();
+                                        $this->_response = $this->_msg_producer->do_produce( 
+                                                'text' ,
+                                                array( 'content' => $content )
+                                        );
+                                        return $this->_response;
+                                }
+
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' ,
+                                        array( 'content' => Config::$response_msg['quit_circle'][$is_quit_from] )
+                                );
                                 return $this->_response;
                         } else {
-                                $this->_produce_text_response( '不能再退了，亲。' );
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' ,
+                                        array( 'content' => '不能再退了，亲。' )
+                                );
                                 return $this->_response;
                         }
                 }
 
                 //输入 zc 进入注册流程
-                if( $request_content == 'zc' ) {
-                        //还需要保证用户没有注册 $is_reg = false 
-                        $is_reg = $this->_context->get( 'is_reg' );
-                        if( $is_reg == true ) {
+                if( $this->_request_content == 'zc' ) {
+                        //还需要保证用户没有注册 $is_reg = false
+                        //而且需要照片数不为 0
+                        $image_count = $this->_context->get( 'image_count' );
+                        if( $is_reg == true && $image_count > 0 ) {
                                 //用户已经注册
-                                $this->_produce_text_response( '您已经注册了啊，亲。去我们的网站看看吧: http://huaban123.com' );
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' ,
+                                        array( 'content' => '您已经注册了啊，亲。去我们的网站看看吧: http://huaban123.com' )
+                                );
                                 return $this->_response;
                         }
                         if( $circle != 'reg' ) {
                                 $this->_context->set( 'circle' , 'reg' );
+                                
+                                $reg_next_step = $this->_context->get( 'reg_next_step' );
+                                if( $reg_next_step == 'upload_image' ) {
+                                        $this->_context->set( 'circle' , 'upload_image' );
+                                }
+
                                 $reg_circle_handelr = new Reg_circle_handler( $this->_post_obj );
-                                $responce_content = $reg_circle_handelr->produce_msg_by_reg_step();
+                                $responce_content = $reg_circle_handelr->produce_msg_by_last_reg_step();
 
-                                $this->_produce_text_response( $responce_content );
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' ,
+                                        array( 'content' => $responce_content )
+                                );
                                 return $this->_response;
-                        }
-                }
-
-                //输入 s 进入 search_method_selcet 流程 
-                //必须注册之后
-                if( $request_content == 's' ) {
-                        if( $is_reg != true ) {
-                                $this->_produce_text_response( '注册之后才能使用高级搜索功能啊 可以按：身高，体重，年龄查询，赶快输入 "zc" 注册吧。' );
-                                return $this->_response;
-                        }
-
-                        if( $circle != 'search_method_selcet' ) {
-                                $this->_context->set( 'circle' , 'search_method_selcet' );
-                                return $this->make_res();
-                        }
-                }
-
-                //输入 sczp 可以进行照片上传
-                if( $request_content == 'sczp' ) {
-                        if( $circle != 'upload_image' ) {
-                                $this->_context->set( 'circle' , 'upload_image' );
-                                return $this->make_res();
                         }
                 }
 
                 //更换查询对象性别
-                if( $request_content == 'h' ) {
+                if( $this->_request_content == 'h' ) {
                         $target_sex = $this->_context->get( 'target_sex' );
+                        $this->_context->set( 'last_search_cond' , '' );
                         //@todo 可由 lua 脚本完成
                         if( $target_sex == '女' ) {
                                 $target_sex = '男';
@@ -191,11 +206,17 @@ class Strategy {
                                 $this->_context->set( 'target_sex' , '女' );
                         }
 
+                        //若当前所处的 circle 为 任何一种 search 则在最后需要提示用户 如需继续 输入 n
+                        $all_search_circle_name = array( 'look_around' , 'search_by_age' , 'search_by_weight' , 'search_by_height' );
+                        if( in_array( $circle , $all_search_circle_name ) ) {
+                                $content = "您已经更改查询性别为：$target_sex 。继续查询请按 “n”";
+                        } else {
+                                $content = "您已经更改查询性别为：$target_sex 。您可以发送位置信息查找附近的人，也可以注册之后输入“c”进行详细查询";
+                        }
                         $this->_response = $this->_msg_producer->do_produce( 
-                                'text' , 
-                                array( 'content' => "已经更换查询性别为: $target_sex" )
+                                'text' ,
+                                array( 'content' => $content )
                         );
-                        
                         return $this->_response;
                 }
 
@@ -210,8 +231,11 @@ class Strategy {
                         }
                 }
 
-                if( $request_content == 'debug' ) {
-                        $this->_produce_text_response( '当前循环: ' . $circle );
+                if( $this->_request_content == 'debug' ) {
+                        $this->_response = $this->_msg_producer->do_produce( 
+                                'text' ,
+                                array( 'content' =>  '当前循环: ' . $circle )
+                        );
                         return $this->_response;
                 }
                 //}}}
@@ -242,10 +266,10 @@ class Strategy {
                 }//}}}
 
                 //按条件搜索
-                if( $circle == 'search_method_selcet' ) {
+                if( $circle == 'search_method_select' ) {
                 //{{{
-                        $search_method_selcet_circle_handler = new Search_method_selcet_circle_handler( $this->_post_obj );
-                        $this->_response = $search_method_selcet_circle_handler->do_circle();
+                        $search_method_select_circle_handler = new Search_method_select_circle_handler( $this->_post_obj );
+                        $this->_response = $search_method_select_circle_handler->do_circle();
                         return $this->_response;
                 }//}}}
 
@@ -254,6 +278,22 @@ class Strategy {
                 //{{{
                         $search_by_height_circle_handler = new Search_by_height_circle_handler( $this->_post_obj );
                         $this->_response = $search_by_height_circle_handler->do_circle();
+                        return $this->_response;
+                }//}}}
+
+                //按体重查询
+                if( $circle == 'search_by_weight' ) {
+                //{{{
+                        $search_by_weight_circle_handler = new Search_by_weight_circle_handler( $this->_post_obj );
+                        $this->_response = $search_by_weight_circle_handler->do_circle();
+                        return $this->_response;
+                }//}}}
+
+                //按年龄查询
+                if( $circle == 'search_by_age' ) {
+                //{{{
+                        $search_by_age_circle_handler = new Search_by_age_circle_handler( $this->_post_obj );
+                        $this->_response = $search_by_age_circle_handler->do_circle();
                         return $this->_response;
                 }//}}}
 
