@@ -108,7 +108,9 @@ class Test_of_strategy extends UnitTestCase{
 
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $circle = $this->_context->get( 'circle' );
                 var_dump( $post_obj );
-    
+                $this->assertTrue( $circle == 'common' );
+
         }
 }

@@ -39,6 +39,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                 $search_count = $this->_context->get( 'search_count' );
                 if( $this->_is_reg == true ) {
                         //已经注册的情况下
+                        //达到上限之后 返回到最外层
                         if( $search_count > Config::$max_search_count_with_reg ) {
                                 //达到注册后允许的上限 仅仅提示用户查询次数达到了上限
                                 $this->_context->set( 'circle' , 'common' );
@@ -49,7 +50,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                         if( $this->_search_count > Config::$max_search_count_without_reg ) {
                                 //达到未注册时允许的上限 提示用户注册
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true ,  Config::$response_msg['search_count_outrange_before_reg'] , Config::$max_search_count_without_reg + 1 );
+                                return array( true ,  sprintf( Config::$response_msg['search_count_outrange_before_reg'] , Config::$max_search_count_without_reg + 1 ) );
                         }
                 }
 
@@ -103,6 +104,8 @@ class Sub_search_circle_handler_base extends Handler_base {
                         $cond['location'] = $this->_location;
                 }
 
+                var_dump( $cond );
+
                 //判断是否已经超过了最大的可查询次数
                 $res = $this->is_search_count_outrange();
                 if( $res[0] == true ) {
@@ -130,7 +133,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                                 $user_infos = json_decode( $res['info'] , true );
                         } else {
                                 //查询失败
-                                return array( false , '查询失败了' );
+                                return array( false , $res['info'] );
                         }
                 } else {
                         //缓存命中

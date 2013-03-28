@@ -48,12 +48,6 @@ class Test_of_strategy extends UnitTestCase{
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk:circle_stack' );
         }
 
-        public function test_hello2bizuser() {
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'Hello2BizUser' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                echo $post_obj->Content . "<br />";
-        }
-
         //先错后对
         public function _test_do_reg() {
         //{{{
@@ -156,7 +150,7 @@ class Test_of_strategy extends UnitTestCase{
                 $next_step = $this->_context->get( 'reg_next_step' );
                 $this->assertTrue( $next_step == 'weight' );
 
-                //有效体重
+               //有效体重
                 $strategy = new Strategy( sprintf( self::TEXT_XML , '200' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 echo $post_obj->Content . "<br />";
@@ -219,6 +213,11 @@ class Test_of_strategy extends UnitTestCase{
                 echo $post_obj->Content . "<br />";
                 $next_step = $this->_context->get( 'reg_next_step' );
                 $this->assertTrue( $next_step == 'upload_image' );
+
+                //断言已经退出到了 common
+                echo $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'common' );
+
         }//}}}
         
         //注册时奇怪查找

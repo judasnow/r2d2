@@ -97,7 +97,7 @@ class Strategy {
 
                 //关注时自动发送的欢迎信息
                 //也可以作为整个应用的 初始化函数
-                if( $this->_request_content == 'Hello2BizUser' ) {
+                if( $this->_post_obj->MsgType == 'event' && $this->_post_obj->Event == 'subscribe' ) {
                         //进行一系列的初始化操作
 
                         //初始化用户查找对象的性别信息
@@ -130,16 +130,18 @@ class Strategy {
                                         $image_count = $this->_context->get( 'image_count' );
                                         if( $image_count > 0 ) {
                                                 $user_info = $this->_context->get_user_info();
+                                                //显示成功注册的信息
                                                 $content = sprintf(
                                                         Config::$response_msg['reg_success'] ,
-                                                        $user_info['username'] , $user_info['nickname'] , $user_info['qq'] , $user_info['height'] , $user_info['weight'] , $user_info['email'] , $user_info['zwms'] );
+                                                        $user_info['username'] , $user_info['nickname'] , $user_info['qq'] , $user_info['height'] , $user_info['weight'] , $user_info['email'] , $user_info['zwms'] 
+                                                );
                                         } else {
                                                 //从注册模式退出但是还没有上传图片
                                                 $content = Config::$response_msg['quit_circle']['reg'];
                                         }
 
                                         //一直退到 common
-                                        while( $this->_context->get( 'circle' ) == 'common' ) {
+                                        while( $this->_context->get( 'circle' ) != 'common' ) {
                                                 $this->_context->exit_current_circle();
                                         }
                                         $this->_response = $this->_msg_producer->do_produce( 
@@ -149,7 +151,7 @@ class Strategy {
                                         return $this->_response;
                                 }
 
-                                $this->_response = $this->_msg_producer->do_produce( 
+                                $this->_response = $this->_msg_producer->do_produce(
                                         'text' ,
                                         array( 'content' => Config::$response_msg['quit_circle'][$is_quit_from] )
                                 );

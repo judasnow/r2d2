@@ -70,14 +70,21 @@ class Test_of_strategy extends UnitTestCase{
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'search_by_age' );
 
-                $last_search_cond = $this->_context->get( 'last_search_cond' );
+                $this->_context->set( 'location' , '自贡' );
 
-                //输入 h 断言提示错误输入
-                $strategy = new Strategy( sprintf( self::TEXT_XML , 'h' ) );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '19' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'news' );
+                var_dump( $post_obj->Content );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'search_by_age' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 $this->assertTrue( $post_obj->MsgType == 'text' );
                 var_dump( $post_obj->Content );
                 $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'search_by_age' );
+                $this->assertTrue( $circle == 'search_method_select' );
+
         }
 }

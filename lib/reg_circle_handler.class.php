@@ -248,19 +248,18 @@ class Reg_circle_handler extends Handler_base {
                 if( empty( $height ) ) {
                 //{{{
                         $user_input_height = ceil( $this->_request_content );
-                        if( $user_input_height <= 150 || $user_input_height >= 230 ) {
-                                $this->_response = $this->_msg_producer->do_produce( 
-                                        'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['height'] )
-                                );
-                                return $this->_response;
-                        } else {
-                                //符合要求
+                        if( $user_input_height >= 150 && $user_input_height <= 230 ) {
                                 $this->_context->set( 'height' , $user_input_height );
                                 $this->_context->set( 'reg_next_step' , 'weight' );
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
                                         array( 'content' => Config::$response_msg['input_success_message']['height'] )
+                                );
+                                return $this->_response;
+                        } else {
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' , 
+                                        array( 'content' => Config::$response_msg['input_invalid_message']['height'] )
                                 );
                                 return $this->_response;
                         }
@@ -270,18 +269,19 @@ class Reg_circle_handler extends Handler_base {
                 if( empty( $weight ) ) {
                 //{{{
                         $user_input_weight = ceil( $this->_request_content );
-                        if( !is_numeric( $user_input_weight ) && ( $user_input_weight < 70 || $user_input_weight > 230 ) ) {
-                                $this->_response = $this->_msg_producer->do_produce( 
-                                        'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['weight'] )
-                                );
-                                return $this->_response;
-                        } else {
+                        if( $user_input_weight >= 70 && $user_input_weight <= 230 ) {
+                                //体重输入成功
                                 $this->_context->set( 'weight' , $user_input_weight );
                                 $this->_context->set( 'reg_next_step' , 'age' );
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
                                         array( 'content' => Config::$response_msg['input_success_message']['weight'] )
+                                );
+                                return $this->_response;
+                        } else {
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' , 
+                                        array( 'content' => Config::$response_msg['input_invalid_message']['weight'] )
                                 );
                                 return $this->_response;
                         }
@@ -292,19 +292,19 @@ class Reg_circle_handler extends Handler_base {
                 //{{{
                         $user_input_age = ceil( $this->_request_content );
 
-                        if( $user_input_age < 18 || $user_input_age > 60 ) {
-                                $this->_response = $this->_msg_producer->do_produce( 
-                                        'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['age'] )
-                                );
-                                return $this->_response;
-                        } else {
+                        if( $user_input_age >= 18 && $user_input_age <= 60 ) {
                                 $this->_context->set( 'age' , $user_input_age );
                                 $this->_context->set( 'reg_next_step' , 'zwms' );
 
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
                                         array( 'content' => Config::$response_msg['input_success_message']['age'] )
+                                );
+                                return $this->_response;
+                        } else {
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' , 
+                                        array( 'content' => Config::$response_msg['input_invalid_message']['age'] )
                                 );
                                 return $this->_response;
                         }
@@ -353,7 +353,7 @@ class Reg_circle_handler extends Handler_base {
                 }//}}}
 
                 //上传照片
-                $image_count = $tais->_context->get( 'image_count' );
+                $image_count = $this->_context->get( 'image_count' );
                 if( $image_count > 0 ) {
                         $this->_context->exit_current_circle();
                 } else {

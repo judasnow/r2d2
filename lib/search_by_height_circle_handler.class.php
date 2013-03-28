@@ -10,43 +10,39 @@ class Search_by_height_circle_handler extends Sub_search_circle_handler_base {
                 $this->_last_search_cond_json = $this->_context->get( 'last_search_cond' );
         }
 
-        private function _search_by_height( $use_last_search_cond = false ) {
-
-                if( $use_last_search_cond == true ) {
-                        $cond = json_decode( $this->_last_search_cond_json , true );
-                } else {
-                        $cond = array( 'height'=>$this->_height );
-                        $this->_context->set( 'last_search_cond' , json_encode( $cond ) );
-                }
-
-                $res = $this->make_search_result( $cond );
-
-                if( $res[0] == true ) {
-                        $this->_response = $res[1];
-                } else {
-                        //@todo 查询失败的处理 直接返回结果
-                        $this->_response = $res[1];
-                }
-        }
-
         public function do_circle() {
-                $request_content = $this->_request_content;
+                $last_search_cond = $this->_context->get( 'last_search_cond' );
 
-                //判断是否为 n , 如果是的话 就不需要切换身高信息 只需要显示下一张便可
-                if( $request_content == 'n' && !empty( $this->_last_search_cond_json ) ) {
-                        $this->_search_by_height( true );
-                        return $this->_response;
+                //判断是否为 n , 如果是的话 就不需要切换查询条件 只需要显示下一用户便可
+                //但是只在 last_search_cond 不为空的情况下 才可用
+                if( $this->_request_msg_type == 'text' ) {
+                        if( $this->_request_content == 'n' && !empty( $last_search_cond ) ) {
+                                $res = $this->make_search_result( array() , true );
+                                $this->_response = $res[1];
+                                return $this->_response;
+                        }
                 }
 
-                if( $request_content > 150 && $request_content < 230 ) {
-                        $this->_height = $request_content;
-                        $this->_search_by_height();
-
+                $height = $this->_context->get( 'height' );
+                if( $height >= 150 && $height <= 230 ) {
+                        $res =$this->make_search_result( array( 'height'=>$height ) );
+                        if( $res[0] == true ) {
+                                $this->_response = $res[1];
+                                return $this->_response;
+                        } else {
+                                //查询失败
+                                Debug::log( 'error.xml' , $res[1] );
+                                $this->_response = $this->_msg_producer->do_produce(
+                                        'text' ,
+                                        array( 'content' => '查询失败了，等下再试试吧' )
+                                );
+                                return $this->_response;
+                        }
                         return $this->_response;
                 } else {
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '请输入正确格式的身高' )
+                                array( 'content' => '身高输入不合法，请输入150-230之间的数字。' )
                         );
                         return $this->_response;
                 }

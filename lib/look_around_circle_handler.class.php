@@ -40,6 +40,14 @@ class Look_around_circle_handler extends Sub_search_circle_handler_base{
                         if( $res[0] == true ) {
                                 $this->_response = $res[1];
                                 return $this->_response;
+                        } else {
+                                //查询失败
+                                Debug::log( 'error.xml' , $res[1] );
+                                $this->_response = $this->_msg_producer->do_produce(
+                                        'text' ,
+                                        array( 'content' => '查询失败了，等下再试试吧' )
+                                );
+                                return $this->_response;
                         }
                 } else {
                         //获取城市信息失败

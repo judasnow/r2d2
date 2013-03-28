@@ -4,7 +4,7 @@
  */
 class Config {
         static public $store_server = 'tcp://172.17.0.46:6379/';
-        static public $huaban123_server = 'http://172.17.0.20:1979/';
+        static public $huaban123_server = 'http://icket.us:1979/';
         //static public $store_server = 'tcp://127.0.0.1:6379/';
         //static public $huaban123_server = 'http://localhost:1979/';
 
@@ -39,19 +39,23 @@ class Config {
                 'joke_extra_info_after_reg' => '【可以输入“c”进行详细查询，或者输入“？”获取帮助信息】',
 
                 //成功进入 search_method_selcet circle 时的提示信息
-                'enter_search_method_selcet' => '1 输入身高查询（150-230）。
-2 输入体重查询（70-220）。
-3 输入年龄查询（18-60）。',
+                'enter_search_method_selcet' => '按条件查询附近的人，请输入查询条件前数字编号：
+1按身高查询
+2按照体重查询
+3按照年龄查询',
                 //输入无效信息 不是 1 2 3 
-                'search_method_selcet_input_invalid' => '请按照提示输入相应的数字： 1 按身高查询。2 按体重查询。3。按年龄查询',
+                'search_method_selcet_input_invalid' => '请按照提示输入相应数字编号查询：
+1按身高查询
+2按照体重查询
+3按照年龄查询',
 
                 //未注册的时候 尝试进入 search_method_selcet circle 时的提示信息
                 'enter_search_method_selcet_without_reg' => '需要注册之后才能使用高级搜索功能啊，亲，可以按：身高，体重，年龄查询。赶快输入 "zc" 注册吧。',
 
                 //未注册时查询次数达到最大
-                'search_count_outrange_before_reg' => '你已超过每天查询%s次上限，请用注册账号登陆花瓣网查询，不限查询次数，试试吧。【花瓣网】-遇见出色男女，结识异性伴侣，约会同城情人，全国首家微信互动互助交友平台[http://www.huaban123.com]',
+                'search_count_outrange_before_reg' => '咦，您还未注册，已达到查询%s次的上限。赶快输入“zc”开始注册吧，获得更多的查询机会哦。注册后，你也可以出现在附近被推荐哦。',
                 //已经注册之后 查询次数达到最大
-                'search_count_outrange_after_reg' => '咦，您还未注册，已达到查询%s次的上线。赶快输入“ZC”开始注册吧，获得更多的查询机会哦。注册后，你也可以出现在附近被推荐哦。',
+                'search_count_outrange_after_reg' => '你已超过每天查询%s次上限，请用注册账号登陆花瓣网查询，不限查询次数，试试吧。【花瓣网】-遇见出色男女，结识异性伴侣，约会同城情人，全国首家微信互动互助交友平台[http://www.huaban123.com]',
 
                 //注册时每一步成功时的提示信息
                 'input_success_message' =>  array(
@@ -112,7 +116,7 @@ class Config {
                 ),
 
                 //上传照片成功
-                'upload_image_success' => '上传成功，可以继续上传图片也可以 输入 "q" 退出',
+                'upload_image_success' => '上传成功！已上传%s张照片。可继续上传也可以输入“q”退出上传照片模式。',
                 //上传照片失败
                 'upload_image_fail' => '上传照片失败，请稍后再试一试',
                 //上传照片发送信息格式不正确
@@ -140,7 +144,10 @@ class Config {
                 'quit_circle' => array(
                         'reg' => '还没注册完呢，你可以输入 “zc” 继续进行注册。',
                         'upload_image' => '成功退出上传照片模式！',
-                        'search_method_selcet' => '已经成功退出选择查询条件模式'
+                        'search_method_selcet' => '已经成功退出选择查询条件模式',
+                        'search_by_age' => '1 输入身高查询（150-230）。
+2 输入体重查询（70-220）。
+3 输入年龄查询（18-60）'
                 ),
 
                 //这是在期待用户输入一个可能包含地址信息的消息时 
