@@ -22,8 +22,8 @@ class Curl {
 
                 $ch = curl_init(); 
                 curl_setopt_array($ch, ($options + $defaults)); 
-                if( ! $result = curl_exec($ch)) { 
-                        echo curl_error($ch); 
+                if( ! $result = curl_exec($ch)) {
+                        throw new Exception( 'curl error: ' . curl_error( $ch ) . ', and url is : ' . $url );
                 } 
                 curl_close($ch); 
                 return $result; 
@@ -42,7 +42,7 @@ class Curl {
                 curl_setopt_array($ch, ($options + $defaults)); 
                 if( ! $result = curl_exec($ch)) 
                 { 
-                        trigger_error(curl_error($ch)); 
+                        throw new Exception( 'curl error: ' . curl_error( $ch ) . ', and url is : ' . $url );
                 } 
                 curl_close($ch); 
                 return $result; 

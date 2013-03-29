@@ -23,7 +23,7 @@ class Search_by_height_circle_handler extends Sub_search_circle_handler_base {
                         }
                 }
 
-                $height = $this->_context->get( 'height' );
+                $height = $this->_request_content;
                 if( $height >= 150 && $height <= 230 ) {
                         $res =$this->make_search_result( array( 'height'=>$height ) );
                         if( $res[0] == true ) {

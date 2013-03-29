@@ -47,7 +47,7 @@ class Test_of_strategy extends UnitTestCase{
         //测试在 common 输入 地址信息 返回周围的人
         public function test_look_around() {
                 $this->_context->set( 'circle' , 'common' );
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '郑州市' ) );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '自贡' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 var_dump( $post_obj );
                 $this->assertTrue( $post_obj->MsgType == 'news' );

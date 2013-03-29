@@ -10,7 +10,6 @@ class Test_of_msg_produce extends UnitTestCase{
         
         public function test_produce_text_msg() {
                 $joke_producer = new Joke_producer();
-                var_dump( $joke_producer->do_produce() );
         }
 }
 

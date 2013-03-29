@@ -9,10 +9,10 @@ class Config {
         //static public $huaban123_server = 'http://localhost:1979/';
 
         //没有注册时最多查询次数 注意是从 0 开始的
-        static public $max_search_count_without_reg = 2;
+        static public $max_search_count_without_reg = 3;
 
         //注册之后最多查询次数
-        static public $max_search_count_with_reg = 5;
+        static public $max_search_count_with_reg = 6;
 
         //语言信息配置
         static public $response_msg = array(
@@ -35,19 +35,22 @@ class Config {
 7、客服邮箱：981789018@qq.com',
 
                 //未注册时 笑话后的附加消息
-                'joke_extra_info_before_reg' => '【可以输入“zc”进行注册，或者输入“？”获取帮助信息】',
-                'joke_extra_info_after_reg' => '【可以输入“c”进行详细查询，或者输入“？”获取帮助信息】',
+                'joke_extra_info_before_reg' => '【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”或“help”。】',
+                'joke_extra_info_after_reg' => '【查看附近注册的人请使用微信【+】号下面的“位置”发送地理位置，输入“c”进行详细查询，或输入“?”获取帮助信息。】',
+
+                'enter_upload_image_circle' => '请上传一张照片吧，使用微信【+】号下面的“照片”或者“拍摄”功能选择照片上传。',
+                'enter_upload_image_circle_without_reg' => '亲，您还没有注册，所以不能上传照片哦，赶快输入“zc”注册一个吧。',
 
                 //成功进入 search_method_selcet circle 时的提示信息
-                'enter_search_method_selcet' => '按条件查询附近的人，请输入查询条件前数字编号：
-1按身高查询
-2按照体重查询
-3按照年龄查询',
+                'enter_search_method_selcet' => '请选择查询条件前数字编号：
+1按身高查询 (150-230) 厘米
+2按体重查询(70-220)斤
+3按年龄查询(18-60)岁',
                 //输入无效信息 不是 1 2 3 
                 'search_method_selcet_input_invalid' => '请按照提示输入相应数字编号查询：
-1按身高查询
-2按照体重查询
-3按照年龄查询',
+1 按身高查询 (150-230) 厘米
+2 按体重查询(70-220)斤
+3 按年龄查询(18-60)岁',
 
                 //未注册的时候 尝试进入 search_method_selcet circle 时的提示信息
                 'enter_search_method_selcet_without_reg' => '需要注册之后才能使用高级搜索功能啊，亲，可以按：身高，体重，年龄查询。赶快输入 "zc" 注册吧。',
@@ -136,18 +139,33 @@ class Config {
 您的邮箱地址：%s
 您的交友宣言：%s
 ------------------------------------
-查看附近的人请发送微信【+】号下面的“位置”；
+使用微信【+】号下面的“位置”发送地理位置查看附近的人；
 输入“c”按条件查询附近的人；
-输入“h”更换查看性别。',
+输入“h”更换查看性别；
+上传照片请输入sczp；
+获取帮助信息请输入“?”或“help”。',
 
                 //退出某种模式时 显示给用户的信息
                 'quit_circle' => array(
                         'reg' => '还没注册完呢，你可以输入 “zc” 继续进行注册。',
-                        'upload_image' => '成功退出上传照片模式！',
+                        'upload_image' => '成功退出上传照片模式，你现在可以：
+使用微信【+】号下面的“位置”发送地理位置查看附近的人；
+输入“h”更换查看性别；
+发送表情让花瓣网给你讲笑话；
+输入“c”按照条件查询附件人；
+输入“？”或“help”获取帮助信息。',
                         'search_method_selcet' => '已经成功退出选择查询条件模式',
                         'search_by_age' => '1 输入身高查询（150-230）。
 2 输入体重查询（70-220）。
-3 输入年龄查询（18-60）'
+3 输入年龄查询（18-60）',
+                        'search_by_height' => '1 输入身高查询（150-230）。
+2 输入体重查询（70-220）。
+3 输入年龄查询（18-60）',
+                        'search_by_weight' => '1 输入身高查询（150-230）。
+2 输入体重查询（70-220）。
+3 输入年龄查询（18-60）',
+                //搜索模式的通用提示信息
+                'search_common' => '你已经退出查询模式！你可以发送位置信息查看附近的人，也可以输入指令sczp上传照片让更多周围的人认识你，获取帮助请输入“?”或“help”。'
                 ),
 
                 //这是在期待用户输入一个可能包含地址信息的消息时 
@@ -165,7 +183,7 @@ class Config {
 换性别请回复“h”，查看TA
 的更多资料请阅读全文。输入
 “c”按身高、体重、年龄查看
-附近的人。]'
-
+附近的人。]',
+                'search_result_is_empty' => '额 附近暂时没有符合你要求的用户，换个查询条件或换个城市试试。哦，对了，注册账号可直接登录花瓣网无限查询哦，试试吧！http://www.huaban123.com'
         ); 
 }

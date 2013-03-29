@@ -600,4 +600,11 @@
                 <MsgType><![CDATA[text]]></MsgType>
                 <Content><![CDATA[服务器不可用.]]></Content>
                 <FuncFlag>0</FuncFlag>
+                </xml>2013-03-29 15:37:15 : <xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364567835</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你还未注册，输入“zc”注册后查看更多附近的人；获取帮助信息请输入“？”或“help”。]]></Content>
+                <FuncFlag>0</FuncFlag>
                 </xml>

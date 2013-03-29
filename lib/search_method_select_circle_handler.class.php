@@ -30,7 +30,7 @@ class Search_method_select_circle_handler extends Handler_base {
 
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '请输入身高信息:' )
+                                array( 'content' => '请输入查询身高，范围（150-230）厘米：' )
                         );
                         return $this->_response;
                 }
@@ -41,7 +41,7 @@ class Search_method_select_circle_handler extends Handler_base {
 
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '请输入体重信息:' )
+                                array( 'content' => '请输入查询体重，范围： （70-220）斤：' )
                         );
                         return $this->_response;
                 }
@@ -52,7 +52,7 @@ class Search_method_select_circle_handler extends Handler_base {
 
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '请输入年龄信息（18-60之间的数字）：' )
+                                array( 'content' => '请输入查询年龄（18-60）岁：' )
                         );
                         return $this->_response;
                 }

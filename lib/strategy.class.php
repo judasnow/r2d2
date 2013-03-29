@@ -122,9 +122,9 @@ class Strategy {
                         //记录是从哪个 circl 退出的
                         $is_quit_from = $circle;
                         if( $this->_context->exit_current_circle() ) {
-
                                 $circle = $this->_context->get( 'circle' );
 
+                                //注册时上传照片 需要特殊处理
                                 if( $is_quit_from == 'upload_image' &&  $circle == 'reg' ) {
                                         //从 upload_image 返回 reg , 如果用户已经上传至少一张照片了，就提示用户注册成功
                                         $image_count = $this->_context->get( 'image_count' );
@@ -140,6 +140,20 @@ class Strategy {
                                                 $content = Config::$response_msg['quit_circle']['reg'];
                                         }
 
+                                        //一直退到 common
+                                        while( $this->_context->get( 'circle' ) != 'common' ) {
+                                                $this->_context->exit_current_circle();
+                                        }
+                                        $this->_response = $this->_msg_producer->do_produce( 
+                                                'text' ,
+                                                array( 'content' => $content )
+                                        );
+                                        return $this->_response;
+                                }
+
+                                //任意搜索 circle 都直接退出到最外层
+                                if( in_array( $circle , array( 'search_by_age' , 'search_by_height' , 'search_by_weight' , 'look_around' , 'search_method_select' ) ) ) {
+                                        $content = Config::$response_msg['quit_circle']['search_common'];
                                         //一直退到 common
                                         while( $this->_context->get( 'circle' ) != 'common' ) {
                                                 $this->_context->exit_current_circle();

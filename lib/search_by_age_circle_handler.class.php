@@ -15,9 +15,9 @@ class Search_by_age_circle_handler extends Sub_search_circle_handler_base {
         public function do_circle() {
                 $last_search_cond = $this->_context->get( 'last_search_cond' );
 
-                //判断是否为 n , 如果是的话 就不需要切换查询条件 只需要显示下一用户便可
-                //但是只在 last_search_cond 不为空的情况下 才可用
                 if( $this->_request_msg_type == 'text' ) {
+                        //判断是否为 n , 如果是的话 就不需要切换查询条件 只需要显示下一用户便可
+                        //但是只在 last_search_cond 不为空的情况下 才可用
                         if( $this->_request_content == 'n' && !empty( $last_search_cond ) ) {
                                 $res = $this->make_search_result( array() , true );
                                 $this->_response = $res[1];

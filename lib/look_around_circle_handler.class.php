@@ -5,6 +5,7 @@
 
 require_once 'sub_search_circle_handler_base.class.php';
 require_once 'location_circle_handler.class.php';
+require_once 'config.class.php';
 
 class Look_around_circle_handler extends Sub_search_circle_handler_base{
 
@@ -27,6 +28,27 @@ class Look_around_circle_handler extends Sub_search_circle_handler_base{
                         if( $this->_request_content == 'n' && !empty( $last_search_cond ) ) {
                                 $res = $this->make_search_result( array() , true );
                                 $this->_response = $res[1];
+                                return $this->_response;
+                        }
+                }
+
+                //如果是 c 则需要进入查询选择模式 并显示相应的提示信息
+                //前提条件是用户已经注册 
+                if( $this->_request_content == 'c' ) {
+                        if( $this->_is_reg == true ) {
+                                //用户已经注册 可以进入查询选择模式
+                                $this->_context->set( 'circle' , 'search_method_select' );
+                                $this->_response = $this->_msg_producer->do_produce(
+                                        'text' ,
+                                        array( 'content' => Config::$response_msg['enter_search_method_selcet'] ) 
+                                );
+                                return $this->_response;
+                        } else {
+                                //用户还没有注册 提示之
+                                $this->_response = $this->_msg_producer->do_produce(
+                                        'text' ,
+                                        array( 'content' => Config::$response_msg['enter_search_method_selcet'] ) 
+                                );
                                 return $this->_response;
                         }
                 }

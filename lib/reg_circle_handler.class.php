@@ -81,14 +81,15 @@ class Reg_circle_handler extends Handler_base {
                                                 'text' , 
                                                 array( 'content' => Config::$response_msg['input_success_message']['sex_and_target_sex_index_without_location'] )
                                         );
+                                        $this->_context->set( 'reg_next_step' , 'location' );
                                 } else {
                                         //用户之前已经填写了地址信息
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' , 
                                                 array( 'content' => Config::$response_msg['input_success_message']['sex_and_target_sex_index_with_location'] )
                                         );
+                                        $this->_context->set( 'reg_next_step' , 'username' );
                                 }
-                                $this->_context->set( 'reg_next_step' , 'location' );
                                 return $this->_response;
                         } else {
                                 //用户输入信息无效 下一步还是当前步骤
@@ -137,7 +138,7 @@ class Reg_circle_handler extends Handler_base {
                         $user_input_username = $this->_request_content;
 
                         //先判断其是否符合相应的规则
-                        if( preg_match( '/[a-zA-Z0-9\_]+$/' , $user_input_username ) ) {
+                        if( preg_match( '/[a-zA-Z0-9\_]{3,}$/' , $user_input_username ) ) {
                                 //判断用户名是否唯一
                                 $res_json = $this->_api->checkUserName( array( 'userName' => $user_input_username ) );
                                 $res = json_decode( $res_json , true );
@@ -225,7 +226,7 @@ class Reg_circle_handler extends Handler_base {
                 if( empty( $qq ) ) {
                 //{{{
                         $user_input_qq = $this->_request_content;
-                        if( preg_match( '/^\s*[.0-9]{5,10}\s*$/' , $user_input_qq ) ) {
+                        if( preg_match( '/^[1-9]{1}\d{4,11}$/' , $user_input_qq ) ) {
                                 $this->_context->set( 'qq' , $user_input_qq );
                                 $this->_context->set( 'reg_next_step' , 'height' );
 

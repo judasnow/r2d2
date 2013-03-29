@@ -22,7 +22,7 @@ class Common_circle_handler extends Handler_base {
                                         $this->_response = $this->_msg_producer->do_produce(
                                                 'text' ,
                                                 //@todo 显示用户已经上传照片的数量
-                                                array( 'content' => '请上传一张照片吧，点击微信菜单发送照片按钮选择一张照片就行了。' )
+                                                array( 'content' => Config::$response_msg['enter_upload_image_circle'] )
                                         );
                                         return $this->_response;
                                 }
@@ -30,7 +30,7 @@ class Common_circle_handler extends Handler_base {
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' ,
                                         //@todo 显示用户已经上传照片的数量
-                                        array( 'content' => '亲，您还没有注册，所以不能上传照片哦，赶快输入“zc”注册一个吧。' )
+                                        array( 'content' => Config::$response_msg['enter_upload_image_circle_without_reg'] )
                                 );
                                 return $this->_response;
                         }
@@ -40,6 +40,15 @@ class Common_circle_handler extends Handler_base {
                 //同样必须注册之后执行这个操作
                 if( $this->_request_content == 'c' ) {
                         if( $is_reg == true ) {
+                                $search_count = $this->_context->get( 'search_count' );
+                                if( $search_count >= Config::$max_search_count_with_reg ) {
+                                        $this->_response =  $this->_msg_producer->do_produce( 
+                                                'text' ,
+                                                array( 'content' => sprintf( Config::$response_msg['search_count_outrange_after_reg'] , Config::$max_search_count_with_reg ) )
+                                        );
+                                        return $this->_response;
+                                }
+
                                 if( $circle != 'search_method_selcet' ) {
                                         $this->_context->set( 'circle' , 'search_method_select' );
                                         $this->_response = $this->_msg_producer->do_produce( 

@@ -50,6 +50,7 @@ class Test_of_strategy extends UnitTestCase{
                 $this->_context->set( 'circle' , 'common' );
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'help' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() );
+                var_dump($post_obj  );
                 $this->assertTrue( $post_obj->MsgType == 'text' );
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'common' );

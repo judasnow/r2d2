@@ -43,14 +43,14 @@ class Sub_search_circle_handler_base extends Handler_base {
                         if( $search_count > Config::$max_search_count_with_reg ) {
                                 //达到注册后允许的上限 仅仅提示用户查询次数达到了上限
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true , sprintf( Config::$response_msg['search_count_outrange_after_reg'] , Config::$max_search_count_with_reg + 1 ) );
+                                return array( true , sprintf( Config::$response_msg['search_count_outrange_after_reg'] , Config::$max_search_count_with_reg ) );
                         }
                 } else {
                         //还没注册的情况下
-                        if( $this->_search_count > Config::$max_search_count_without_reg ) {
+                        if( $search_count > Config::$max_search_count_without_reg ) {
                                 //达到未注册时允许的上限 提示用户注册
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true ,  sprintf( Config::$response_msg['search_count_outrange_before_reg'] , Config::$max_search_count_without_reg + 1 ) );
+                                return array( true ,  sprintf( Config::$response_msg['search_count_outrange_before_reg'] , Config::$max_search_count_without_reg ) );
                         }
                 }
 
@@ -103,8 +103,6 @@ class Sub_search_circle_handler_base extends Handler_base {
                         //作为默认的城市信息
                         $cond['location'] = $this->_location;
                 }
-
-                var_dump( $cond );
 
                 //判断是否已经超过了最大的可查询次数
                 $res = $this->is_search_count_outrange();
@@ -170,7 +168,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                         //查询结果为空
                         $search_result_xml = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => '额 暂时没有符合你要求的用户。你可以换个城市试试，也可以去我们的网站看看: http://huaban123.com。' )
+                                array( 'content' => Config::$response_msg['search_result_is_empty'] )
                         );
 
                         return array( true , $search_result_xml );

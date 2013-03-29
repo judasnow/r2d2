@@ -3,7 +3,8 @@
  * 从制定的笑话集合中随机的返回一条笑话信息
  */
 require_once 'store.class.php';
-//require_once 'msg_producer.class.php';
+require_once 'msg_producer.class.php';
+require_once 'debug.class.php';
 
 class Joke_producer {
 
@@ -25,10 +26,16 @@ class Joke_producer {
          */
         public function rand_produce( $extra_info ) {
                 $joke = $this->_pick_a_text_joke();
+                if( !empty( $joke[0] ) ) {
+                        $joke_content = $joke[0];
+                } else {
+                        Debug::log( 'error.xml' , 'joke pool is empty.' );
+                        $joke_content = '';
+                }
                 $joke_xml = $this->_msg_producer->do_produce(
-                                'text' ,
-                                array( 'content' => $joke[0] . $extra_info )
-                        );
+                        'text' ,
+                        array( 'content' => $joke_content . $extra_info )
+                );
                 return $joke_xml;
         }
 

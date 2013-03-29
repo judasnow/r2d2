@@ -45,7 +45,6 @@ class Test_of_strategy extends UnitTestCase{
 
         //测试用户直接输入没有label 信息的 location 信息
         public function test_user_send_location_info_but_label_is_null() {
-
                 //未注册时 用户输入 c
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'c' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
@@ -79,12 +78,12 @@ class Test_of_strategy extends UnitTestCase{
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'search_by_age' );
 
+                //直接推到最外
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'q' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 $this->assertTrue( $post_obj->MsgType == 'text' );
                 var_dump( $post_obj->Content );
                 $circle = $this->_context->get( 'circle' );
-                $this->assertTrue( $circle == 'search_method_select' );
-
+                $this->assertTrue( $circle == 'common' );
         }
 }
