@@ -4289,3 +4289,38 @@
 2013-03-28 17:10:56 : 
 2013-03-28 17:13:40 : 
 2013-03-28 17:17:32 : 
+2013-03-28 17:39:43 : 
+2013-03-28 17:42:57 : <xml><ToUserName><![CDATA[gh_cbb742f45d8f]]></ToUserName>
+<FromUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
+<CreateTime>1364489093</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[自贡]]></Content>
+<MsgId>5860436030183707291</MsgId>
+</xml>
+2013-03-28 17:43:03 : <xml><ToUserName><![CDATA[gh_cbb742f45d8f]]></ToUserName>
+<FromUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
+<CreateTime>1364489099</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[q]]></Content>
+<MsgId>5860436055953511069</MsgId>
+</xml>
+2013-03-28 17:43:10 : <xml><ToUserName><![CDATA[gh_cbb742f45d8f]]></ToUserName>
+<FromUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></FromUserName>
+<CreateTime>1364489106</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[自贡]]></Content>
+<MsgId>5860436086018282143</MsgId>
+</xml>
+2013-03-28 17:48:56 : <xml><ToUserName><![CDATA[gh_cbb742f45d8f]]></ToUserName>
+<FromUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></FromUserName>
+<CreateTime>1364489452</CreateTime>
+<MsgType><![CDATA[location]]></MsgType>
+<Location_X>29.348040</Location_X>
+<Location_Y>104.763565</Location_Y>
+<Scale>15</Scale>
+<Label><![CDATA[中国四川省自贡市自流井区解放路]]></Label>
+<MsgId>5860437572076966560</MsgId>
+</xml>
+2013-03-28 18:07:18 : 
+2013-03-28 18:10:10 : 
+2013-03-28 18:46:45 : 

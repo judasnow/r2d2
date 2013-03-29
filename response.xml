@@ -5494,3 +5494,46 @@
                 <Content><![CDATA[你已超过每天查询6次上限，请用注册账号登陆花瓣网查询，不限查询次数，试试吧。【花瓣网】-遇见出色男女，结识异性伴侣，约会同城情人，全国首家微信互动互助交友平台[http://www.huaban123.com]]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>
+2013-03-28 17:42:57 : <xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364488977</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请重新输入用户名，由字母、数字以及下划线组成,不少于3个字符~]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-03-28 17:43:03 : <xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364488983</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[还没注册完呢，你可以输入 “zc” 继续进行注册。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-03-28 17:43:10 : <xml>
+                <ToUserName><![CDATA[oJenljo-kzzUDI8SK0fcNfFoFlQk]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364488990</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[陌上花开]]></Title>
+                <Description><![CDATA[在生活中我是一个安静的女生，不过有时也会有点小脾气，觉得两个人一起信任是重要的。 [小提示：换一个请回复“n”，
+换性别请回复“h”，如也想被
+推荐请输入注册“ZC”查看TA
+的更多资料请阅读全文。]]]></Description>
+                <PicUrl><![CDATA[http://icket.us:1979/UploadFiles/UHP/201303/051245379830.jpg]]></PicUrl>
+                <Url><![CDATA[http://icket.us:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=oJenljo-kzzUDI8SK0fcNfFoFlQk&&user_id=430]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+2013-03-28 17:48:56 : <xml>
+                <ToUserName><![CDATA[oJenljmRejNbaD7jJrJaVB4Dceis]]></ToUserName>
+                <FromUserName><![CDATA[gh_cbb742f45d8f]]></FromUserName>
+                <CreateTime>1364489336</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你已超过每天查询6次上限，请用注册账号登陆花瓣网查询，不限查询次数，试试吧。【花瓣网】-遇见出色男女，结识异性伴侣，约会同城情人，全国首家微信互动互助交友平台[http://www.huaban123.com]]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
