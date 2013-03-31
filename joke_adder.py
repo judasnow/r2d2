@@ -3,7 +3,7 @@
 import redis
 import os
 
-redis = redis.StrictRedis(host='172.17.0.46', port=6379, db=0)
+redis = redis.StrictRedis(host='106.187.34.51', port=6379, password='erlang/otp', db=0)
 
 joke_fp = open("./j.txt", "r")
 joke_items = joke_fp.readlines()
