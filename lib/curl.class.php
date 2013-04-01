@@ -3,7 +3,6 @@
  * 封装 curl 操作
  */
 class Curl {
-
         static public function post($url, array $post = NULL, array $options = array()) {
         //{{{
                 if( !empty( $post['upload'] ) ) {
@@ -22,11 +21,11 @@ class Curl {
 
                 $ch = curl_init(); 
                 curl_setopt_array($ch, ($options + $defaults)); 
-                if( ! $result = curl_exec($ch)) {
+                if( !$result = curl_exec( $ch ) ) {
                         throw new Exception( 'curl error: ' . curl_error( $ch ) . ', and url is : ' . $url );
                 } 
                 curl_close($ch); 
-                return $result; 
+                return $result;
         }//}}}
 
         static public function get($url, array $get = NULL, array $options = array() ){
@@ -40,8 +39,7 @@ class Curl {
 
                 $ch = curl_init(); 
                 curl_setopt_array($ch, ($options + $defaults)); 
-                if( ! $result = curl_exec($ch)) 
-                { 
+                if( !$result = curl_exec( $ch ) ) { 
                         throw new Exception( 'curl error: ' . curl_error( $ch ) . ', and url is : ' . $url );
                 } 
                 curl_close($ch); 

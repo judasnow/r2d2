@@ -10051,3 +10051,122 @@
                 <Content><![CDATA[确定你发送的是图片哦~亲。上传头像步骤：按输入框旁“+”选择照片或拍摄。]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>
+2013-04-01 10:38:36 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364805516</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[确定你发送的是图片哦~亲。上传头像步骤：按输入框旁“+”选择照片或拍摄。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-01 10:38:45 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364805525</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功！已上传4张照片。可继续上传也可以输入“q”退出上传照片模式。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-01 10:38:51 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364805531</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[成功退出上传照片模式！恭喜你注册成功！
+                【花瓣网定位真实、高端、高品质互助交友网站；拒绝寂寞，拒绝孤单，用爱和帮助温暖彼此。】
+                你的注册信息如下：
+                ----------------------------------
+                您的用户名：546456456465
+                您的密码：huaban123（默认密码，可到站点进行修改）
+                您的昵称：kljfkljgkldfjgldfkjgkldfjgldkgjdlfkjgdlkgjdklgjdlkgjdlkgjdlkgjdgf
+                您的QQ：84908490
+                您的身高：180
+                您的体重： 180
+                您的邮箱地址：84908490@qq.com
+                您的交友宣言：kljdkjsklfhskhfsjflskfjskfjskfjsklfjslkfjsf
+                ------------------------------------
+                使用微信【+】号下面的“位置”发送地理位置查看附近的人；
+                输入“c”按条件查询附近的人；
+                输入“h”更换查看性别；
+                上传照片请输入sczp；
+                获取帮助信息请输入“?”或“help”。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-01 10:38:54 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364805534</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[陌上花开]]></Title>
+                <Description><![CDATA[在生活中我是一个安静的女生，不过有时也会有点小脾气，觉得两个人一起信任是重要的。 [小提示：换一个请回复“n”，
+                换性别请回复“h”，如也想被
+                推荐请输入注册“ZC”查看TA
+                的更多资料请阅读全文。]]]></Description>
+                <PicUrl><![CDATA[http://icket.us:1979/UploadFiles/UHP/201303/051245379830.jpg]]></PicUrl>
+                <Url><![CDATA[http://icket.us:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=o3WR2juIUymn3qhcvOcWouKb_Ej4&&user_id=430]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+2013-04-01 10:40:49 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364805649</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[小潴太蠢]]></Title>
+                <Description><![CDATA[我是来自自贡市白领丽人、清纯可人、妩媚、丰乳肥臀、迷人双眼、惹火身材、迷人的女会员！ [小提示：换一个请回复“n”，
+                换性别请回复“h”，如也想被
+                推荐请输入注册“ZC”查看TA
+                的更多资料请阅读全文。]]]></Description>
+                <PicUrl><![CDATA[http://icket.us:1979//jsimages/woman.jpg]]></PicUrl>
+                <Url><![CDATA[http://icket.us:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=o3WR2juIUymn3qhcvOcWouKb_Ej4&&user_id=336]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+2013-04-01 10:41:30 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364805690</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[小潴太蠢]]></Title>
+                <Description><![CDATA[我是来自自贡市白领丽人、清纯可人、妩媚、丰乳肥臀、迷人双眼、惹火身材、迷人的女会员！ [小提示：换一个请回复“n”，
+                换性别请回复“h”，如也想被
+                推荐请输入注册“ZC”查看TA
+                的更多资料请阅读全文。]]]></Description>
+                <PicUrl><![CDATA[http://icket.us:1979//jsimages/woman.jpg]]></PicUrl>
+                <Url><![CDATA[http://icket.us:1979/Action/WeixinUserInfoDetail.aspx?weixin_id=o3WR2juIUymn3qhcvOcWouKb_Ej4&&user_id=336]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+2013-04-01 12:44:37 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364813077</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[咦，您还未注册，已达到查询3次的上限。赶快输入“zc”开始注册吧，获得更多的查询机会哦。注册后，你也可以出现在附近被推荐哦。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-01 12:50:48 : <xml>
+                <ToUserName><![CDATA[o3WR2jiQBAHxiOsp_V8ZIB7VidfM]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1364813448</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[【欢迎关注花瓣网(www.huaban123.com)公众号：huaban123。邂逅出色男女,结交异性伴侣，约会同城情人！花瓣网-全国首家微信互动互助交友平台】你把位置信息发过来，花瓣网就回你一个附近的人。还在等什么？赶快行动吧！提醒下，不是用打字发位置，那早就OUT啦，是用微信【+】号下面的“位置”功能发送！
+                你可以：
+                1、发送微信【+】号下面的“位置”查看附近注册的人；
+                2、输入“zc”注册账号；
+                3、输入“h”更换查看性别；
+                4、输入“help”查看帮助信息。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>

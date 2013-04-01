@@ -4,7 +4,8 @@
  */
 class Config {
         static public $store_server = array(
-                'host'     => '172.17.0.46', 
+                'host'     => '172.17.0.46',
+                'port'     => '6380',
                 'password' => 'erlang/otp', 
                 'database' => 0, 
         );

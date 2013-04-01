@@ -146,15 +146,29 @@ class Sub_search_circle_handler_base extends Handler_base {
                         } else {
                                 $tips = Config::$response_msg['search_result_tips_before_reg'];
                         }
+
+                        //判断头像是否为空 为空则设置默认头像
+                        //@todo 可以加一条 404 判断
+                        if( empty( $user_info['HeadPic'] ) ) {
+                                if( $user_info['Sex'] == '男' ) {
+                                        $default_image_name = 'man.jpg';
+                                } else {
+                                        $default_image_name = 'woman.jpg';
+                                }
+                                $user_head_pic = Config::$huaban123_server . '/jsimages/' . $default_image_name;
+                        } else {
+                                $user_head_pic = Config::$huaban123_server . 'UploadFiles/UHP/' . $user_info['HeadPic'];
+                        }
+
                         //构造 news 信息
                         $items = array(
                                 array(
                                         'title' => $user_info['NickName'] ,
                                         'description' => $user_info['ZWMS'] . ' ' . $tips ,
                                         //@todo 判断头像是否存在
-                                        'pic_url' => Config::$huaban123_server . 'UploadFiles/UHP/' . $user_info['HeadPic'] ,
+                                        'pic_url' => $user_head_pic ,
                                         //用户详细信息页面
-                                        'url' => Config::$huaban123_server . 'Action/WeixinUserInfoDetail.aspx?weixin_id=' . $this->_post_obj->FromUserName . '&&user_id=' . $user_info['UserId']
+                                        'url' => Config::$huaban123_server . 'Action/WeixinUserInfoDetail.aspx?weixin_id=' . $this->_post_obj->FromUserName . '&&user_id=' . $user_info['UserId'] . '&&gallery_page_no=1' 
                                 )
                         );
 

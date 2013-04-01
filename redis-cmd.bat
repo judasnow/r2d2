@@ -1,1 +1,1 @@
-redis-commander --redis-host 172.17.0.46
+redis-commander --redis-host 172.17.0.46 --redis-password erlang/otp

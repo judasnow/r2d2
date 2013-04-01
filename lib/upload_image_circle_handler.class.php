@@ -3,13 +3,16 @@
  * 处理用户上传图片
  */
 require_once 'handler_base.class.php';
+require_once 'store.class.php';
 require_once 'config.class.php';
+require_once 'debug.class.php';
 
 class Upload_image_circle_hander extends Handler_base {
 
         public function __construct( $post_obj ) {
 
                 parent::__construct( $post_obj );
+                $this->_store = new Store();
         }
 
         public function do_circle() {
@@ -17,7 +20,7 @@ class Upload_image_circle_hander extends Handler_base {
                 if( $this->_request_msg_type == 'image' ) {
                         //获取 $url
                         $img_url = $this->_post_obj->PicUrl;
-                        $image_name = "{$this->_post_obj->FromUserName}{$_SERVER['REQUEST_TIME']}.jpg";
+                        $image_name = $this->_post_obj->FromUserName . $_SERVER['REQUEST_TIME'] . rand( 0 , 999 ) .  '.jpg';
 
                         //下载到本地 temp
                         if( Curl::download_file( $img_url , $image_name ) ) {
@@ -27,14 +30,19 @@ class Upload_image_circle_hander extends Handler_base {
 
                                 $user_id = $this->_context->get( 'user_id' );
                                 //尝试 post 到 huaban123.com
-                                $res_json = Curl::post(
-                                        Config::$huaban123_server . '/action/WeixinMpApi.aspx?action=uploadImg' ,
-                                        array( 'action'=>'uploadImg' , 'user_id'=>$user_id , 'upload'=>$image_full_path )
-                                );
-                                $res = json_decode( $res_json , true );
-                                if( $res['type'] == false ) {
-                                        //@todo 上传失败或者超时了 将上传任务加到队列中去 之后发送一条消息
-                                        //激活后台的守护进程
+                                try{
+                                        $res_json = Curl::post(
+                                                Config::$huaban123_server . '/ation/WeixinMpApi.aspx?action=uploadImg' ,
+                                                array( 'action'=>'uploadImg' , 'user_id'=>$user_id , 'upload'=>$image_full_path )
+                                        );
+                                        $res = json_decode( $res_json , true );
+                                        if( $res['type'] == false ) {
+                                                //@todo 上传失败或者超时了 将上传任务加到队列中去
+                                                throw new Exception( 'upload fail: ' . $res_json );
+                                        }
+                                } catch ( Exception $e ) {
+                                        Debug::log( 'error.xml' , $e->getMessage() );
+                                        $this->_store->rpush( 'image_to_upload' , $user_id . ':' . $image_name );
                                 }
 
                                 //@todo 初始化 是不是可以移到其他地方?

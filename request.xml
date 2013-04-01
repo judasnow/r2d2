@@ -7498,3 +7498,68 @@
 <EventKey><![CDATA[]]></EventKey>
 </xml>
 2013-03-31 16:28:17 : 
+2013-04-01 05:31:52 : 
+2013-04-01 05:52:34 : 
+2013-04-01 10:38:36 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364805648</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[456]]></Content>
+<MsgId>5861795623556089007</MsgId>
+</xml>
+2013-04-01 10:38:45 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364805656</CreateTime>
+<MsgType><![CDATA[image]]></MsgType>
+<PicUrl><![CDATA[http://mmsns.qpic.cn/mmsns/8GtV9x92iasGwTeXdAnJC1ZsHxr6NCbqXSypbdWCPpbzZL9faW4XCCA/0]]></PicUrl>
+<MsgId>5861795657915827377</MsgId>
+</xml>
+2013-04-01 10:38:51 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364805663</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[q]]></Content>
+<MsgId>5861795687980598451</MsgId>
+</xml>
+2013-04-01 10:38:54 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364805665</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[自贡]]></Content>
+<MsgId>5861795696570533045</MsgId>
+</xml>
+2013-04-01 10:40:49 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364805780</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[n]]></Content>
+<MsgId>5861796190491772086</MsgId>
+</xml>
+2013-04-01 10:41:30 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364805821</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[n]]></Content>
+<MsgId>5861796366585431223</MsgId>
+</xml>
+2013-04-01 10:41:56 : 
+2013-04-01 10:56:09 : 
+2013-04-01 11:06:16 : 
+2013-04-01 11:19:34 : 
+2013-04-01 11:25:56 : 
+2013-04-01 12:43:31 : 
+2013-04-01 12:44:37 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></FromUserName>
+<CreateTime>1364813209</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[n]]></Content>
+<MsgId>5861828097803814072</MsgId>
+</xml>
+2013-04-01 12:50:48 : <xml><ToUserName><![CDATA[gh_44876d46cef3]]></ToUserName>
+<FromUserName><![CDATA[o3WR2jiQBAHxiOsp_V8ZIB7VidfM]]></FromUserName>
+<CreateTime>1364813580</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[subscribe]]></Event>
+<EventKey><![CDATA[]]></EventKey>
+</xml>
+2013-04-01 12:56:16 : 

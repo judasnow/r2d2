@@ -138,7 +138,7 @@ class Reg_circle_handler extends Handler_base {
                         $user_input_username = $this->_request_content;
 
                         //先判断其是否符合相应的规则
-                        if( preg_match( '/[a-zA-Z0-9\_]{3,}$/' , $user_input_username ) ) {
+                        if( preg_match( '/[a-zA-Z0-9\_]{3,20}$/' , $user_input_username ) ) {
                                 //判断用户名是否唯一
                                 $res_json = $this->_api->checkUserName( array( 'userName' => $user_input_username ) );
                                 $res = json_decode( $res_json , true );
@@ -338,6 +338,10 @@ class Reg_circle_handler extends Handler_base {
                                         );
                                         return $this->_response;
                                 } else {
+                                        //注册失败 推到 common
+                                        while( $this->_context->get( 'circle' ) != 'common' ) {
+                                                $this->_context->exit_current_circle();
+                                        }
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' ,
                                                 array( 'content' => '注册失败了 orz。 稍后再试一试吧。' )
