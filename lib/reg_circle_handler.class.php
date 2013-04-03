@@ -187,8 +187,8 @@ class Reg_circle_handler extends Handler_base {
                 if( empty( $nickname ) ) {
                 //{{{
                         $user_input_nickname = $this->_request_content;
-
-                        if( preg_match( '/.{4,}+$/' , $user_input_nickname ) ) {
+                        //@todo
+                        if( preg_match( '/.{3,20}+$/' , $user_input_nickname ) ) {
                                 //判断用户昵称是否可用
                                 $res_json = $this->_api->checkNickName( array( 'nickName' => $user_input_nickname ) );
                                 $res = json_decode( $res_json , true );
@@ -315,10 +315,10 @@ class Reg_circle_handler extends Handler_base {
                 $zwms = $this->_context->get( 'zwms' );
                 if( empty( $zwms ) ) {
                 //{{{
-                        $user_input_zwms = $this->_request_content;
+                        $user_input_zwms = mb_substr( $this->_request_content , 0 , 255 );
 
-                        if( !empty( $user_input_zwms  ) ) {
-                                //只要不为空
+                        if( !empty( $user_input_zwms ) ) {
+                                //只要不为空 截断 255 字符
                                 $this->_context->set( 'zwms' , $user_input_zwms );
 
                                 //触发注册事件
@@ -372,13 +372,13 @@ class Reg_circle_handler extends Handler_base {
                 $res_json = $this->_api->Reg(
                         array(
                                 'username' => $this->_context->get( 'username' ),
-                                'nickname' => $this->_context->get( 'nickname' ),
+                                'nickname' => htmlspecialchars( $this->_context->get( 'nickname' ) ),
                                 'height' => $this->_context->get( 'height' ),
                                 'weight' => $this->_context->get( 'weight' ),
                                 'age' => $this->_context->get( 'age' ),
                                 'gender' => $this->_context->get( 'sex' ),
                                 'qq' => $this->_context->get( 'qq' ),
-                                'zwms' => $this->_context->get( 'zwms' )
+                                'zwms' => htmlspecialchars( $this->_context->get( 'zwms' ) )
                         )
                 );
 

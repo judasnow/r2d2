@@ -20,7 +20,7 @@ def initlog():
     return logger
 
 # try to connect redis server
-redis = redis.StrictRedis( host='172.17.0.46', port=6380 )
+redis = redis.StrictRedis( host='106.187.102.131', port=6379, password='erlang/otp' )
 
 # some test data
 #i = 5

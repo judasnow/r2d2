@@ -9,7 +9,8 @@ class Config {
                 'password' => 'erlang/otp', 
                 'database' => 0, 
         );
-        static public $huaban123_server = 'http://icket.us:1979/';
+        static public $huaban123_server = 'http://172.17.0.20:1979/';
+        static public $r2d2_server = 'http://172.17.0.45/';
         //static public $store_server = 'tcp://127.0.0.1:6379/';
         //static public $huaban123_server = 'http://localhost:1979/';
 
