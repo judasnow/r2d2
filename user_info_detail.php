@@ -24,7 +24,7 @@ $user_common_info = json_decode( $user_info[0]["info"] , true );
 $user_photo_info =  json_decode( $user_info[1]["info"] , true );
 
 $pron = '她';
-$default_user_head_pic = '/jsimages/women.jpg';
+$default_user_head_pic = '/jsimages/woman.jpg';
 if( $user_common_info['UserSex'] == '男' ) {
         $pron = '男';
         $default_user_head_pic = '/jsimages/man.jpg';
@@ -155,7 +155,7 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                                 <ul id="gallery_items">
                                 <!--无论如何都会显示的头像-->
                                 <li class="gallery_li">
-                                        <img class="gallery_item_img" src="<?php echo $user_head_pic_mini; ?>" data-large="<?php echo @$user_head_pic; ?>"/>
+                                        <img class="gallery_item_img" src="<?php echo Config::$huaban123_server . $user_head_pic_mini; ?>" data-large="<?php echo @Config::$huaban123_server . $user_head_pic; ?>"/>
                                 </li>
                                 <?php foreach( $user_photo_info as $no => $item ) { ?>
                                         <li class="gallery_li">
