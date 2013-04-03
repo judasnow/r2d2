@@ -56,7 +56,7 @@ while True:
         )
 
         try:
-            request = urllib2.Request( "http://172.17.0.32:1979/Action/WeixinMpApi.aspx?action=uploadImg", datagen, headers )
+            request = urllib2.Request( "http://www.huaban123.com/Action/WeixinMpApi.aspx?action=uploadImg", datagen, headers )
             res_json = urllib2.urlopen(request).read()
         except Exception , data:
             print "post exception: " , data
