@@ -161,14 +161,15 @@ class Sub_search_circle_handler_base extends Handler_base {
                         }
 
                         //构造 news 信息
+                        $age = date( "Y" , $_SERVER['REQUEST_TIME']) - substr( $user_info['CSRQ'] , 0 , 4 );
                         $items = array(
                                 array(
-                                        'title' => $user_info['NickName'] . ' , ' . $user_info['CSRQ'] . '岁 , ' . $user_info['SG'] . '厘米' ,
+                                        'title' => $user_info['NickName'] . ' , ' . $age . '岁 , 身高 ' . $user_info['SG'] . '厘米' ,
                                         'description' => $user_info['ZWMS'] . ' ' . $tips ,
                                         //@todo 判断头像是否存在
                                         'pic_url' => $user_head_pic ,
                                         //用户详细信息页面
-                                        'url' => Config::$r2d2_server . 'user_info_detawil.php?weixin_id=' . $this->_post_obj->FromUserName . '&&user_id=' . $user_info['UserId'] . '&&gallery_page_no=1' 
+                                        'url' => Config::$r2d2_server . 'user_info_detail.php?weixin_id=' . $this->_post_obj->FromUserName . '&&user_id=' . $user_info['UserId'] . '&&gallery_page_no=1' 
                                 )
                         );
 
