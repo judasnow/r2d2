@@ -53,18 +53,21 @@ if( empty( $user_common_info['HeadPic'] ) ) {
 //}}}
 ?>
 <!DOCTYPE html>
-<html lang="zh-CN" class="ua-windows ua-webkit">
+<html>
         <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
                 <title>
                         用户详细信息
                 </title>
                 <link rel="stylesheet" href="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.css" />
                 <script type="text/javascript" src="/html/js/jquery.min.js"></script>
                 <script type="text/javascript" src="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.js"></script>
-                <script type="text/javascript" src="/html/js/jquery.touch-gallery-1.0.0.min.js"></script>
 
+                <script type="text/javascript" src="/html/js/NETEYE-transform-1.0.0/jquery.transform-1.0.0.min.js"></script>
+                <script type="text/javascript" src="/html/js/NETEYE-activity-indicator-1.0.0/jquery.activity-indicator-1.0.0.min.js"></script>
+                <script type="text/javascript" src="/html/js/NETEYE-touch-gallery-1.0.0/jquery.touch-gallery-1.0.0.min.js"></script>
                 <!--{{{-->
                 <style>
                         #main {
@@ -321,7 +324,7 @@ $gallery.bind( {
 });
 
 $('img[data-large]').touchGallery({
-        getSource: function () {
+        getSource: function() { 
                 return $(this).attr('data-large');
         }
 });
