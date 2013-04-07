@@ -15,7 +15,7 @@ $user_info_json = $store->get( 'user_info:' . $user_id );
 
 //如果为空 则需要调用 api 获取信息
 if( empty( $user_info ) ) {
-        $user_info_json = Curl::post( Config::$huaban123_server . "/action/weixinmpapi.aspx?action=userInfo&user_id=$user_id&gallery_page_no=1" );
+        $user_info_json = Curl::post( Server_config::$huaban123_server . "/action/weixinmpapi.aspx?action=userInfo&user_id=$user_id&gallery_page_no=1" );
         $store->set( 'user_info:' . $user_id , $user_info_json );
 }
 
@@ -155,13 +155,13 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                                 <ul id="gallery_items">
                                 <!--无论如何都会显示的头像-->
                                 <li class="gallery_li">
-                                        <img class="gallery_item_img" src="<?php echo Config::$huaban123_server . $user_head_pic_mini; ?>" data-large="<?php echo @Config::$huaban123_server . $user_head_pic; ?>"/>
+                                        <img class="gallery_item_img" src="<?php echo Server_config::$huaban123_server . $user_head_pic_mini; ?>" data-large="<?php echo @Server_config::$huaban123_server . $user_head_pic; ?>"/>
                                 </li>
                                 <?php foreach( $user_photo_info as $no => $item ) { ?>
                                         <li class="gallery_li">
                                                 <img class="gallery_item_img"
-                                                        src="<?php echo Config::$huaban123_server; ?>/UploadFiles/UPP/MIN/<?php echo $item['PicName']; ?>"
-                                                        data-large="<?php echo Config::$huaban123_server; ?>UploadFiles/UPP/<?php echo $item['PicName']; ?>"
+                                                        src="<?php echo Server_config::$huaban123_server; ?>/UploadFiles/UPP/MIN/<?php echo $item['PicName']; ?>"
+                                                        data-large="<?php echo Server_config::$huaban123_server; ?>UploadFiles/UPP/<?php echo $item['PicName']; ?>"
                                                 />
                                         </li>
                                 <?php } ?>

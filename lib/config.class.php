@@ -12,7 +12,7 @@ if( PHP_OS == 'WINNT' ) {
                 );
                 static public $huaban123_server = 'http://172.17.0.20:1979/';
                 //weixin 服务的 server 因为要访问本地的页面信息
-                static public $r2d2_server = 'http://127.0.0.1/';
+                static public $r2d2_server = 'http://127.0.0.1:89/';
         }
 } else {
         //生产环境
