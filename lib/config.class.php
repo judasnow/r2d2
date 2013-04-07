@@ -24,7 +24,7 @@ if( PHP_OS == 'WINNT' ) {
                         'database' => 0, 
                 );
                 static public $huaban123_server = 'http://www.huaban123.com/';
-                static public $r2d2_server = 'http://127.0.0.1/';
+                static public $r2d2_server = 'http://106.187.34.51/';
         }
 }
 //}}}

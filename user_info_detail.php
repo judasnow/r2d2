@@ -1,13 +1,23 @@
 <?php
-//{{{
-require_once 'lib/store.class.php';
-require_once 'lib/curl.class.php';
-require_once 'lib/config.class.php';
-
 //@todo 注入危险
 $user_id = $_GET['user_id'];
 //$weixin_id = $_GET['weixin_id'];
 //$gallery_page_no = $_GET['gallery_page_no'];
+
+//如果存在缓存则直接使用缓存页面
+$cache_file = './html/' . $user_id . '.html';
+if( file_exists( $cache_file ) ) {
+        include( $cache_file );
+        die;
+}
+?>
+
+<?php
+ob_start();
+//{{{
+require_once 'lib/store.class.php';
+require_once 'lib/curl.class.php';
+require_once 'lib/config.class.php';
 
 //获取用户数据
 $store = new Store();
@@ -48,10 +58,10 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                 <title>
                         用户详细信息
                 </title>
-                <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
-                <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-                <script type="text/javascript" src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
-                <script type="text/javascript" src="http://172.17.0.20:1979/js/jquery.touch-gallery-1.0.0.min.js"></script>
+                <link rel="stylesheet" href="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.css" />
+                <script type="text/javascript" src="/html/js/jquery.min.js"></script>
+                <script type="text/javascript" src="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.js"></script>
+                <script type="text/javascript" src="/html/js/jquery.touch-gallery-1.0.0.min.js"></script>
 
                 <!--{{{-->
                 <style>
@@ -317,3 +327,13 @@ if( empty( $user_common_info['HeadPic'] ) ) {
 </script>
 </html>
 
+<?php
+$page = ob_get_contents();
+ob_end_flush();
+$fp = fopen( $cache_file , 'w' );
+fwrite( $fp , $page );
+fclose( $fp );
+
+//输出页面
+echo $page;
+?>
