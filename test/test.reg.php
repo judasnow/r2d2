@@ -430,9 +430,6 @@ class Test_of_strategy extends UnitTestCase{
         //{{{
                 $this->_context->set( 'circle' , 'common' );
 
-                $strategy = new Strategy( sprintf( self::TEXT_XML , '自贡' ) );
-                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
    
@@ -452,7 +449,16 @@ class Test_of_strategy extends UnitTestCase{
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
                 echo $post_obj->Content . "<br />";
                 echo $next_step = $this->_context->get( 'reg_next_step' );
+                $this->assertTrue( $next_step == 'location' );
+
+                $strategy = new Strategy( sprintf( self::LOCATION_XML , '' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                echo $post_obj->Content . "<br />";
+                echo $next_step = $this->_context->get( 'reg_next_step' );
                 $this->assertTrue( $next_step == 'username' );
+
+                $province = $this->_context->get( 'province' );
+                $this->assertTrue( '四川' , $province );
 
                 //输入无效的 username 
                 $strategy = new Strategy( sprintf( self::TEXT_XML , '哈哈哈' ) );
@@ -605,6 +611,6 @@ class Test_of_strategy extends UnitTestCase{
                 //断言已经退出到了 common
                 echo $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'common' );
-        
+
         }//}}}
 }

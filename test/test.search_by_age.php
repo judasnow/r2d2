@@ -1,8 +1,8 @@
 <?php
 require_once( dirname(__FILE__) . '/simpletest/autorun.php' );
-require( dirname(__FILE__) . '/../lib/strategy.class.php' );
+require_once( dirname(__FILE__) . '/../lib/strategy.class.php' );
 
-class Test_of_strategy extends UnitTestCase{
+class Test_search_by_age extends UnitTestCase{
 
         //普通的 xml 请求
         const TEXT_XML = '<xml><ToUserName><![CDATA[gh3_cbb742f45d8f]]></ToUserName>

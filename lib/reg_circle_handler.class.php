@@ -1,4 +1,7 @@
 <?php
+/**
+ * 注册流程
+ */
 require_once 'handler_base.class.php';
 require_once 'config.class.php';
 
@@ -34,9 +37,9 @@ class Reg_circle_handler extends Handler_base {
                 $next_step = $this->_context->get( 'reg_next_step' );
 
                 if( !empty( $next_step ) ) {
-                        $msg = Config::$response_msg['when_back_reg'][$next_step];
+                        $msg = Language_config::$when_back_reg[$next_step];
                 } else {
-                        $msg = Config::$response_msg['when_back_reg']['just_begin'];
+                        $msg = Language_config::$when_back_reg['just_begin'];
                 }
 
                 return $msg;
@@ -46,9 +49,6 @@ class Reg_circle_handler extends Handler_base {
         //{{{
                 //输入性别以及取向的选项
                 $sex_and_target_sex_index = $this->_context->get( 'sex_and_target_sex_index' );
-
-                //之所以放到前面是因为需要依据 location 是否已经设置来判断下一步行为
-                $location = $this->_context->get( 'location' );
 
                 if( empty( $sex_and_target_sex_index ) ) {
                 //{{{
@@ -63,11 +63,11 @@ class Reg_circle_handler extends Handler_base {
                                                 $this->_context->set( 'target_sex' , '女' );
                                                 break;
                                         case 2:
-                                                $this->_context->set( 'sex' , '男' );
+                                                $this->_context->set( 'sex' , '女' );
                                                 $this->_context->set( 'target_sex' , '男' );
                                                 break;
                                         case 3:
-                                                $this->_context->set( 'sex' , '女' );
+                                                $this->_context->set( 'sex' , '男' );
                                                 $this->_context->set( 'target_sex' , '男' );
                                                 break;
                                         case 4:
@@ -75,34 +75,26 @@ class Reg_circle_handler extends Handler_base {
                                                 $this->_context->set( 'target_sex' , '女' );
                                                 break;
                                 }
-                                if( empty( $location ) ) {
-                                        //需要填写地址
-                                        $this->_response = $this->_msg_producer->do_produce( 
-                                                'text' , 
-                                                array( 'content' => Config::$response_msg['input_success_message']['sex_and_target_sex_index_without_location'] )
-                                        );
-                                        $this->_context->set( 'reg_next_step' , 'location' );
-                                } else {
-                                        //用户之前已经填写了地址信息
-                                        $this->_response = $this->_msg_producer->do_produce( 
-                                                'text' , 
-                                                array( 'content' => Config::$response_msg['input_success_message']['sex_and_target_sex_index_with_location'] )
-                                        );
-                                        $this->_context->set( 'reg_next_step' , 'username' );
-                                }
+
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' ,
+                                        array( 'content' => Language_config::$input_success_message['sex_and_target_sex_index_without_location'] )
+                                );
+                                $this->_context->set( 'reg_next_step' , 'location' );
                                 return $this->_response;
                         } else {
                                 //用户输入信息无效 下一步还是当前步骤
                                 $this->_context->set( 'reg_next_step' , 'sex_and_target_sex_index' );
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['sex_and_target_sex_index'] )
+                                        array( 'content' => Language_config::$input_invalid_message['sex_and_target_sex_index'] )
                                 );
                                 return $this->_response;
                         }
                 }//}}}
 
                 //输入 location 信息
+                $location = $this->_context->get( 'location' );
                 if( empty( $location ) ) {
                 //{{{
                         $location_circle_handler = new Location_circle_handler( $this->_post_obj );
@@ -114,7 +106,7 @@ class Reg_circle_handler extends Handler_base {
                                 $this->_context->set( 'reg_next_step' , 'username' );
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_success_message']['location'] )
+                                        array( 'content' => Language_config::$input_success_message['location'] )
                                 );
                                 return $this->_response;
                         } else {
@@ -147,7 +139,7 @@ class Reg_circle_handler extends Handler_base {
                                                 //已经被注册
                                                 $this->_response = $this->_msg_producer->do_produce( 
                                                         'text' ,
-                                                        array( 'content' => $user_input_username . '，' . Config::$response_msg['input_invalid_message']['username_has_reg'] )
+                                                        array( 'content' => $user_input_username . '，' . Language_config::$input_invalid_message['username_has_reg'] )
                                                 );
                                                 return $this->_response;
                                         } else {
@@ -160,7 +152,7 @@ class Reg_circle_handler extends Handler_base {
 
                                                 $this->_response = $this->_msg_producer->do_produce(
                                                         'text' ,
-                                                        array( 'content' => Config::$response_msg['input_success_message']['username'] )
+                                                        array( 'content' => Language_config::$input_success_message['username'] )
                                                 );
                                                 return $this->_response;
                                         }
@@ -175,7 +167,7 @@ class Reg_circle_handler extends Handler_base {
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['username'] )
+                                        array( 'content' => Language_config::$input_invalid_message['username'] )
                                 );
                                 return $this->_response;
                         }
@@ -197,7 +189,7 @@ class Reg_circle_handler extends Handler_base {
                                                 //已经被注册
                                                 $this->_response = $this->_msg_producer->do_produce( 
                                                         'text' ,
-                                                        array( 'content' => Config::$response_msg['input_invalid_message']['nickname_has_reg'] )
+                                                        array( 'content' => Language_config::$input_invalid_message['nickname_has_reg'] )
                                                 );
                                                 return $this->_response;
                                         } else {
@@ -207,7 +199,7 @@ class Reg_circle_handler extends Handler_base {
                                                 $this->_context->set( 'reg_next_step' , 'qq' );
                                                 $this->_response = $this->_msg_producer->do_produce( 
                                                         'text' , 
-                                                        array( 'content' => Config::$response_msg['input_success_message']['nickname'] )
+                                                        array( 'content' => Language_config::$input_success_message['nickname'] )
                                                 );
                                                 return $this->_response;
                                         }
@@ -216,7 +208,7 @@ class Reg_circle_handler extends Handler_base {
                                 //输入非法
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['nickname'] )
+                                        array( 'content' => Language_config::$input_invalid_message['nickname'] )
                                 );
                                 return $this->_response;
                         }
@@ -232,13 +224,13 @@ class Reg_circle_handler extends Handler_base {
 
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['input_success_message']['qq'] )
+                                        array( 'content' => Language_config::$input_success_message['qq'] )
                                 );
                                 return $this->_response;
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['qq'] )
+                                        array( 'content' => Language_config::$input_invalid_message['qq'] )
                                 );
                                 return $this->_response;
                         }
@@ -254,13 +246,13 @@ class Reg_circle_handler extends Handler_base {
                                 $this->_context->set( 'reg_next_step' , 'weight' );
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_success_message']['height'] )
+                                        array( 'content' => Language_config::$input_success_message['height'] )
                                 );
                                 return $this->_response;
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['height'] )
+                                        array( 'content' => Language_config::$input_invalid_message['height'] )
                                 );
                                 return $this->_response;
                         }
@@ -276,13 +268,13 @@ class Reg_circle_handler extends Handler_base {
                                 $this->_context->set( 'reg_next_step' , 'age' );
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['input_success_message']['weight'] )
+                                        array( 'content' => Language_config::$input_success_message['weight'] )
                                 );
                                 return $this->_response;
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['weight'] )
+                                        array( 'content' => Language_config::$input_invalid_message['weight'] )
                                 );
                                 return $this->_response;
                         }
@@ -299,13 +291,13 @@ class Reg_circle_handler extends Handler_base {
 
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['input_success_message']['age'] )
+                                        array( 'content' => Language_config::$input_success_message['age'] )
                                 );
                                 return $this->_response;
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' , 
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['age'] )
+                                        array( 'content' => Language_config::$input_invalid_message['age'] )
                                 );
                                 return $this->_response;
                         }
@@ -334,7 +326,7 @@ class Reg_circle_handler extends Handler_base {
 
                                         $this->_response = $this->_msg_producer->do_produce( 
                                                 'text' ,
-                                                array( 'content' => Config::$response_msg['input_success_message']['zwms'] )
+                                                array( 'content' => Language_config::$input_success_message['zwms'] )
                                         );
                                         return $this->_response;
                                 } else {
@@ -351,7 +343,7 @@ class Reg_circle_handler extends Handler_base {
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['input_invalid_message']['zwms'] )
+                                        array( 'content' => Language_config::$input_invalid_message['zwms'] )
                                 );
                                 return $this->_response;
                         }
@@ -369,6 +361,9 @@ class Reg_circle_handler extends Handler_base {
 
         private function do_reg() {
         //{{{
+                //根据城市信息反向查询 areaId
+                $city_name = $this->_context->get( 'location' );
+                $area_id = Utility::get_area_id( $city_name );
                 $res_json = $this->_api->Reg(
                         array(
                                 'username' => $this->_context->get( 'username' ),
@@ -378,7 +373,8 @@ class Reg_circle_handler extends Handler_base {
                                 'age' => $this->_context->get( 'age' ),
                                 'gender' => $this->_context->get( 'sex' ),
                                 'qq' => $this->_context->get( 'qq' ),
-                                'zwms' => htmlspecialchars( $this->_context->get( 'zwms' ) )
+                                'zwms' => htmlspecialchars( $this->_context->get( 'zwms' ) ),
+                                'area_id' => $area_id
                         )
                 );
 

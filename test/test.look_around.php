@@ -1,8 +1,8 @@
 <?php
 require_once( dirname(__FILE__) . '/simpletest/autorun.php' );
-require( dirname(__FILE__) . '/../lib/strategy.class.php' );
+require_once( dirname(__FILE__) . '/../lib/strategy.class.php' );
 
-class Test_of_strategy extends UnitTestCase{
+class Test_look_around extends UnitTestCase{
 
         //普通的 xml 请求
         const TEXT_XML = '<xml><ToUserName><![CDATA[gh3_cbb742f45d8f]]></ToUserName>
@@ -203,7 +203,7 @@ class Test_of_strategy extends UnitTestCase{
 
         //测试未注册 查询次数限制
         //期待的反映是 达到3次（包括）提示用户注册 而且跳转到 最外层循环
-        public function test_max_search_count_without_reg() {
+        public function _test_max_search_count_without_reg() {
         //{{{
                 //1
                 $strategy = new Strategy( sprintf( self::LOCATION_XML , '' ) );
@@ -471,4 +471,66 @@ class Test_of_strategy extends UnitTestCase{
                 $circle = $this->_context->get( 'circle' );
                 $this->assertTrue( $circle == 'common' ); 
         }//}}}
+
+        //测试一天之后会清空查询计数
+        public function _test_reset_count_per_day() {
+                $strategy = new Strategy( sprintf( self::LOCATION_XML , '' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'news' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $search_count = $this->_context->get( 'search_count' );
+                $this->assertTrue( $search_count == 1 );
+
+                $_SERVER['REQUEST_TIME'] = 9999999999;
+
+                $strategy = new Strategy( sprintf( self::LOCATION_XML , '' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'news' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $search_count = $this->_context->get( 'search_count' );
+                $this->assertTrue( $search_count == 1 );
+        }
+
+        //测试查询失败不计数
+        public function test_do_not_count_when_not_found() {
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '台北' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'text' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'text' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'text' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'n' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'text' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $search_count = $this->_context->get( 'search_count' );
+                $this->assertTrue( $search_count == 0 );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , '自贡' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->MsgType == 'news' );
+                $circle = $this->_context->get( 'circle' );
+                $this->assertTrue( $circle == 'look_around' );
+
+                $search_count = $this->_context->get( 'search_count' );
+                $this->assertTrue( $search_count == 1 );
+        }
 }

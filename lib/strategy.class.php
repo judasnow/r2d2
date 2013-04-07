@@ -90,7 +90,7 @@ class Strategy {
                 if( $this->_request_content == '?' || $this->_request_content == 'help' ) {
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' ,
-                                array( 'content' => Config::$response_msg['help'] )
+                                array( 'content' => Language_config::$help )
                         );
                         return $this->_response;
                 }
@@ -106,12 +106,15 @@ class Strategy {
                         //初始化用户查找次数
                         $this->_context->set( 'search_count' , 0 );
 
+                        //初始化当天最早查询时间
+                        $this->_context->set( 'first_search_time_today' , $_SERVER['REQUEST_TIME'] );
+
                         //初始化用户是否已经注册
                         $this->_context->set( 'is_reg' , false );
 
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' ,
-                                array( 'content' => Config::$response_msg['hello2bizuser'] )
+                                array( 'content' => Language_config::$hello2bizuser )
                         );
                         return $this->_response;
                 }
@@ -132,12 +135,12 @@ class Strategy {
                                                 $user_info = $this->_context->get_user_info();
                                                 //显示成功注册的信息
                                                 $content = sprintf(
-                                                        Config::$response_msg['reg_success'] ,
+                                                        Language_config::$reg_success ,
                                                         $user_info['username'] , $user_info['nickname'] , $user_info['qq'] , $user_info['height'] , $user_info['weight'] , $user_info['email'] , $user_info['zwms'] 
                                                 );
                                         } else {
                                                 //从注册模式退出但是还没有上传图片
-                                                $content = Config::$response_msg['quit_circle']['reg'];
+                                                $content = Language_config::$quit_circle['reg'];
                                         }
 
                                         //一直退到 common
@@ -153,7 +156,7 @@ class Strategy {
 
                                 //任意搜索 circle 都直接退出到最外层
                                 if( in_array( $circle , array( 'search_by_age' , 'search_by_height' , 'search_by_weight' , 'look_around' , 'search_method_select' ) ) ) {
-                                        $content = Config::$response_msg['quit_circle']['search_common'];
+                                        $content = Language_config::$quit_circle['search_common'];
                                         //一直退到 common
                                         while( $this->_context->get( 'circle' ) != 'common' ) {
                                                 $this->_context->exit_current_circle();
@@ -167,7 +170,7 @@ class Strategy {
 
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['quit_circle'][$is_quit_from] )
+                                        array( 'content' => Language_configConfig::$quit_circle[$is_quit_from] )
                                 );
                                 return $this->_response;
                         } else {

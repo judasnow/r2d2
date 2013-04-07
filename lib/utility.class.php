@@ -48,6 +48,15 @@ class Utility {
                 return false;
         }//}}}
 
+        //根据用户输入的市名获取 areaId (和web系统对应)
+        static public function get_area_id( $city_name ) {
+                if( isset( City_list::$list_with_id[$city_name] ) ) {
+                        $id = City_list::$list_with_id[$city_name];
+                        return $id;
+                }
+                return false;
+        }
+
         /**
          * 对用户的输入进行处理
          */

@@ -10179,3 +10179,285 @@
 【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”或“help”。】]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>
+2013-04-06 19:34:34 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365269674</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[一群妇女等候B超检查，护士喊：排好了啊，彩B的站左边；黑白B的站右边。一妇女不懂，掀开裙子退下内裤，问护士：你看我的算什么B？护士没好气地说：你是牛B！！
+【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”或“help”。】]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-06 19:34:39 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365269679</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、进入注册zc
+3、更换查看性别h
+4、上传照片sczp（注册后使用）
+5、退出注册q
+6、打开帮助help
+7、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-06 19:34:42 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365269682</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请在下面4选项中选择一个与您相符的列表编号输入~选择性别后不可更改哦。
+1、我是【男】，想查看【女】；
+2、我是【女】，想查看【男】；
+3、我是【男】，想查看【男】；
+4、我是【女】，想查看【女】。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-06 19:34:45 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365269685</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[设置性别及取向成功！请发送微信【+】号下面的“位置”信息作为你所在城市信息。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:04 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304564</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[城市信息设置成功！请输入用户名，由字母、数字以及下划线组成,不少于3个字符]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:09 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304569</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[uutest，此用户名太受欢迎，已被注册啦，换一个吧~]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:13 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304573</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名设置成功！请输入你的昵称，给自己取个好听的名字，由中文、数字和字母组成，不低于4个字符]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:16 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304576</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[昵称设置成功！请输入你的QQ号码]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:19 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304579</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[设置QQ号码成功！请选择你的身高（厘米），150-230之间，请输入此范围的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:24 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304584</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高输入成功！请输入您的体重（斤），70-230之间，请输入此范围的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:26 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304586</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[体重输入成功！请输入你的年龄（岁），18-60之间，请输入此范围数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:29 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304589</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[年龄输入成功！请输入你的交友宣传（140字符以内）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:34 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304594</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[交友宣传输入成功！上传几张照片吧，有照片会员才能获得更多关注哦。第一张照片将作为你的头像，务必上传本人清晰生活照。请勿上传色情、反动、风景照，否则不予审核通过。上传头像步骤：按输入框旁“+”选择照片或拍摄。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:43 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304603</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功！已上传1张照片。可继续上传也可以输入“q”退出上传照片模式。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:16:49 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304609</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[成功退出上传照片模式！恭喜你注册成功！
+【花瓣网定位真实、高端、高品质互助交友网站；拒绝寂寞，拒绝孤单，用爱和帮助温暖彼此。】
+你的注册信息如下：
+----------------------------------
+您的用户名：uuuutest
+您的密码：huaban123（默认密码，可到站点进行修改）
+您的昵称：爱三大的
+您的QQ：1231456
+您的身高：160
+您的体重： 190
+您的邮箱地址：1231456@qq.com
+您的交友宣言：哈哈哈哈
+------------------------------------
+使用微信【+】号下面的“位置”发送地理位置查看附近的人；
+输入“c”按条件查询附近的人；
+输入“h”更换查看性别；
+上传照片请输入sczp；
+获取帮助信息请输入“?”或“help”。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:12 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304692</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请在下面4选项中选择一个与您相符的列表编号输入~选择性别后不可更改哦。
+1、我是【男】，想查看【女】；
+2、我是【女】，想查看【男】；
+3、我是【男】，想查看【男】；
+4、我是【女】，想查看【女】。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:17 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304697</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[设置性别及取向成功！请发送微信【+】号下面的“位置”信息作为你所在城市信息。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:24 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304704</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[城市信息设置成功！请输入用户名，由字母、数字以及下划线组成,不少于3个字符]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:26 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304706</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[123，此用户名太受欢迎，已被注册啦，换一个吧~]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:29 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304709</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[123123123，此用户名太受欢迎，已被注册啦，换一个吧~]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:31 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304711</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名设置成功！请输入你的昵称，给自己取个好听的名字，由中文、数字和字母组成，不低于4个字符]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:33 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304713</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[昵称设置成功！请输入你的QQ号码]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:36 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304716</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[设置QQ号码成功！请选择你的身高（厘米），150-230之间，请输入此范围的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:39 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304719</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[身高输入成功！请输入您的体重（斤），70-230之间，请输入此范围的数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:41 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304721</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[体重输入成功！请输入你的年龄（岁），18-60之间，请输入此范围数字]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:43 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304723</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[年龄输入成功！请输入你的交友宣传（140字符以内）]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:46 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304726</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[交友宣传输入成功！上传几张照片吧，有照片会员才能获得更多关注哦。第一张照片将作为你的头像，务必上传本人清晰生活照。请勿上传色情、反动、风景照，否则不予审核通过。上传头像步骤：按输入框旁“+”选择照片或拍摄。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:52 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304732</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功！已上传1张照片。可继续上传也可以输入“q”退出上传照片模式。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-07 05:18:55 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365304735</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[成功退出上传照片模式！恭喜你注册成功！
+【花瓣网定位真实、高端、高品质互助交友网站；拒绝寂寞，拒绝孤单，用爱和帮助温暖彼此。】
+你的注册信息如下：
+----------------------------------
+您的用户名：123131231313
+您的密码：huaban123（默认密码，可到站点进行修改）
+您的昵称：啊大大
+您的QQ：12312313
+您的身高：180
+您的体重： 190
+您的邮箱地址：12312313@qq.com
+您的交友宣言：是啊大大萨斯的风口浪尖代课老师多久
+------------------------------------
+使用微信【+】号下面的“位置”发送地理位置查看附近的人；
+输入“c”按条件查询附近的人；
+输入“h”更换查看性别；
+上传照片请输入sczp；
+获取帮助信息请输入“?”或“help”。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>

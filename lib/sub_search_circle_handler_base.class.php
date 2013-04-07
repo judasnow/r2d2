@@ -36,21 +36,37 @@ class Sub_search_circle_handler_base extends Handler_base {
          */
         public function is_search_count_outrange() {
         //{{{
-                $search_count = $this->_context->get( 'search_count' );
+                //为了实现对查询次数每日重置 每次判断是否过期的时候
+                //都会判断当前的时间 和最早的查询时间之差是否大于 86400
+                //如果是的话就重置查询次数为 0
+                $first_search_time_today = $this->_context->get( 'first_search_time_today' );
+                if( empty( $first_search_time_today ) ) {
+                        $this->_context->set( 'first_search_time_today' , $_SERVER['REQUEST_TIME'] );
+                }
+
+                if( $_SERVER['REQUEST_TIME'] - $first_search_time_today  > 86400 ) {
+                        $search_count = 0;
+                        $this->_context->set( 'search_count' , 0 );
+                        //重置最早的查询时间
+                        $this->_context->set( 'first_search_time_today' , $_SERVER['REQUEST_TIME'] );
+                } else {
+                        $search_count = $this->_context->get( 'search_count' );
+                }
+
                 if( $this->_is_reg == true ) {
                         //已经注册的情况下
                         //达到上限之后 返回到最外层
-                        if( $search_count > Config::$max_search_count_with_reg ) {
+                        if( $search_count >= Search_config::$max_search_count_with_reg ) {
                                 //达到注册后允许的上限 仅仅提示用户查询次数达到了上限
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true , sprintf( Config::$response_msg['search_count_outrange_after_reg'] , Config::$max_search_count_with_reg ) );
+                                return array( true , sprintf( Language_config::$search_count_outrange_after_reg , Search_config::$max_search_count_with_reg ) );
                         }
                 } else {
                         //还没注册的情况下
-                        if( $search_count > Config::$max_search_count_without_reg ) {
+                        if( $search_count >= Search_config::$max_search_count_without_reg ) {
                                 //达到未注册时允许的上限 提示用户注册
                                 $this->_context->set( 'circle' , 'common' );
-                                return array( true ,  sprintf( Config::$response_msg['search_count_outrange_before_reg'] , Config::$max_search_count_without_reg ) );
+                                return array( true ,  sprintf( Language_config::$search_count_outrange_before_reg , Search_config::$max_search_count_without_reg ) );
                         }
                 }
 
@@ -92,9 +108,6 @@ class Sub_search_circle_handler_base extends Handler_base {
                                 throw new Exception( 'set use_last_search_cond with false that mean use new cond , but cond is empty.' );
                         }
                 }
-
-                //对查询次数执行加一操作
-                $this->incr_search_count();
 
                 //完善 $cond
                 $cond['sex'] = $this->_target_sex;
@@ -140,11 +153,15 @@ class Sub_search_circle_handler_base extends Handler_base {
 
                 $user_infos_count = count( $user_infos );
                 if( $user_infos_count > 0 ) {
+
+                        //若查询成功则对查询次数执行加一操作
+                        $this->incr_search_count();
+
                         $user_info = $user_infos[ rand( 0 , $user_infos_count - 1 ) ];
                         if( $this->_is_reg == true ) {
-                                $tips = Config::$response_msg['search_result_tips_after_reg'];
+                                $tips = Language_config::$search_result_tips_after_reg;
                         } else {
-                                $tips = Config::$response_msg['search_result_tips_before_reg'];
+                                $tips = Language_config::$search_result_tips_before_reg;
                         }
 
                         //判断头像是否为空 为空则设置默认头像
@@ -155,9 +172,9 @@ class Sub_search_circle_handler_base extends Handler_base {
                                 } else {
                                         $default_image_name = 'woman.jpg';
                                 }
-                                $user_head_pic = Config::$huaban123_server . '/jsimages/' . $default_image_name;
+                                $user_head_pic = Server_config::$huaban123_server . '/jsimages/' . $default_image_name;
                         } else {
-                                $user_head_pic = Config::$huaban123_server . 'UploadFiles/UHP/' . $user_info['HeadPic'];
+                                $user_head_pic = Server_config::$huaban123_server . 'UploadFiles/UHP/' . $user_info['HeadPic'];
                         }
 
                         //构造 news 信息
@@ -169,7 +186,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                                         //@todo 判断头像是否存在
                                         'pic_url' => $user_head_pic ,
                                         //用户详细信息页面
-                                        'url' => Config::$r2d2_server . 'user_info_detail.php?weixin_id=' . $this->_post_obj->FromUserName . '&&user_id=' . $user_info['UserId'] . '&&gallery_page_no=1' 
+                                        'url' => Server_config::$r2d2_server . 'user_info_detail.php?weixin_id=' . $this->_post_obj->FromUserName . '&&user_id=' . $user_info['UserId'] . '&&gallery_page_no=1' 
                                 )
                         );
 
@@ -183,7 +200,7 @@ class Sub_search_circle_handler_base extends Handler_base {
                         //查询结果为空
                         $search_result_xml = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => Config::$response_msg['search_result_is_empty'] )
+                                array( 'content' => Language_config::$search_result_is_empty )
                         );
 
                         return array( true , $search_result_xml );

@@ -1,6 +1,6 @@
 <?php
 /**
- * 持久化类 暂时使用 mongodb
+ * 持久化类 暂时使用 redis
  */
 require_once 'config.class.php';
 require_once 'third_party/Predis/Autoloader.php';
@@ -11,7 +11,7 @@ class Store{
         private $_redis;
 
         public function __construct() {
-                $this->_redis = new Predis\Client( Config::$store_server );
+                $this->_redis = new Predis\Client( Server_config::$store_server );
         }
 
         public function __CALL( $method , $param_array ) {

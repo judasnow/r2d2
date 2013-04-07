@@ -20,9 +20,9 @@ def initlog():
     return logger
 
 # try to connect redis server
-redis = redis.StrictRedis( host='106.187.102.131', port=6379, password='erlang/otp' )
+redis = redis.StrictRedis( host='106.187.34.51', port=6379, password='erlang/otp' )
 
-# some test data
+#some test data
 #i = 5
 #while i>0:
 #    redis.rpush( 'image_to_upload' , "544:test.jpg" )
@@ -34,7 +34,9 @@ logger = initlog()
 while True:
     image_info = redis.lpop( "image_to_upload" )
     if not image_info:
-        break
+        print "no job to do."
+        time.sleep( 5 )
+        continue
     [user_id, image_name] = image_info.split( ":" )
     try:
         img_fp = open( "./temp/" + image_name , "rb" )

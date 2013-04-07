@@ -32,7 +32,7 @@ class Upload_image_circle_hander extends Handler_base {
                                 //尝试 post 到 huaban123.com
                                 try{
                                         $res_json = Curl::post(
-                                                Config::$huaban123_server . '/ation/WeixinMpApi.aspx?action=uploadImg' ,
+                                                Server_config::$huaban123_server . '/ation/WeixinMpApi.aspx?action=uploadImg' ,
                                                 array( 'action'=>'uploadImg' , 'user_id'=>$user_id , 'upload'=>$image_full_path )
                                         );
                                         $res = json_decode( $res_json , true );
@@ -58,13 +58,13 @@ class Upload_image_circle_hander extends Handler_base {
 
                                 $this->_response = $this->_msg_producer->do_produce(
                                         'text' , 
-                                        array( 'content' => sprintf( Config::$response_msg['upload_image_success'] , $image_count ) )
+                                        array( 'content' => sprintf( Language_config::$upload_image_success , $image_count ) )
                                 );
                                 return $this->_response;
                         } else {
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
-                                        array( 'content' => Config::$response_msg['upload_image_fail'] )
+                                        array( 'content' => Language_config::$upload_image_fail )
                                 );
                                 return $this->_response;
                         }
@@ -72,9 +72,9 @@ class Upload_image_circle_hander extends Handler_base {
                         //所有的其他行为均被视为无效行为
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' , 
-                                array( 'content' => Config::$response_msg['upload_image_invalid'] )
+                                array( 'content' => Language_config::$upload_image_invalid )
                         );
                         return $this->_response;
-                }       
+                }
         }//}}}
 }

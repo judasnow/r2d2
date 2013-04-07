@@ -8,7 +8,7 @@ require_once "curl.class.php";
 class Api{
 
         public function __call( $method , $arg_array ){
-                $api_url = Config::$huaban123_server . '/action/WeixinMpApi.aspx';
+                $api_url = Server_config::$huaban123_server . '/action/WeixinMpApi.aspx';
 
                 //传递过来的这个参数很奇葩啊 ..
                 $data = $arg_array[0];
