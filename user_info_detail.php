@@ -1,20 +1,22 @@
 <?php
 //@todo 注入危险
-$user_id = $_GET['user_id'];
+$user_id = @$_GET['user_id'];
 //$weixin_id = $_GET['weixin_id'];
 //$gallery_page_no = $_GET['gallery_page_no'];
 
 //如果存在缓存则直接使用缓存页面
-$cache_file = './html/' . $user_id . '.html';
-if( file_exists( $cache_file ) ) {
-        include( $cache_file );
-        die;
+if( is_numeric( $user_id ) ) {
+        $cache_file = './html/' . $user_id . '.html';
+        if( file_exists( $cache_file ) ) {
+                include( $cache_file );
+                die;
+        }
+} else {
+        die( '该用户不存在' );
 }
-?>
 
-<?php
-ob_start();
 //{{{
+ob_start();
 require_once 'lib/store.class.php';
 require_once 'lib/curl.class.php';
 require_once 'lib/config.class.php';
@@ -36,7 +38,7 @@ $user_photo_info =  json_decode( $user_info[1]["info"] , true );
 $pron = '她';
 $default_user_head_pic = '/jsimages/woman.jpg';
 if( $user_common_info['UserSex'] == '男' ) {
-        $pron = '男';
+        $pron = '他';
         $default_user_head_pic = '/jsimages/man.jpg';
 }
 
@@ -254,7 +256,7 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                         <hr />
                         
                         <p>
-                                <a id="homePage" data-role="button" data-theme="b" class="button" href="http://huaban123.com/space/<?php echo $user_common_info["UserId"]; ?>.html">到她的主页看看</a>
+                        <a id="homePage" data-role="button" data-theme="b" class="button" href="http://www.huaban123.com/space/<?php echo $user_common_info["UserId"]; ?>.html">到<?php echo $pron; ?>的主页看看</a>
                         </p>
                        
                         <p class="footer">
@@ -272,57 +274,58 @@ if( empty( $user_common_info['HeadPic'] ) ) {
         </div>
 </form>
 </body>
-<script>
-        (function(){
-                //设定触发 swipe 事件阀值
-                $.event.special.swipe.scrollSupressionThreshold = "1px";
+<script type="text/javascript">
+(function(){
+        //设定触发 swipe 事件阀值
+        $.event.special.swipe.scrollSupressionThreshold = "1px";
 
-                //绑定滑动事件
-                $gallery = $( "#gallery" );
-                $galleryItems = $( "#gallery_items" );
+        //绑定滑动事件
+        $gallery = $( "#gallery" );
+        $galleryItems = $( "#gallery_items" );
 
-                //type 表明的是向右还是向左滑动
-                swipeHandler = function( type ) {
-                        //取出原有的 left 值
-                        left = $galleryItems.css( "left" ).replace( "px" , "" );
-                        if( isNaN( left ) ) {
-                                left = 0;
+        //type 表明的是向右还是向左滑动
+        swipeHandler = function( type ) {
+                //取出原有的 left 值
+                left = $galleryItems.css( "left" ).replace( "px" , "" );
+                if( isNaN( left ) ) {
+                        left = 0;
+                }
+
+        switch( type ){
+                case 'left':
+                        left = Number(left) - 50;
+
+                        $galleryItems.stop().animate( { "left": left + "px" } , 200 );
+                        break;
+                case 'right':
+                        left = Number(left) + 50;
+
+                        //最左
+                        if( left > 0 ) {
+                                $galleryItems.css( "left" , "0px" );
+                                return false;
                         }
 
-                switch( type ){
-                        case 'left':
-                                left = Number(left) - 50;
+                        $galleryItems.stop().animate( { "left": left + "px" } , 200 );
+                        break;
+                }
+}
 
-                                $galleryItems.stop().animate( { "left": left + "px" } , 500 );
-                                break;
-                        case 'right':
-                                left = Number(left) + 50;
-
-                                //最左
-                                if( left > 0 ) {
-                                        $galleryItems.css( "left" , "0px" );
-                                        return false;
-                                }
-
-                                $galleryItems.stop().animate( { "left": left + "px" } , 500 );
-                                break;
-                        }
+$gallery.bind( {
+        swipeleft: function( event ) {
+                swipeHandler( 'left' );
+        },
+        swiperight: function( event ) {
+                swipeHandler( 'right' );
         }
+});
 
-        $gallery.bind( {
-                swipeleft: function( event ) {
-                        swipeHandler( 'left' );
-                },
-                swiperight: function( event ) {
-                        swipeHandler( 'right' );
-                }
-        });
+$('img[data-large]').touchGallery({
+        getSource: function () {
+                return $(this).attr('data-large');
+        }
+});
 
-        $('img[data-large]').touchGallery({
-                getSource: function () {
-                        return $(this).attr('data-large');
-                }
-        });
 })();
 </script>
 </html>

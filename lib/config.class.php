@@ -7,10 +7,10 @@ if( PHP_OS == 'WINNT' ) {
         //开发环境
         class Server_config {
                 static public $store_server = array(
-                        'host'     => '172.17.0.46',
-                        'port'     => '6380'
+                        'host'     => '127.0.0.1',
+                        'port'     => '6379'
                 );
-                static public $huaban123_server = 'http://172.17.0.20:1979/';
+                static public $huaban123_server = 'http://127.0.0.1:1979/';
                 //weixin 服务的 server 因为要访问本地的页面信息
                 static public $r2d2_server = 'http://127.0.0.1:89/';
         }
