@@ -65,8 +65,6 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                 <script type="text/javascript" src="/html/js/jquery.min.js"></script>
                 <script type="text/javascript" src="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.js"></script>
 
-                <script type="text/javascript" src="/html/js/NETEYE-transform-1.0.0/jquery.transform-1.0.0.min.js"></script>
-                <script type="text/javascript" src="/html/js/NETEYE-activity-indicator-1.0.0/jquery.activity-indicator-1.0.0.min.js"></script>
                 <script type="text/javascript" src="/html/js/NETEYE-touch-gallery-1.0.0/jquery.touch-gallery-1.0.0.min.js"></script>
                 <!--{{{-->
                 <style>
@@ -125,6 +123,11 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                                 z-index: 0;
                                 margin-right: 8px;
                         }
+                        .gallery_li a {
+                                height: 64px;
+                                width: 64px;
+                                display: inline-block;
+                        }
                         .gallery_item_img {
                                 width: 64px;
                                 height: 64px;
@@ -170,14 +173,11 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                                 <ul id="gallery_items">
                                 <!--无论如何都会显示的头像-->
                                 <li class="gallery_li">
-                                        <img class="gallery_item_img" src="<?php echo Server_config::$huaban123_server . $user_head_pic_mini; ?>" data-large="<?php echo @Server_config::$huaban123_server . $user_head_pic; ?>"/>
+                                        <a href="<?php echo @Server_config::$huaban123_server . $user_head_pic; ?>"><img class="gallery_item_img" src="<?php echo Server_config::$huaban123_server . $user_head_pic_mini; ?>" /></a>
                                 </li>
                                 <?php foreach( $user_photo_info as $no => $item ) { ?>
                                         <li class="gallery_li">
-                                                <img class="gallery_item_img"
-                                                        src="<?php echo Server_config::$huaban123_server; ?>/UploadFiles/UPP/MIN/<?php echo $item['PicName']; ?>"
-                                                        data-large="<?php echo Server_config::$huaban123_server; ?>UploadFiles/UPP/<?php echo $item['PicName']; ?>"
-                                                />
+ <a href="<?php echo Server_config::$huaban123_server; ?>UploadFiles/UPP/<?php echo $item['PicName']; ?>"><img class="gallery_item_img" src="<?php echo Server_config::$huaban123_server; ?>/UploadFiles/UPP/MIN/<?php echo $item['PicName']; ?>" /></a>
                                         </li>
                                 <?php } ?>
                                 </ul>
@@ -278,7 +278,7 @@ if( empty( $user_common_info['HeadPic'] ) ) {
 </form>
 </body>
 <script type="text/javascript">
-(function(){
+$( function(){
         //设定触发 swipe 事件阀值
         $.event.special.swipe.scrollSupressionThreshold = "1px";
 
@@ -323,22 +323,18 @@ $gallery.bind( {
         }
 });
 
-$('img[data-large]').touchGallery({
-        getSource: function() { 
-                return $(this).attr('data-large');
-        }
-});
+$('#gallery a').touchGallery();
 
-})();
+});
 </script>
 </html>
 
 <?php
 $page = ob_get_contents();
 ob_end_flush();
-$fp = fopen( $cache_file , 'w' );
-fwrite( $fp , $page );
-fclose( $fp );
+//$fp = fopen( $cache_file , 'w' );
+//fwrite( $fp , $page );
+//fclose( $fp );
 
 //输出页面
 echo $page;
