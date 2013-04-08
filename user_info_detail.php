@@ -8,7 +8,7 @@ $user_id = @$_GET['user_id'];
 if( is_numeric( $user_id ) ) {
         $cache_file = './html/' . $user_id . '.html';
         if( file_exists( $cache_file ) ) {
-                include( $cache_file );
+                require( $cache_file );
                 die;
         }
 } else {
@@ -61,6 +61,7 @@ if( empty( $user_common_info['HeadPic'] ) ) {
                 <title>
                         用户详细信息
                 </title>
+
                 <link rel="stylesheet" href="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.css" />
                 <script type="text/javascript" src="/html/js/jquery.min.js"></script>
                 <script type="text/javascript" src="/html/js/jquery.mobile-1.2.1/jquery.mobile-1.2.1.min.js"></script>
@@ -279,6 +280,7 @@ if( empty( $user_common_info['HeadPic'] ) ) {
 </body>
 <script type="text/javascript">
 $( function(){
+
         //设定触发 swipe 事件阀值
         $.event.special.swipe.scrollSupressionThreshold = "1px";
 
@@ -332,10 +334,7 @@ $('#gallery a').touchGallery();
 <?php
 $page = ob_get_contents();
 ob_end_flush();
-//$fp = fopen( $cache_file , 'w' );
-//fwrite( $fp , $page );
-//fclose( $fp );
+$fp = fopen( $cache_file , 'w' );
+fwrite( $fp , $page );
+fclose( $fp );
 
-//输出页面
-echo $page;
-?>
