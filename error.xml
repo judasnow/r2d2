@@ -369,3 +369,37 @@
 2013-04-08 02:45:50 : $post_xml is empty.
 2013-04-08 17:10:29 : $post_xml is empty.
 2013-04-09 05:20:05 : $post_xml is empty.
+2013-04-09 09:56:37 : $post_xml is empty.
+2013-04-09 09:56:48 : $post_xml is empty.
+2013-04-09 10:00:44 : $post_xml is empty.
+2013-04-09 10:35:37 : $post_xml is empty.
+2013-04-09 10:40:33 : $post_xml is empty.
+2013-04-09 10:55:47 : $post_xml is empty.
+2013-04-09 11:11:28 : $post_xml is empty.
+2013-04-09 11:20:12 : $post_xml is empty.
+2013-04-09 11:20:31 : $post_xml is empty.
+2013-04-09 11:27:47 : $post_xml is empty.
+2013-04-09 11:49:23 : $post_xml is empty.
+2013-04-09 11:50:10 : $post_xml is empty.
+2013-04-09 12:13:17 : $post_xml is empty.
+2013-04-09 12:21:16 : $post_xml is empty.
+2013-04-09 13:00:14 : $post_xml is empty.
+2013-04-09 13:00:47 : $post_xml is empty.
+2013-04-09 13:02:13 : $post_xml is empty.
+2013-04-09 14:17:29 : $post_xml is empty.
+2013-04-09 14:25:29 : $post_xml is empty.
+2013-04-09 14:35:27 : $post_xml is empty.
+2013-04-09 15:27:58 : $post_xml is empty.
+2013-04-09 16:01:54 : curl error: couldn't open file "D:\Program Files\EasyPHP\EasyPHP-12.1\www\r2d2\lib/../temp/../temp/o3WR2juIUymn3qhcvOcWouKb_Ej41365516114444.jpg"
+, and url is : http://172.17.0.32:1979//ation/WeixinMpApi.aspx?action=uploadImg
+2013-04-09 16:03:56 : $post_xml is empty.
+2013-04-09 16:09:49 : $post_xml is empty.
+2013-04-09 16:28:00 : $post_xml is empty.
+2013-04-09 16:56:47 : $post_xml is empty.
+2013-04-09 16:57:50 : $post_xml is empty.
+2013-04-09 17:19:39 : $post_xml is empty.
+2013-04-09 17:20:03 : $post_xml is empty.
+2013-04-09 17:20:10 : $post_xml is empty.
+2013-04-09 17:35:18 : $post_xml is empty.
+2013-04-09 17:43:50 : curl error: Operation timed out after 5000 milliseconds with 0 bytes received, and url is : http://api.map.baidu.com/geocoder?
+2013-04-09 17:48:40 : $post_xml is empty.

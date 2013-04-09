@@ -1,6 +1,7 @@
 <?php
 require_once( dirname(__FILE__) . '/simpletest/autorun.php' );
 require_once( dirname(__FILE__) . '/../lib/bind_account_circle_handler.class.php' );
+require_once( dirname(__FILE__) . '/../lib/strategy.class.php' );
 
 class Test_of_bind_account extends UnitTestCase{
 
@@ -47,11 +48,84 @@ class Test_of_bind_account extends UnitTestCase{
                 $this->_context->del( 'oJenljo3-kzzUDI8SK0fcNfFoFlQk:circle_stack' );
         }
 
-        public function test_input_bd_will_inside_circle_link() {
+        //成功输入的情况
+        public function _test_input_bd_will_inside_circle_link() {
                 // circle common
                 $this->_context->set( 'circle' , 'common' );
                 $strategy = new Strategy( sprintf( self::TEXT_XML , 'bd' ) );
                 $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
-                var_dump( $post_obj );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网已注册用户名：' );
+
+                //输入用户名之后 断言会提示用户输入密码
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'username' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网登录密码（原花瓣网登录密码）：' );
+
+                //输入密码成功之后 判断用户绑定是否成功
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'password' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $username_for_bind = $this->_context->get( 'username_for_bind' );
+                $password_for_bind = $this->_context->get( 'password_for_bind' );
+                $this->assertTrue( $username_for_bind == 'username' );
+                $this->assertTrue( $password_for_bind == 'password' );
+        }
+
+        //测试输入非 text情况
+        public function _test_bind_fail_with_no_text_msg(){
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'bd' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网已注册用户名：' );
+
+                //输入用户名之后 断言会提示用户输入密码
+                $strategy = new Strategy( sprintf( self::IMAGE_XML ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '你输入的可不是用户名哦，请输入花瓣网已注册用户名：' );
+
+        }
+
+        //测试绑定失败的情况
+        public function _test_bind_fail(){
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'bd' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网已注册用户名：' );
+
+                //输入用户名之后 断言会提示用户输入密码
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'username' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网登录密码（原花瓣网登录密码）：' );
+
+                //输入密码成功之后 判断用户绑定是否成功
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'password' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+        }
+
+        //测试成功绑定
+        public function test_bind_ok(){
+                $this->_context->set( 'circle' , 'common' );
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'bd' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网已注册用户名：' );
+
+                //输入用户名之后 断言会提示用户输入密码
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'uuuutest' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+                $this->assertTrue( $post_obj->Content == '请输入花瓣网登录密码（原花瓣网登录密码）：' );
+
+                //输入密码成功之后 判断用户绑定是否成功
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'huaban123' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                $is_reg = $this->_context->get( 'is_reg' );
+                $this->assertTrue( $is_reg == true );
+
+                $strategy = new Strategy( sprintf( self::TEXT_XML , 'zc' ) );
+                $post_obj = simplexml_load_string( $strategy->make_res() , "SimpleXMLElement" , LIBXML_NOCDATA );
+
+                echo $circle = $this->_context->get( 'circle' );
+
+                echo $post_obj->Content;
         }
 }

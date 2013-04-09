@@ -21,6 +21,7 @@ require_once 'search_by_weight_circle_handler.class.php';
 require_once 'search_by_age_circle_handler.class.php';
 require_once 'location_circle_handler.class.php';
 require_once 'upload_image_circle_handler.class.php';
+require_once 'bind_account_circle_handler.class.php';
 //}}}
 
 class Strategy {
@@ -186,9 +187,7 @@ class Strategy {
                 //输入 zc 进入注册流程
                 if( $this->_request_content == 'zc' ) {
                         //还需要保证用户没有注册 $is_reg = false
-                        //而且需要照片数不为 0
-                        $image_count = $this->_context->get( 'image_count' );
-                        if( $is_reg == true && $image_count > 0 ) {
+                        if( $is_reg == true ) {
                                 //用户已经注册
                                 $this->_response = $this->_msg_producer->do_produce( 
                                         'text' ,
@@ -327,5 +326,12 @@ class Strategy {
                         $this->_response = $look_around_circle_handler->do_circle();
                         return $this->_response;
                 }//}}}
+
+                //绑定帐号
+                if( $circle == 'bind' ) {
+                        $bind_account_circle_handler = new Bind_account_circle_handler( $this->_post_obj );
+                        $this->_response = $bind_account_circle_handler->do_circle();
+                        return $this->_response;
+                }
         }
 }

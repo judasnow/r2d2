@@ -19,19 +19,25 @@ class Common_circle_handler extends Handler_base {
                 if( $this->_request_content == 'bd' ) {
                         if( $is_reg == true ) {
                                 //已经注册的用户不能进行这个操作
-                        } else {
-                                //进入 bind circle
-                                $this->_context->set( 'circle' , 'bind' );
-                                $this->_response = $this->_msg_producer->do_produce( 
-                                        'text' , 
-                                        //提示用户输入用户名
-                                        array( 'content' => Language_config::$enter_bind_circle )；
-                                )
-                        } else {
-                                $this->_response = $this->_msg_producer->do_produce( 
+                                $this->_response = $this->_msg_producer->do_produce(
                                         'text' , 
                                         //提示用户注册之后不能进行绑定操作
-                                        array( 'content' => Language_config::$enter_bind_circle_with_reg )；
+                                        array( 'content' => Language_config::$enter_bind_circle_with_reg )
+                                );
+                                return $this->_response;
+                        } else {
+                                //进入 bind circle
+                                //清空之前的输入
+                                $this->_context->set( 'username_for_bind' , '' );
+                                $this->_context->set( 'password_for_bind' , '' );
+
+                                $this->_context->set( 'circle' , 'bind' );
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' ,
+                                        //提示用户输入用户名
+                                        array( 'content' => Language_config::$enter_bind_circle )
+                                );
+                                return $this->_response;
                         }
                 }
 
@@ -63,9 +69,11 @@ class Common_circle_handler extends Handler_base {
                         if( $is_reg == true ) {
                                 $search_count = $this->_context->get( 'search_count' );
                                 if( $search_count >= Search_config::$max_search_count_with_reg ) {
-                                        $this->_response =  $this->_msg_producer->do_produce( 
+                                        $this->_response =  $this->_msg_producer->do_produce(
                                                 'text' ,
-                                                array( 'content' => sprintf( Language_config::$search_count_outrange_after_reg , Language_config::$max_search_count_with_reg ) )
+                                                array(
+                                                        'content' => sprintf( Language_config::$search_count_outrange_after_reg , Language_config::$max_search_count_with_reg )
+                                                )
                                         );
                                         return $this->_response;
                                 }

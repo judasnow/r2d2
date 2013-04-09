@@ -49,7 +49,6 @@ class Reg_circle_handler extends Handler_base {
         //{{{
                 //输入性别以及取向的选项
                 $sex_and_target_sex_index = $this->_context->get( 'sex_and_target_sex_index' );
-
                 if( empty( $sex_and_target_sex_index ) ) {
                 //{{{
                         $user_input_sex_and_target_sex_index = (int)$this->_request_content;

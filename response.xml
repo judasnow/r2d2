@@ -10461,3 +10461,649 @@
 获取帮助信息请输入“?”或“help”。]]></Content>
                 <FuncFlag>0</FuncFlag>
                 </xml>
+2013-04-09 15:52:15 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515535</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、更换查看性别“h”
+3、进入注册“zc”
+5、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+6、上传照片“sczp”（注册后使用）
+7、退出注册“q”
+8、打开帮助“?”
+9、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:52:32 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515552</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、更换查看性别“h”
+3、进入注册“zc”
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、上传照片“sczp”（注册后使用）
+6、退出注册“q”
+7、打开帮助“?”
+8、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:52:38 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515558</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请直接发送地址信息或输入地级市名称查询。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:52:48 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515568</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: look_around]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:52:58 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515578</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:52:59 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515579</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: common]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:53:03 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515583</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:53:17 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515597</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:53:21 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515601</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名或密码错误！说明：用户名和密码要和你花瓣网帐号一致哦~
+如还没有注册花瓣网帐号请输入“zc”注册；
+如果已经有花瓣网帐号请重新输入“bd”绑定花瓣网公众帐号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:53:26 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515606</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: common]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:53:29 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515609</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:53:41 : 
+2013-04-09 15:53:53 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515633</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: bind]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:55:53 : 
+2013-04-09 15:56:03 : 
+2013-04-09 15:56:09 : 
+2013-04-09 15:56:15 : 
+2013-04-09 15:56:17 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515777</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: bind]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:56:24 : 
+2013-04-09 15:56:30 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515790</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: common]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:56:35 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515795</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 15:56:39 : 
+2013-04-09 15:57:32 : 
+2013-04-09 15:57:37 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365515857</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: bind]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:00:06 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516006</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、更换查看性别“h”
+3、进入注册“zc”
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、上传照片“sczp”（注册后使用）
+6、退出注册“q”
+7、打开帮助“?”
+8、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:00:12 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516012</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[大哥，你别在摸了！你摸了上面摸下面，毛都让你摸掉了，这么嫩的皮，被你摸的都流水了！你让俺以后怎么卖？这桃都是新鲜的，您不买就算了！
+【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”。】]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:00:16 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516016</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:00:22 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516022</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你输入的可不是用户名哦，请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:00:31 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516031</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:01:01 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516061</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: bind]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:01:07 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516067</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你已经成功绑定花瓣网威信公众账号，你现在可以：
+发送微信【+】号下面的“位置”查看附近的人；
+输入h更换查看性别；
+上传照片请输入sczp；
+让花瓣网给你讲笑话请发送任意表情；
+获取帮助信息请输入?。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:01:12 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516072</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[当前循环: bind]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:01:46 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516106</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、更换查看性别“h”
+3、进入注册“zc”
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、上传照片“sczp”（注册后使用）
+6、退出注册“q”
+7、打开帮助“?”
+8、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:01:51 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516111</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请上传一张照片吧，使用微信【+】号下面的“照片”或者“拍摄”功能选择照片上传。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:01:54 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516114</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[上传成功！已上传1张照片。可继续上传也可以输入“q”退出上传照片模式。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:02:06 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516126</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[您已经注册了啊，亲。去我们的网站看看吧: http://huaban123.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:02:09 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516129</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:02:12 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516132</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:02:17 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365516137</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、更换查看性别“h”
+3、进入注册“zc”
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、上传照片“sczp”（注册后使用）
+6、退出注册“q”
+7、打开帮助“?”
+8、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:27:34 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517654</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:27:38 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517658</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:27:43 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517663</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你输入的可不是密码哦，请输入花瓣网登录密码：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:27:54 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517674</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名或密码错误！说明：用户名和密码要和你花瓣网帐号一致哦~
+如还没有注册花瓣网帐号请输入“zc”注册；
+如果已经有花瓣网帐号请重新输入“bd”绑定花瓣网公众帐号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:28:31 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517711</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:28:34 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517714</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:28:37 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517717</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名或密码错误！说明：用户名和密码要和你花瓣网帐号一致哦~
+如还没有注册花瓣网帐号请输入“zc”注册；
+如果已经有花瓣网帐号请重新输入“bd”绑定花瓣网公众帐号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:28:43 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517723</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:28:45 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517725</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:28:50 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365517730</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你已经成功绑定花瓣网威信公众账号，你现在可以：
+发送微信【+】号下面的“位置”查看附近的人；
+输入h更换查看性别；
+上传照片请输入sczp；
+让花瓣网给你讲笑话请发送任意表情；
+获取帮助信息请输入?。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:51:51 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519111</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[已经成功的绑定了哦，不许要再进行绑定操作。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:52:11 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519131</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:52:21 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519141</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:52:26 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519146</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你已经成功绑定花瓣网威信公众账号，你现在可以：
+发送微信【+】号下面的“位置”查看附近的人；
+输入h更换查看性别；
+上传照片请输入sczp；
+让花瓣网给你讲笑话请发送任意表情；
+获取帮助信息请输入?。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:54:46 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519286</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:54:50 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519290</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:55:04 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519304</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名或密码错误！说明：用户名和密码要和你花瓣网帐号一致哦~
+如还没有注册花瓣网帐号请输入“zc”注册；
+如果已经有花瓣网帐号请重新输入“bd”绑定花瓣网公众帐号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:55:24 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519324</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:55:28 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519328</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:55:31 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519331</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你已经成功绑定花瓣网威信公众账号，你现在可以：
+发送微信【+】号下面的“位置”查看附近的人；
+输入h更换查看性别；
+上传照片请输入sczp；
+让花瓣网给你讲笑话请发送任意表情；
+获取帮助信息请输入?。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 16:59:37 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519577</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[目前可以使用的指令有：
+1、使用微信【+】号下面的“位置”发送地理位置
+2、更换查看性别“h”
+3、进入注册“zc”
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、上传照片“sczp”（注册后使用）
+6、退出注册“q”
+7、打开帮助“?”
+8、客服邮箱：981789018@qq.com]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:37 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519697</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:38 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519698</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:40 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519700</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[用户名或密码错误！说明：用户名和密码要和你花瓣网帐号一致哦~
+如还没有注册花瓣网帐号请输入“zc”注册；
+如果已经有花瓣网帐号请重新输入“bd”绑定花瓣网公众帐号]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:42 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519702</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:44 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519704</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网已注册用户名：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:48 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519708</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请输入花瓣网登录密码（原花瓣网登录密码）：]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:01:52 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519712</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[你已经成功绑定花瓣网威信公众账号，你现在可以：
+发送微信【+】号下面的“位置”查看附近的人；
+输入h更换查看性别；
+上传照片请输入sczp；
+让花瓣网给你讲笑话请发送任意表情；
+获取帮助信息请输入“?”。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:02:32 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519752</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:02:33 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365519753</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请在下面4选项中选择一个与您相符的列表编号输入~选择性别后不可更改哦。
+1、我是【男】，想查看【女】；
+2、我是【女】，想查看【男】；
+3、我是【男】，想查看【男】；
+4、我是【女】，想查看【女】。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:42:04 : <xml>
+                <ToUserName><![CDATA[o3WR2jiGk-WWQ8niaOvPpzHGVwwg]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365522124</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[【欢迎关注花瓣网(www.huaban123.com)公众号：huaban123。邂逅出色男女,结交异性伴侣，约会同城情人！花瓣网-全国首家微信互动互助交友平台】你把位置信息发过来，花瓣网就回你一个附近的人。还在等什么？赶快行动吧！提醒下，不是用打字发位置，那早就OUT啦，是用微信【+】号下面的“位置”功能发送！你可以：
+1、发送微信【+】号下面的“位置”查看附近注册的人；
+2、输入“h”更换查看性别；
+3、输入“zc”注册账号；
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、输入“?”查看帮助信息。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:42:23 : <xml>
+                <ToUserName><![CDATA[o3WR2jiGk-WWQ8niaOvPpzHGVwwg]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365522143</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[女人只要认识一个男人，就能了解所有男人；然而男人即使认识所有女人也不见得了解女人。
+【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”。】]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:45:18 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365522318</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[不能再退了，亲。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:45:21 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365522321</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>
+                <item>
+                <Title><![CDATA[茶靡花落丶 , 32岁 , 身高 160厘米]]></Title>
+                <Description><![CDATA[我是来自自贡市漂亮、肤白貌美、苗条、妖艳的女会员！ [小提示：换一个请回复“n”，换性别请回复“h”，如也想被推荐请输入注册“ZC”查看TA的更多资料请阅读全文。]]]></Description>
+                <PicUrl><![CDATA[http://172.17.0.32:1979//jsimages/woman.jpg]]></PicUrl>
+                <Url><![CDATA[http://127.0.0.1:89/user_info_detail.php?weixin_id=o3WR2juIUymn3qhcvOcWouKb_Ej4&&user_id=334&&gallery_page_no=1]]></Url>
+                </item>
+                </Articles>
+                <FuncFlag>1</FuncFlag>
+                </xml>
+2013-04-09 17:45:50 : <xml>
+                <ToUserName><![CDATA[o3WR2jiGk-WWQ8niaOvPpzHGVwwg]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365522350</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请直接发送地址信息或输入地级市名称查询。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>
+2013-04-09 17:46:58 : <xml>
+                <ToUserName><![CDATA[o3WR2juIUymn3qhcvOcWouKb_Ej4]]></ToUserName>
+                <FromUserName><![CDATA[gh_44876d46cef3]]></FromUserName>
+                <CreateTime>1365522418</CreateTime>
+                <MsgType><![CDATA[text]]></MsgType>
+                <Content><![CDATA[请直接发送地址信息或输入地级市名称查询。]]></Content>
+                <FuncFlag>0</FuncFlag>
+                </xml>

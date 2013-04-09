@@ -10,7 +10,7 @@ if( PHP_OS == 'WINNT' ) {
                         'host'     => '172.17.0.46',
                         'port'     => '6380'
                 );
-                static public $huaban123_server = 'http://127.0.0.1:1979/';
+                static public $huaban123_server = 'http://172.17.0.32:1979/';
                 //weixin 服务的 server 因为要访问本地的页面信息
                 static public $r2d2_server = 'http://127.0.0.1:89/';
         }
@@ -52,22 +52,24 @@ class Language_config {
         //现在改成事件推送了
         static public $hello2bizuser = '【欢迎关注花瓣网(www.huaban123.com)公众号：huaban123。邂逅出色男女,结交异性伴侣，约会同城情人！花瓣网-全国首家微信互动互助交友平台】你把位置信息发过来，花瓣网就回你一个附近的人。还在等什么？赶快行动吧！提醒下，不是用打字发位置，那早就OUT啦，是用微信【+】号下面的“位置”功能发送！你可以：
 1、发送微信【+】号下面的“位置”查看附近注册的人；
-2、输入“zc”注册账号；
-3、输入“h”更换查看性别；
-4、输入“help”查看帮助信息。';
+2、输入“h”更换查看性别；
+3、输入“zc”注册账号；
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、输入“?”查看帮助信息。';
 
         //基本帮助信息
         static public $help = '目前可以使用的指令有：
 1、使用微信【+】号下面的“位置”发送地理位置
-2、进入注册zc
-3、更换查看性别h
-4、上传照片sczp（注册后使用）
-5、退出注册q
-6、打开帮助help
-7、客服邮箱：981789018@qq.com';
+2、更换查看性别“h”
+3、进入注册“zc”
+4、如果你已注册花瓣网账号，输入bd绑定花瓣网公众号登陆（只需两步）；
+5、上传照片“sczp”（注册后使用）
+6、退出注册“q”
+7、打开帮助“?”
+8、客服邮箱：981789018@qq.com';
 
         //未注册时 笑话后的附加消息
-        static public $joke_extra_info_before_reg = '【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”或“help”。】';
+        static public $joke_extra_info_before_reg = '【输入“zc”注册后查询更多附近的人；让花瓣网陪你讲笑话请发送表情或文字；获取帮助信息请输入“？”。】';
         static public $joke_extra_info_after_reg = '【查看附近注册的人请使用微信【+】号下面的“位置”发送地理位置，输入“c”进行详细查询，或输入“?”获取帮助信息。】';
 
         static public $enter_upload_image_circle = '请上传一张照片吧，使用微信【+】号下面的“照片”或者“拍摄”功能选择照片上传。';
@@ -214,5 +216,17 @@ static public $search_method_selcet_input_invalid = '请按照提示输入相应
         //bind circle
         static public $enter_bind_circle = '请输入花瓣网已注册用户名：';
         static public $enter_bind_circle_with_reg = '已经成功的绑定了哦，不许要再进行绑定操作。';
+        static public $user_input_username_for_bind_invalid = '你输入的可不是用户名哦，请输入花瓣网已注册用户名：';
+        static public $user_input_password_for_bind_invalid = '你输入的可不是密码哦，请输入花瓣网登录密码：';
+        static public $user_input_username_for_bind_ok = '请输入花瓣网登录密码（原花瓣网登录密码）：';
+        static public $bind_auth_fail = '用户名或密码错误！说明：用户名和密码要和你花瓣网帐号一致哦~
+如还没有注册花瓣网帐号请输入“zc”注册；
+如果已经有花瓣网帐号请重新输入“bd”绑定花瓣网公众帐号';
+        static public $bind_success = '你已经成功绑定花瓣网威信公众账号，你现在可以：
+发送微信【+】号下面的“位置”查看附近的人；
+输入h更换查看性别；
+上传照片请输入sczp；
+让花瓣网给你讲笑话请发送任意表情；
+获取帮助信息请输入“？”。';
 }
 //}}}
