@@ -57,6 +57,7 @@ class Strategy {
                 $this->_post_obj = simplexml_load_string( $post_xml , "SimpleXMLElement" , LIBXML_NOCDATA );
 
                 $this->_request_msg_type = $this->_post_obj->MsgType;
+
                 //全角转换 去除空格 以及 大小写转换
                 $this->_request_content = Utility::format_user_input( $this->_post_obj->Content );
 
@@ -251,6 +252,7 @@ class Strategy {
                         }
                 }
 
+                //显示调试信息
                 if( $this->_request_content == 'debug' ) {
                         $this->_response = $this->_msg_producer->do_produce( 
                                 'text' ,
@@ -258,6 +260,7 @@ class Strategy {
                         );
                         return $this->_response;
                 }
+
                 //}}}
 
                 //对于各种 circle 的判断

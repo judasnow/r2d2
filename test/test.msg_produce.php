@@ -1,6 +1,6 @@
 <?php
 require_once( dirname(__FILE__) . '/simpletest/autorun.php' );
-require( dirname(__FILE__) . '/../lib/msg_producer.class.php' );
+require_once( dirname(__FILE__) . '/../lib/msg_producer.class.php' );
 
 class Test_of_msg_produce extends UnitTestCase{
 

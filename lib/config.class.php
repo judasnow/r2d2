@@ -7,8 +7,8 @@ if( PHP_OS == 'WINNT' ) {
         //开发环境
         class Server_config {
                 static public $store_server = array(
-                        'host'     => '127.0.0.1',
-                        'port'     => '6379'
+                        'host'     => '172.17.0.46',
+                        'port'     => '6380'
                 );
                 static public $huaban123_server = 'http://127.0.0.1:1979/';
                 //weixin 服务的 server 因为要访问本地的页面信息
@@ -210,5 +210,9 @@ static public $search_method_selcet_input_invalid = '请按照提示输入相应
         static public $search_result_tips_before_reg = '[小提示：换一个请回复“n”，换性别请回复“h”，如也想被推荐请输入注册“ZC”查看TA的更多资料请阅读全文。]';
         static public $search_result_tips_after_reg = '[www.huaban123.com花瓣网-全国首家互助交友平台小提示：换一个请回复“n”，换性别请回复“h”，查看TA的更多资料请阅读全文。输入“c”按身高、体重、年龄查看附近的人。]';
         static public $search_result_is_empty = '额 附近暂时没有符合你要求的用户，换个查询条件或换个城市试试。哦，对了，注册账号可直接登录花瓣网无限查询哦，试试吧！http://www.huaban123.com';
+
+        //bind circle
+        static public $enter_bind_circle = '请输入花瓣网已注册用户名：';
+        static public $enter_bind_circle_with_reg = '已经成功的绑定了哦，不许要再进行绑定操作。';
 }
 //}}}

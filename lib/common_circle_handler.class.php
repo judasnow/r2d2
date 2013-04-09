@@ -14,6 +14,27 @@ class Common_circle_handler extends Handler_base {
                 $is_reg = $this->_context->get( 'is_reg' );
                 $circle = $this->_context->get( 'circle' );
 
+                //未注册的情况之下，输入 bd 会进入 绑定帐号流程 
+                //会尝试将 web 端注册的帐号绑定到本地
+                if( $this->_request_content == 'bd' ) {
+                        if( $is_reg == true ) {
+                                //已经注册的用户不能进行这个操作
+                        } else {
+                                //进入 bind circle
+                                $this->_context->set( 'circle' , 'bind' );
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' , 
+                                        //提示用户输入用户名
+                                        array( 'content' => Language_config::$enter_bind_circle )；
+                                )
+                        } else {
+                                $this->_response = $this->_msg_producer->do_produce( 
+                                        'text' , 
+                                        //提示用户注册之后不能进行绑定操作
+                                        array( 'content' => Language_config::$enter_bind_circle_with_reg )；
+                        }
+                }
+
                 //在已经注册的情况下，输入 sczp 可以进行照片上传
                 if( $this->_request_content == 'sczp' ) {
                         if( $is_reg == true ) {
